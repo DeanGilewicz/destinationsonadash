@@ -2,7 +2,7 @@
 
 if ( ! function_exists( 'juliesjourneys_setup' ) ) :
 
-		function juliesjourneys_setup() {
+	function juliesjourneys_setup() {
 
 		/*
 			* Make theme available for translation.
@@ -38,43 +38,11 @@ if ( ! function_exists( 'juliesjourneys_setup' ) ) :
 		// add featured image to theme - for specified types
 			// add_theme_support( 'post-thumbnails', array( 'post', 'test', 'portfolio' ) ); 
 
-		// create custom post type for this theme only!! - if user changes theme then will break the content
-			// associated with this custom post type
-			// therefore, common to use plugin advanced custom post types
+		// Custom post types - include in theme
+		include('post-types/post-types.php');
 
-			// function juliesjourneys_enable_featured_img_custom_post_type() {
-			// 	register_post_type(
-			// 	    'test', array(
-			// 	        'labels' => array(
-			// 	            'name' => 'Zoe',
-			// 	            'singular_name' => 'Zoe',
-			// 	            'add_new' => 'Add new treat',
-			// 	            'edit_item' => 'Edit treat',
-			// 	            'new_item' => 'New treat',
-			// 	            'view_item' => 'View treat',
-			// 	            'search_items' => 'Search treats',
-			// 	            'not_found' => 'No treats found',
-			// 	            'not_found_in_trash' => 'No treats found in Trash'
-			// 	        ),
-			// 	        'public' => true,
-			// 	        'menu_position' => 5,
-			// 	        // 		'rewrite' => array('slug' => 'blog'),
-			// 	        'supports' => array(
-			// 	            'title',
-			// 	            'editor',
-			// 	            'excerpt',
-			// 	            'custom-fields',
-			// 	            'revisions',
-			// 	            'thumbnail'
-			// 	        ),
-			// 	        'has_archive' => true
-			// 	    )
-			// 	);
-			// }
-			// add_action('init', 'juliesjourneys_enable_featured_img_custom_post_type');
-
-			// Custom post types - can store code and include
-			// include('post-types/post-types.php');
+		// Custom taxonomies - include in theme
+		include('taxonomies/taxonomies.php');
 
 		// make wp aware of our menus
 		// key - needs to be passed into wp_nav_menu for 'theme_location'
@@ -153,45 +121,6 @@ add_action( 'after_setup_theme', 'juliesjourneys_setup' );
 // 	$GLOBALS['content_width'] = apply_filters( 'twentysixteen_content_width', 840 );
 // }
 // add_action( 'after_setup_theme', 'twentysixteen_content_width', 0 );
-
-
-//create a custom taxonomy name it topics for your posts
-
-// function create_continents_hierarchical_taxonomy() {
-
-// 	// Add new taxonomy, make it hierarchical like categories
-// 	// first do the translations part for GUI
-
-// 	$labels = array(
-// 		'name' => _x( 'Continents', 'taxonomy general name' ),
-// 		'singular_name' => _x( 'Continent', 'taxonomy singular name' ),
-// 		'search_items' =>  __( 'Search Continents' ),
-// 		'all_items' => __( 'All Continents' ),
-// 		'parent_item' => __( 'Parent Continent' ),
-// 		'parent_item_colon' => __( 'Parent Continent:' ),
-// 		'edit_item' => __( 'Edit Continent' ), 
-// 		'update_item' => __( 'Update Continent' ),
-// 		'add_new_item' => __( 'Add New Continent' ),
-// 		'new_item_name' => __( 'New Continent Name' ),
-// 		'menu_name' => __( 'Continents' ),
-// 	);
-
-// 	// Now register the taxonomy
-// 	register_taxonomy('continents',
-// 		array('post'),
-// 		array(
-// 			'hierarchical' => true,
-// 			'labels' => $labels,
-// 			'show_ui' => true,
-// 			'show_admin_column' => true,
-// 			'query_var' => true,
-// 			'rewrite' => array( 'slug' => 'continent' ),
-// 	));
-// }
-
-// // hook into the init action and call create_book_taxonomies when it fires
-// add_action( 'init', 'create_continents_hierarchical_taxonomy', 0 );
-
 
 
 // Returns theme's url for use in templates
