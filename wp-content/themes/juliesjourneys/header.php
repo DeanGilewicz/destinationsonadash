@@ -13,6 +13,7 @@
 	<title><?php wp_title('|', true, 'right'); bloginfo( 'name' )?></title>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/css/vendor/foundation.min.css" />
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/css/main.min.css" />
     <!-- <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/vendor/modernizr.js"></script> -->
 
 	<?php wp_head(); ?>

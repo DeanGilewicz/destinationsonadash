@@ -8,7 +8,8 @@ var gulp = require('gulp'),
 	jshint = require('gulp-jshint'),
 	livereload = require('gulp-livereload'),
 	postcss = require('gulp-postcss'),
-	sass = require('gulp-ruby-sass'),
+	rename = require('gulp-rename'),
+	sass = require('gulp-sass'),
 	sourcemaps = require('gulp-sourcemaps'),
 	uglify = require('gulp-uglify');
 
@@ -26,6 +27,7 @@ gulp.task('scripts', function() {
 	return gulp.src('wp-content/themes/juliesjourneys/js/main.js')
 		.pipe(sourcemaps.init())
 		.pipe(uglify())
+		.pipe(rename('main.min.js'))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('wp-content/themes/juliesjourneys/dist/js/'))
 		.pipe(livereload());
@@ -59,13 +61,16 @@ gulp.task('styles', function() {
 		autoprefixer({browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4']}),
 		cssnano
 	];
-	return sass('wp-content/themes/juliesjourneys/sass', {style: 'compressed'})
+	return gulp.src('wp-content/themes/juliesjourneys/sass/main.scss')
+		.pipe(sass({ outputStyle: 'expanded' }))
 		.pipe(sourcemaps.init())
 		.pipe(postcss(processors))
+		.pipe(rename('main.min.css'))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('wp-content/themes/juliesjourneys/dist/css'))
 		.pipe(livereload());
 });
+
 
 // vendor css - place into dist folder - css/vendor/[filename]
 gulp.task('styles-vendor', function() {

@@ -56,7 +56,7 @@
 
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/vendor/fastclick.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/vendor/jquery.min.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/main.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/main.min.js"></script>
 
 <?php wp_footer(); ?>
 </body>
