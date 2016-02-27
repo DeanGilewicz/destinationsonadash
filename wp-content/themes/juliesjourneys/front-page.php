@@ -1,51 +1,56 @@
 <?php // THIS IS THE TEMPLATE FOR ROOT
 
-	// set up hero feature img slider
+	// begin set up hero img slider feature
 
-	$argsHomePosts = array(
+	$argsSlider = array(
 		'posts_per_page' => '-1',
 		'tag' => 'featured'
 	);
 
-	$the_query_home = new WP_Query( $argsHomePosts );
+	$the_query_slider = new WP_Query( $argsSlider );
 
-	// set up trip params
-	// $argsTrip = array(
-	// 	'post_type' => 'trips',
-	// 	'posts_per_page' => '1',
-	// 	'orderby' => 'date'
-	// );
-	// // set up eating ethnic params
-	// $argsFood = array(
-	// 	'post_type' => 'eating_ethnic',
-	// 	'posts_per_page' => '1',
-	// 	'orderby' => 'date'
-	// );
-	// // set up ideas params
-	// $argsIdeas = array(
-	// 	'post_type' => 'insights',
-	// 	'category_name' => 'my-likes',
-	// 	'posts_per_page' => '1',
-	// 	'orderby' => 'date'
-	// );
-	// // set up ideas params
-	// $argsIdeas = array(
-	// 	'posts_per_page' => '-1',
-	// 	'category_name' => 'my-likes',
-	// 	'posts_per_page' => '1',
-	// 	'orderby' => 'date'
-	// );
+	// end set up
 
-	// $the_query_trip = new WP_Query( $argsTrip );
-	// $the_query_food = new WP_Query( $argsFood );
-	// $the_query_ideas = new WP_Query( $argsIdeas );
+	// begin set up taxonomy box sections
+
+	$argsTrips = array(
+		'posts_per_page' => '1',
+		'orderby' => 'date'
+	);
+
+	$the_query_trip = new WP_Query( $argsTrips );
+
+	$argsEatingEthnic = array(
+		'post_type' => 'eating_ethnic',
+		'posts_per_page' => '1',
+		'orderby' => 'date'
+	);
+
+	$the_query_food = new WP_Query( $argsEatingEthnic );
+
+	$argsInsights = array(
+		'post_type' => 'insights',
+		'posts_per_page' => '1',
+		'orderby' => 'date'
+	);
+
+	$the_query_insights = new WP_Query( $argsInsights );
+
+	$argsFavs = array(
+		'category_name' => 'favorite',
+		'posts_per_page' => '1',
+		'orderby' => 'date'
+	);
+
+	$the_query_favs = new WP_Query( $argsFavs );
+
 ?>
 
 <?php get_header(); ?>
 
 <!-- begin slider -->
 
-<?php if ( $the_query_home->have_posts() ) : ?>
+<?php if ( $the_query_slider->have_posts() ) : ?>
 
 	<?php $postNum = 0; ?>
 
@@ -53,7 +58,7 @@
 
 		<div class="slides">
 		
-			<?php while ( $the_query_home->have_posts() ) : $the_query_home->the_post(); ?>
+			<?php while ( $the_query_slider->have_posts() ) : $the_query_slider->the_post(); ?>
 				
 				<?php 
 					$postNum++;
@@ -64,7 +69,7 @@
 				<div class="slide-<?= $postNum; ?> <?= ($postNum == 1) ? 'active' : ''; ?>" style="background-image: url('<?= $url; ?>');">
 					<div class="mask"></div>
 					<div class="row">
-						<div class="medium-12 columns">
+						<div class="small-12 columns">
 							<div class="content-of-slide">
 
 								<h2><?php the_title(); ?></h2>
@@ -82,11 +87,11 @@
 
 		<div class="progress-of-slides">
 			<div class="row">
-				<div class="medium-12 columns">
+				<div class="small-12 columns">
 
 				<?php $postNum = 0; ?>
 
-				<?php while ( $the_query_home->have_posts() ) : $the_query_home->the_post(); ?>
+				<?php while ( $the_query_slider->have_posts() ) : $the_query_slider->the_post(); ?>
 
 					<?php $postNum++; ?>
 
@@ -106,103 +111,138 @@
 
 <!-- end slider -->
 
-<!-- <section class="row categories">
-	<div class="medium-4 columns">
+<!-- begin feature taxonomies / categories -->
 
-		<h2>My Trips</h2>
+<section class="block-1">
 
-		<?php if ( $the_query_trip->have_posts() ) : ?>
+	<div class="row">
 
-			<ul>
+		<div class="small-3 columns item">
+
+			<?php if ( $the_query_trip->have_posts() ) : ?>
+
 				<?php while ( $the_query_trip->have_posts() ) : $the_query_trip->the_post(); ?>
 
-				<a href="<?php the_permalink(); ?>">
-					<li> 
-						<?php echo the_post_thumbnail(); ?>
-						<h3><?php echo the_title(); ?></h3>
-					</li>
-				</a>
+					<!-- <a href="<?php the_permalink(); ?>"> -->
+					<a href="/destinations">
+
+						<?php the_post_thumbnail(); ?>
+						<div class="item-description">
+							<span class="heading_font">Destinations</span>
+							<p>All Posts</p>
+						</div>
+						<span class="overlay-border"></span>
+					</a>
 
 				<?php endwhile; ?>
-			</ul>
+		
+			<?php else: ?>
 
-		<a href="/category/travel" class="link-to-cat">See all trips</a>
-	
-		<?php else: ?>
+				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 
-			<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+			<?php endif; ?>
+		
+			<?php wp_reset_postdata(); ?>
 
-		<?php endif; ?>
-	
-		<?php wp_reset_postdata(); ?>
+		</div>
 
-	</div>
+		<div class="small-3 columns item">
 
-	<div class="medium-4 columns">
+			<?php if ( $the_query_insights->have_posts() ) : ?>
 
-		<h2>Eating Ethnic</h2>
+				<?php while ( $the_query_insights->have_posts() ) : $the_query_insights->the_post(); ?>
 
-		<?php if ( $the_query_food->have_posts() ) : ?>
-				
-			<ul>
+					<!-- <a href="<?php the_permalink(); ?>"> -->
+					<a href="/insights">
+
+						<?php the_post_thumbnail(); ?>
+						<div class="item-description">
+							<span class="heading_font">Insights</span>
+							<p>All Posts</p>
+						</div>
+						<span class="overlay-border"></span>
+					</a>
+
+				<?php endwhile; ?>
+		
+			<?php else: ?>
+
+				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+
+			<?php endif; ?>
+		
+			<?php wp_reset_postdata(); ?>
+
+		</div>
+
+		<div class="small-3 columns item">
+
+			<?php if ( $the_query_food->have_posts() ) : ?>
+
 				<?php while ( $the_query_food->have_posts() ) : $the_query_food->the_post(); ?>
-	
-				<a href="<?php the_permalink(); ?>">
-					<li> 
-						<?php echo the_post_thumbnail(); ?>
-						<h3><?php echo the_title(); ?></h3>
-					</li>
-				</a>
+
+					<!-- <a href="<?php the_permalink(); ?>"> -->
+					<a href="/eating-ethnic">
+
+						<?php the_post_thumbnail(); ?>
+						<div class="item-description">
+							<span class="heading_font">Eating Ethnic</span>
+							<p>All Posts</p>
+						</div>
+						<span class="overlay-border"></span>
+					</a>
 
 				<?php endwhile; ?>
-			</ul>
+		
+			<?php else: ?>
 
-		<a href="/category/eating-ethnic" class="link-to-cat">See all eats</a>
-	
-		<?php else: ?>
+				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 
-			<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+			<?php endif; ?>
+		
+			<?php wp_reset_postdata(); ?>
 
-		<?php endif; ?>
-	
-		<?php wp_reset_postdata(); ?>
+		</div>
+
+		<div class="small-3 columns item">
+
+			<?php if ( $the_query_favs->have_posts() ) : ?>
+
+				<?php while ( $the_query_favs->have_posts() ) : $the_query_favs->the_post(); ?>
+
+					<!-- <a href="<?php the_permalink(); ?>"> -->
+					<a href="/favorites">
+
+						<?php the_post_thumbnail(); ?>
+						<div class="item-description">
+							<span class="heading_font">Favs</span>
+							<p>All Posts</p>
+						</div>
+						<span class="overlay-border"></span>
+					</a>
+
+				<?php endwhile; ?>
+		
+			<?php else: ?>
+
+				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+
+			<?php endif; ?>
+		
+			<?php wp_reset_postdata(); ?>
+
+		</div>
 
 	</div>
 
-	<div class="medium-4 columns">
+</section>
 
-		<h2>My Likes</h2>
+<!-- end begin feature taxonomies / categories -->
 
-		<?php if ( $the_query_ideas->have_posts() ) : ?>
-				
-			<ul>
-				<?php while ( $the_query_ideas->have_posts() ) : $the_query_ideas->the_post(); ?>
-	
-				<a href="<?php the_permalink(); ?>">
-					<li> 
-						<?php echo the_post_thumbnail(); ?>
-						<h3><?php echo the_title(); ?></h3>
-					</li>
-				</a>
 
-				<?php endwhile; ?>
-			</ul>
 
-		<a href="/category/my-likes" class="link-to-cat">See all likes</a>
-	
-		<?php else: ?>
 
-			<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 
-		<?php endif; ?>
-	
-		<?php wp_reset_postdata(); ?>
-
-	</div>
-
-</section> -->
-
-fix commented out code above
 
 <section>
 

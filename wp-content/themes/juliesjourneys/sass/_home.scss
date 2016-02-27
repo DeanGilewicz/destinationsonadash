@@ -1,4 +1,5 @@
 .home {
+
 	.slider {
 		position: relative;
 		width: 100%;
@@ -75,6 +76,7 @@
 
 			}
 		}
+
 		.progress-of-slides {
 			position: absolute;
 			bottom: 20px;
@@ -122,4 +124,132 @@
 			}
 		}
 	}
+
+	.block-1 {
+
+		.item {
+
+			a {
+				position: relative;
+				display: block;
+				overflow: hidden;
+				background-color: #212121;
+				text-align: center;
+				outline: none;
+				text-decoration: none;
+				transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 10px;
+					left: 10px;
+					right: 10px;
+					bottom: 10px;
+					border: 1px solid rgba(255,255,255,0.25);
+				}
+
+				&:active,
+				&:focus,
+				&:hover {
+					color: #99ccff;
+
+					img {
+						opacity: 0.25;
+						transform: translate3d(0,0,0);
+					}
+
+					span {
+						color: #99ccff;
+					    transform: translate3d(0,0,0);
+					}
+
+					p {
+						opacity: 1;
+						transform: translate3d(0,0,0);
+					}
+
+					.overlay-border:before,
+					.overlay-border:after {
+						transform: scale(1, 1);
+						border-color: #99ccff;
+					}
+
+				}
+
+			}
+
+			img {
+				display: block;
+				width: calc(100% + 30px);
+				max-width: none;
+				height: 100%;
+				opacity: 0.6;
+				transform-style: preserve-3d;
+				transform: translate3d(-30px, 0px, 0px);
+				transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+			}
+
+			.item-description {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 100%;
+				transform: translateY(-50%);
+
+				span {
+					display: block;
+					color: #fff;
+					text-transform: uppercase;
+					transition: color 0.2s ease-in-out;
+				}
+
+				p {
+					margin: 0;
+					color: rgba(255, 255, 255, 0.5);
+					opacity: 0;
+					transform: translate3d(-30px, 0px, 0px);
+					transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+				}
+
+			}
+
+			.overlay-border {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+
+				&:before,
+				&:after {
+					content: '';
+					position: absolute;
+					top: 10px;
+					right: 10px;
+					bottom: 10px;
+					left: 10px;
+					z-index: 3;
+					display: block;
+					transition: transform 0.35s ease 0s;
+				}
+
+				&:before {
+					border-top: 1px solid #fff;
+					border-bottom: 1px solid #fff;
+					transform: scale(0, 1);
+				}
+
+				&:after {
+					border-left: 1px solid #fff;
+					border-right: 1px solid #fff;
+					transform: scale(1, 0);
+				}
+
+			}
+
+		}
+
+	}
+
 }

@@ -43,7 +43,7 @@
 		        'labels' => array(
 		            'name' => 'Foods',
 		            'singular_name' => 'Food',
-		            'add_new' => 'Add new Food',
+		            'add_new' => 'Add Foods',
 		            'edit_item' => 'Edit Food',
 		            'new_item' => 'New Food',
 		            'view_item' => 'View Food',
@@ -54,7 +54,7 @@
 					'menu_name' => 'Foods',
 					'name_admin_bar' => 'Foods'
 		        ),
-		        'taxonomies' => array('category', 'post_tag', 'continents'),
+		        'taxonomies' => array('category', 'post_tag', 'continents', 'destinations'),
 		        'public' => true,
 		        'menu_position' => 6,
 		        // 		'rewrite' => array('slug' => 'blog'),
@@ -81,7 +81,7 @@
 		        'labels' => array(
 		            'name' => 'Insights',
 		            'singular_name' => 'Insight',
-		            'add_new' => 'Add new Insight',
+		            'add_new' => 'Add Insights',
 		            'edit_item' => 'Edit Insight',
 		            'new_item' => 'New Insight',
 		            'view_item' => 'View Insight',
@@ -92,7 +92,7 @@
 					'menu_name' => 'Insights',
 					'name_admin_bar' => 'Insights'
 		        ),
-		        'taxonomies' => array('category', 'post_tag', 'continents'),
+		        'taxonomies' => array('category', 'post_tag', 'continents', 'destinations'),
 		        'public' => true,
 		        'menu_position' => 7,
 		        // 		'rewrite' => array('slug' => 'blog'),
