@@ -1,4 +1,5 @@
-<?php
+<?php // THIS IS THE TEMPLATE FOR ROOT
+
 	// set up hero feature img slider
 
 	$argsHomePosts = array(
