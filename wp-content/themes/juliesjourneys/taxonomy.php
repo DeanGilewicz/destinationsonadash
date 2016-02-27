@@ -1,6 +1,6 @@
 <?php
 /**
- * The template used to display continent pages
+ * The template used to display destinations
  **/
 ?>
 
