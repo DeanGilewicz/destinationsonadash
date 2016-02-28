@@ -1,4 +1,112 @@
 header {
+	padding-top: $base_size * 3;
+	padding-bottom: $base_size * 3;
+	background-color: $purple_light;
+
+	.header-top {
+
+		form {
+			float: right;
+			position: relative;
+			display: inline-block;
+			width: 81%;
+			height: 22px;
+
+			&.active {
+				
+				input {
+					width: 100%;
+					padding: 1px 25px 1px 5px;
+				}
+
+			}
+		}
+
+		input {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 0;
+			width: 0;
+			height: 22px;
+			padding: 0;
+			transition: width 0.4s ease-in-out, padding 0.4s ease-in-out;
+
+			&:focus {
+				width: 100%;
+				padding-right: 50px;
+			}
+		}
+
+		span {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 22px;
+			height: 22px;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			background-color: $purple_dark;
+			cursor: pointer;
+
+			&.active,
+			&:hover {
+				background-color: green;
+			}
+		}
+
+		a:not([href="/"]) {
+			float: right;
+			margin-left: 2%;
+			text-transform: uppercase;
+		}
+
+	}
+
+	.header-bottom {
+		padding-top: $base_size*3;
+
+		ul.header-continents {
+			list-style-type: none;
+			margin: 0;
+		}
+
+		li {
+			position: relative;
+			float: left;
+			width: 14.28%;
+			text-align: center;
+
+			&:last-child {
+				border-right: none;
+			}
+
+			&:before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;				
+				border-bottom: 2px solid $purple_dark;
+				opacity: 0;
+				transition: opacity 0.4s ease-in-out;
+			}
+
+			&:hover:before {
+				opacity: 1;
+			}
+
+		}
+
+		a {
+			display: block;
+			text-transform: uppercase;
+			padding: $base_size*0.5 0 $base_size;
+		}
+		
+	}
+
 	
 }
 

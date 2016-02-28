@@ -9,6 +9,18 @@ jQuery(document).ready(function($) {
 	// fastclick - removes 300ms firing of click event when tap on mobile
 	FastClick.attach(document.body);
 
+	// GLOBAL HEADER
+
+	// search input field functionality
+
+	$('#header-search-icon').on('click', function() {
+		var searchForm = $('#header-search-form');
+		$(this).toggleClass('active');
+		$(searchForm).toggleClass('active');
+		if( searchForm.hasClass('active') ) {
+			$('#header-search-field').focus();
+		}
+	});
 
 	// HOME PAGE
 

@@ -28,21 +28,37 @@
 		<!-- <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a> -->
 		<header>
 
-			<div class="header-top">
+			<div class="row header-top">
 
-				<a href="/">Julies Journeys</a>
+				<div class="medium-6 columns">
 
-				<a href="/about">About</a> 
+					<a href="/">Julies Journeys</a>
 
-				<a href="">Facebook</a>
+				</div>
 
-				<?php get_search_form(); ?>
+				<div class="medium-6 columns">
+
+					<a href="/about">About</a> 
+
+					<a href="">F</a>
+
+					<form role="search" method="GET" id="header-search-form" action="<?= esc_url( home_url( '/' ) ); ?>">
+						<input id="header-search-field" type="search" placeholder="Search" value="<?= get_search_query(); ?>" name="s" title="Search For" />
+						<!-- <button type="submit" id="header-search-submit">
+							<img src="http://placehold.it/15x15?text=i" />
+						</button> -->
+						<span id="header-search-icon">
+							<img src="http://placehold.it/12x12?text=i" />
+						</span>
+					</form>
+
+				</div>
 
 			</div>
 
-			<div class="header-bottom">
+			<div class="row header-bottom">
 
-				<ul class="header-continents">
+				<ul class="small-12 columns header-continents">
 
 					<li><a href="/continent/africa">Africa</a></li>
 
@@ -54,9 +70,9 @@
 
 					<li><a href="/continent/europe">Europe</a></li>
 
-					<li><a href="/continent/north-america">North America</a></li>
+					<li><a href="/continent/north-america">N America</a></li>
 
-					<li><a href="/continent/south-america">South America</a></li>
+					<li><a href="/continent/south-america">S America</a></li>
 
 				</ul>
 

@@ -1,13 +1,16 @@
 // LAYOUT
 
+// Base Size
+$base_size: 10px;
+
 // 0px to 640px
-$small: 640px;
+$medium: 640px;
 
 // 641 px to 1024px
-$medium: 1024px;
+$large: 1024px;
 
 // 1025px to 1440px
-$large: 1440px;
+$xlarge: 1440px;
 
 
 // COLORS
@@ -16,13 +19,25 @@ $black: #000000;
 
 $blue: #3297C1;
 
-$link: blue;
+$grey_light: #a6a6a6;
 
-$purple: #532742;
+$purple: #cfbede;
 
-$text: #222222;
+$purple_dark: #bba3d0;
+
+$purple_light: #e3daec;
+
+$text: #333333;
 
 $white: #ffffff;
+
+
+// ELEMENTS / STATES
+
+$link: $text;
+
+// $link: $grey_light;
+
 
 // FONT SIZE
 

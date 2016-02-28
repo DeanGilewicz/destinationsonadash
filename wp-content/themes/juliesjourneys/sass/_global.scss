@@ -1,10 +1,31 @@
 html,
 body {
-	-webkit-font-smoothing: antialiased;
 	background-color: rgba(0,0,0,0);
 	background-color: transparent;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	font-family: $font_oswald;
 	font-size: $base_font_size;
 	color: $text;
+
+	@media (min-width: $medium) {
+		font-size: $base_font_size*1.4;
+	}
+}
+
+ol,
+ul,
+li,
+p,
+a,
+span {
+	font-size: $base_font_size;
+
+	@media (min-width: $medium) {
+		font-size: $base_font_size*1.4;
+	}
 }
 
 body,
@@ -21,7 +42,9 @@ a {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-tap-highlight-color: transparent;
 	color: $link;
+	cursor: pointer;
 	outline: none;
+	text-decoration: none;
 
 	&:active,
 	&:hover {
