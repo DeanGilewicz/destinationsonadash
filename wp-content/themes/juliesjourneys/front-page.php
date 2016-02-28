@@ -44,6 +44,20 @@
 
 	$the_query_favs = new WP_Query( $argsFavs );
 
+	// end set up
+
+	// begin favs section
+
+	$argsFavsSection = array(
+		'category_name' => 'favorite',
+		'posts_per_page' => '2',
+		'orderby' => 'date'
+	);
+
+	$the_query_favs_section = new WP_Query( $argsFavsSection );
+
+	// end favs section
+
 ?>
 
 <?php get_header(); ?>
@@ -239,10 +253,38 @@
 
 <!-- end begin feature taxonomies / categories -->
 
+<!-- begin favs -->
 
+<section class="block-2">
 
+	<?php if ( $the_query_favs_section->have_posts() ) : ?>
 
+		<?php while ( $the_query_favs_section->have_posts() ) : $the_query_favs_section->the_post(); ?>
 
+			<article class="row favorite">
+				<div class="small-5 columns">
+					<?php the_post_thumbnail(); ?>
+				</div>
+				<div class="small-7 columns">
+					<h2><?php the_title(); ?></h2>
+					<?php the_excerpt(); ?>
+				</div>
+
+			</article>
+
+		<?php endwhile; ?>
+		
+	<?php else: ?>
+
+		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+
+	<?php endif; ?>
+
+	<?php wp_reset_postdata(); ?>
+
+</section>
+
+<!-- end favs -->
 
 <section>
 
