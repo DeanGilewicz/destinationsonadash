@@ -57,7 +57,7 @@
 		        'taxonomies' => array('category', 'post_tag', 'continents', 'destinations'),
 		        'public' => true,
 		        'menu_position' => 6,
-		        // 		'rewrite' => array('slug' => 'blog'),
+				'rewrite' => array('slug' => 'eating-ethnic'),
 		        'supports' => array(
 		            'title',
 		            'editor',

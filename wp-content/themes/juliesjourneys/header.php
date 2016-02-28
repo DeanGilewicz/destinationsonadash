@@ -27,11 +27,39 @@
 		<!-- <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a> -->
 		<header>
 
-			<a href="/">Julies Journeys</a>
+			<div class="header-top">
 
-			<a href="/about">About</a> 
+				<a href="/">Julies Journeys</a>
 
-			<?php get_search_form(); ?>
+				<a href="/about">About</a> 
+
+				<a href="">Facebook</a>
+
+				<?php get_search_form(); ?>
+
+			</div>
+
+			<div class="header-bottom">
+
+				<ul class="header-continents">
+
+					<li><a href="/continent/africa">Africa</a></li>
+
+					<li><a href="/continent/antarctica">Antarctica</a></li>
+
+					<li><a href="/continent/asia">Asia</a></li>
+
+					<li><a href="/continent/australia">Australia</a></li>
+
+					<li><a href="/continent/europe">Europe</a></li>
+
+					<li><a href="/continent/north-america">North America</a></li>
+
+					<li><a href="/continent/south-america">South America</a></li>
+
+				</ul>
+
+			</div>
 		<!-- <header id="masthead" class="site-header" role="banner"> -->
 			<!-- <div class="site-header-main"> -->
 				<!-- <div class="site-branding"> -->
