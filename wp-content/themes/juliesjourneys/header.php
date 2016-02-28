@@ -12,6 +12,7 @@
 
 	<title><?php wp_title('|', true, 'right'); bloginfo( 'name' )?></title>
     <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Pacifico|Oswald' />
+    <link rel="stylesheet" type='text/css' href="<?= get_stylesheet_directory_uri(); ?>/dist/css/vendor/normalize.min.css" />
     <link rel="stylesheet" type='text/css' href="<?= get_stylesheet_directory_uri(); ?>/dist/css/vendor/foundation.min.css" />
     <link rel="stylesheet" type='text/css' href="<?= get_stylesheet_directory_uri(); ?>/dist/css/main.min.css" />
     <!-- <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/vendor/modernizr.js"></script> -->

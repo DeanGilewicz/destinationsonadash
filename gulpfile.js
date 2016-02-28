@@ -74,7 +74,8 @@ gulp.task('styles', function() {
 
 // vendor css - place into dist folder - css/vendor/[filename]
 gulp.task('styles-vendor', function() {
-	return gulp.src('bower_components/foundation/css/foundation.min.css')
+	return gulp.src(['bower_components/foundation/css/foundation.min.css',
+					'bower_components/foundation/css/normalize.min.css'])
 		.pipe(gulp.dest('wp-content/themes/juliesjourneys/dist/css/vendor'));
 });
 

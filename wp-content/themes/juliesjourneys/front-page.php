@@ -48,6 +48,8 @@
 
 <?php get_header(); ?>
 
+<p>hello</p>
+
 <!-- begin slider -->
 
 <?php if ( $the_query_slider->have_posts() ) : ?>
