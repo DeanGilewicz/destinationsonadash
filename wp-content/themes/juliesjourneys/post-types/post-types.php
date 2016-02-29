@@ -112,41 +112,41 @@
 	add_action('init', 'juliesjourneys_create_insights_custom_post_type');
 
 
-	// create favorites custom post type
+	// create quotes custom post type
 
-	// function juliesjourneys_create_favorites_custom_post_type() {
-	// 	register_post_type('favorites', array(
-	// 	        'labels' => array(
-	// 	            'name' => 'Favorites',
-	// 	            'singular_name' => 'Favorite',
-	// 	            'add_new' => 'Add new Favorite',
-	// 	            'edit_item' => 'Edit Favorite',
-	// 	            'new_item' => 'New Favorite',
-	// 	            'view_item' => 'View Favorite',
-	// 	            'search_items' => 'Search Favorites',
-	// 	            'not_found' => 'No Favorites found',
-	// 	            'not_found_in_trash' => 'No Favorites found in Trash',
-	// 	            'all_items' => 'All Favorites',
-	// 				'menu_name' => 'Favorites',
-	// 				'name_admin_bar' => 'Favorites'
-	// 	        ),
-	// 	        'taxonomies' => array('category', 'post_tag', 'continents'),
-	// 	        'public' => true,
-	// 	        'menu_position' => 8,
-	// 	        // 		'rewrite' => array('slug' => 'blog'),
-	// 	        'supports' => array(
-	// 	            'title',
-	// 	            'editor',
-	// 	            'excerpt',
-	// 	            'custom-fields',
-	// 	            'revisions',
-	// 	            'thumbnail'
-	// 	        ),
-	// 	        'has_archive' => true
-	// 	    )
-	// 	);
-	// }
+	function juliesjourneys_create_quotes_custom_post_type() {
+		register_post_type('quotes', array(
+		        'labels' => array(
+		            'name' => 'Quotes',
+		            'singular_name' => 'Quote',
+		            'add_new' => 'Add new Quote',
+		            'edit_item' => 'Edit Quote',
+		            'new_item' => 'New Quote',
+		            'view_item' => 'View Quote',
+		            'search_items' => 'Search Quotes',
+		            'not_found' => 'No Quotes found',
+		            'not_found_in_trash' => 'No Quotes found in Trash',
+		            'all_items' => 'All Quotes',
+					'menu_name' => 'Quotes',
+					'name_admin_bar' => 'Quotes'
+		        ),
+		        // 'taxonomies' => array('category', 'post_tag', 'continents'),
+		        'public' => true,
+		        'menu_position' => 8,
+		        // 		'rewrite' => array('slug' => 'blog'),
+		        'supports' => array(
+		            'title',
+		            'editor',
+		            'excerpt',
+		            'custom-fields',
+		            'revisions',
+		            'thumbnail'
+		        ),
+		        'has_archive' => true
+		    )
+		);
+	}
 
-	// add_action('init', 'juliesjourneys_create_favorites_custom_post_type');
+	add_action('init', 'juliesjourneys_create_quotes_custom_post_type');
 
 ?>

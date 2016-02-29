@@ -61,7 +61,13 @@
 
 	// begin quote section
 
+	$argsHomeQuotes = array(
+		'post_type' => 'quotes',
+		'posts_per_page' => '1',
+		'orderby' => 'rand'
+	);
 
+	$the_query_home_quotes = new WP_Query( $argsHomeQuotes );
 
 	// end quote section
 
@@ -361,10 +367,26 @@
 
 <section class="block-3">
 
-	<?php if ( $the_query_all_posts->have_posts() ) : ?>
+	<?php if ( $the_query_home_quotes->have_posts() ) : ?>
 
-		<?php while ( $the_query_all_posts->have_posts() ) : $the_query_all_posts->the_post(); ?>
+		<?php while ( $the_query_home_quotes->have_posts() ) : $the_query_home_quotes->the_post(); ?>
 
+			<?php 
+
+				$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID) ); 
+				// print_r($src);
+			?>				
+
+		<article class="row home-quote">
+			<div class="small-12 columns">
+				<div class="bg" style="background-image: url('<?= $src[0]; ?>')">
+					<span class="overlay-border"></span>
+					<div class="item-description">
+						<span class="heading_font"><?php the_content(); ?></span>
+					</div>
+				</div>
+			</div>
+		</article>
 
 		<?php endwhile; ?>
 		

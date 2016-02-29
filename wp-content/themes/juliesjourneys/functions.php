@@ -439,14 +439,14 @@ add_action( 'widgets_init', 'juliesjourneys_widgets_init' );
  * @param array $size Registered image size or flat array of height and width dimensions.
  * @return string A source size value for use in a post thumbnail 'sizes' attribute.
  */
-// function twentysixteen_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
-// 	if ( 'post-thumbnail' === $size ) {
-// 		is_active_sidebar( 'sidebar-1' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px';
-// 		! is_active_sidebar( 'sidebar-1' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, 1200px';
-// 	}
-// 	return $attr;
-// }
-// add_filter( 'wp_get_attachment_image_attributes', 'twentysixteen_post_thumbnail_sizes_attr', 10 , 3 );
+function juliesjourneys_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+	if ( 'post-thumbnail' === $size ) {
+		is_active_sidebar( 'sidebar-1' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px';
+		! is_active_sidebar( 'sidebar-1' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, 1200px';
+	}
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'juliesjourneys_post_thumbnail_sizes_attr', 10 , 3 );
 
 /**
  * Modifies tag cloud widget arguments to have all tags in the widget same font size.
