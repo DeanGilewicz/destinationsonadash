@@ -95,18 +95,23 @@ endif; // juliesjourneys_setup
 add_action( 'after_setup_theme', 'juliesjourneys_setup' );
 
 
-// function juliesjourneys_excerpt_length( $length ) {
-// 	return 16;
-// }
-// add_filter( 'excerpt_length', 'juliesjourneys_excerpt_length', 999 );
+function juliesjourneys_excerpt_length( $length ) {
+	return 25;
+}
+add_filter( 'excerpt_length', 'juliesjourneys_excerpt_length', 999 );
+// default length is 55 words
 // the 999 above tells wp what position to run the function
 
+
+function juliesjourneys_excerpt_more( $more ) {
+	return '...';
+}
+add_filter('excerpt_more', 'juliesjourneys_excerpt_more');
 
 // function juliesjourneys_excerpt_more( $more ) {
 // 	return ' <a class="read-more" href="' . get_permalink( get_the_ID() ) . '">' . 'Read More...' . '</a>';
 // }
 // add_filter('excerpt_more', 'juliesjourneys_excerpt_more');
-
 
 /**
  * Sets the content width in pixels, based on the theme's design and stylesheet.

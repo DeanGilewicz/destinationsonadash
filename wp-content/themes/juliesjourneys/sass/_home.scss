@@ -127,8 +127,8 @@
 	}
 
 	.block-1 {
-		margin-top: $base_size*6;
-		margin-bottom: $base_size*6;
+		padding-top: $base_size*6;
+		padding-bottom: $base_size*6;
 
 		.item {
 
@@ -155,7 +155,7 @@
 				&:active,
 				&:focus,
 				&:hover {
-					color: #99ccff;
+					color: $purple;
 
 					img {
 						opacity: 0.25;
@@ -163,7 +163,7 @@
 					}
 
 					span {
-						color: #99ccff;
+						color: $purple;
 					    transform: translate3d(0,0,0);
 					}
 
@@ -175,7 +175,7 @@
 					.overlay-border:before,
 					.overlay-border:after {
 						transform: scale(1, 1);
-						border-color: #99ccff;
+						border-color: $purple;
 					}
 
 				}
@@ -239,14 +239,14 @@
 				}
 
 				&:before {
-					border-top: 1px solid #fff;
-					border-bottom: 1px solid #fff;
+					border-top: 1px solid $white;
+					border-bottom: 1px solid $white;
 					transform: scale(0, 1);
 				}
 
 				&:after {
-					border-left: 1px solid #fff;
-					border-right: 1px solid #fff;
+					border-left: 1px solid $white;
+					border-right: 1px solid $white;
 					transform: scale(1, 0);
 				}
 
@@ -258,16 +258,87 @@
 
 	.block-2 {
 
-		.favorite {
+		.home-post {
+			padding-bottom: $base_size*6;
 
-			h2 {
-				margin: 0 0 13px -95px;
-				padding: 12px 0 11px 20px;
-				border-left: 5px solid $purple;
-				background-color: $white;
+			&.ltr {
+
+				h2 {
+					display: inline-block;
+					margin: 0 0 7px -95px;
+					padding: 12px 0 11px 20px;
+					border-left: 5px solid $purple;
+					background-color: $white;
+
+					&:hover {
+						color: $purple_dark;
+					}
+				}
+
+				.post-meta {
+					padding: $base_size*2 0;
+
+					span {
+						margin-right: $base_size*2;
+					}
+				}
+
 			}
-		}
 
+			&.rtl {
+				text-align: right;
+
+				h2 {
+					display: inline-block;
+					position: relative;
+					z-index: 1;
+					margin: 0 -95px 7px 0;
+					padding: 12px 20px 11px 0;
+					border-right: 5px solid $purple;
+					background-color: $white;
+
+					&:hover {
+						color: $purple_dark;
+					}
+				}
+
+				.post-meta {
+					padding: $base_size*1.4 0;
+
+					span {
+						margin-left: $base_size*2;
+					}
+				}
+
+			}
+
+			.post-meta-category {
+				font-family: $font_pacifico;
+				text-transform: capitalize;
+
+				a {
+					font-size: $base_font_size*2.4;
+				}
+			}
+
+			a.post-title {
+				display: inline-block;
+			}
+
+			.post-excerpt {
+				padding: $base_size 0;
+			}
+
+			.post-meta-date {
+				text-transform: uppercase;
+			}
+
+			.read-more {
+				text-transform: uppercase;
+			}
+
+		}
+	
 	}
 
 }
