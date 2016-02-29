@@ -59,6 +59,28 @@
 
 	// end home posts section
 
+	// begin quote section
+
+
+
+	// end quote section
+
+	// begin all latest posts section (not in home-post cat, not in featured tag)
+
+	$argsAllPosts = array(
+		'post_type' => array('post', 'insights', 'eating_ethnic'),
+		'category__not_in' => '344',
+		'tag__not_in' => '10',
+		'posts_per_page' => '3',
+		'orderby' => 'date'
+	);
+
+	$the_query_all_posts = new WP_Query( $argsAllPosts );
+
+	// exit;
+
+	// end all latest posts section
+
 ?>
 
 <?php get_header(); ?>
@@ -254,7 +276,7 @@
 
 <!-- end begin feature taxonomies / categories -->
 
-<!-- begin favs -->
+<!-- begin selected home posts -->
 
 <section class="block-2">
 
@@ -263,6 +285,7 @@
 		<?php $counter = 0; ?>
 
 		<?php while ( $the_query_home_posts->have_posts() ) : $the_query_home_posts->the_post(); ?>
+			
 			<?php 
 				$postType = get_post_type_object(get_post_type());
 				// echo '<pre>'; print_r($postType);
@@ -332,51 +355,114 @@
 
 </section>
 
-<!-- end favs -->
+<!-- end selected home posts -->
 
-<section>
+<!-- begin quotes section -->
 
-	<div class="medium-12 columns">
-		<div class="primary">
+<section class="block-3">
 
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<?php if ( $the_query_all_posts->have_posts() ) : ?>
 
-				<article <?php post_class( 'added-custom-post-class' ); ?>>
+		<?php while ( $the_query_all_posts->have_posts() ) : $the_query_all_posts->the_post(); ?>
 
-	                <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-	                <h2><?= get_the_excerpt(); ?></h2>
 
-	                <ul class="post-meta no-bullet">
-						<li class="author">
-							<span class="wp_jj-avatar small">
-								<?php echo get_avatar( get_the_author_meta( 'ID' ), 24); ?>
-							</span>
-								by <?php the_author_posts_link(); ?>
-						</li>
-						<!-- <li class="cat">in <?php the_category( ' ' ); ?></li>
-						<li class="date">on <?php the_time('F j, Y'); ?></li> -->
-	                </ul>
+		<?php endwhile; ?>
+		
+	<?php else: ?>
 
-	                <?php if ( get_the_post_thumbnail() ) : ?>
+		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 
-						<div class="img-container">
+	<?php endif; ?>
+
+	<?php wp_reset_postdata(); ?>
+
+</section>
+
+<!-- end quotes section -->
+
+<!-- begin all latest posts (except chosen as home post) -->
+
+<section class="block-4">
+
+	<?php if ( $the_query_all_posts->have_posts() ) : ?>
+
+		<?php $counter = 0; ?>
+
+		<?php while ( $the_query_all_posts->have_posts() ) : $the_query_all_posts->the_post(); ?>
+			
+			<?php 
+				$postType = get_post_type_object(get_post_type());
+				// $postCats = get_the_category();
+				// $postTags = get_the_tags();
+				// echo '<pre>'; print_r($postCats);
+				// echo '<pre>'; print_r($postTags);
+			?>
+
+			<?php if ($counter % 2 === 0) : ?>
+
+				<article class="row home-post ltr">
+					<div class="small-5 columns">
+						<a href="<?php the_permalink(); ?>">
 							<?php the_post_thumbnail('large'); ?>
+						</a>
+					</div>
+					<div class="small-7 columns">
+						<div class="post-meta">
+							<span class="post-meta-category">
+								<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+							</span>
+							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+							<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
 						</div>
-
-					<?php endif; ?>
-
+						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
+						<div class="post-excerpt">
+							<?php the_excerpt(); ?>
+						</div>
+						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+					</div>
 				</article>
 
-			<?php endwhile; else : ?>
+			<?php else: ?>
 
-				<p><?php _e( 'Sorry, no pages found.' ); ?></p>
+				<article class="row home-post rtl">
+					<div class="small-7 columns">
+						<div class="post-meta">
+							<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
+							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+							<span class="post-meta-category">
+								<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+							</span>
+						</div>
+						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
+						<div class="post-excerpt">
+							<?php the_excerpt(); ?>
+						</div>
+						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+					</div>
+					<div class="small-5 columns">
+						<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail('large'); ?>
+						</a>
+					</div>
+				</article>
 
 			<?php endif; ?>
 
-		</div>
-	</div>	
+			<?php $counter++; ?>
+
+		<?php endwhile; ?>
+		
+	<?php else: ?>
+
+		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+
+	<?php endif; ?>
+
+	<?php wp_reset_postdata(); ?>
 
 </section>
+
+<!-- end all latest posts -->
 
 <?php // get_sidebar(); ?>
 
