@@ -14,7 +14,10 @@ testing
 	<!-- <main id="main" class="site-main" role="main"> -->
 		<?php
 		// Start the loop.
-		// while ( have_posts() ) : the_post();
+		$counter = 1;
+		while ( have_posts() ) : the_post();
+
+			echo 'this is ' . $counter;
 
 			// Include the page content template.
 			// get_template_part( 'template-parts/content', 'page' );
@@ -23,9 +26,9 @@ testing
 			// if ( comments_open() || get_comments_number() ) {
 				// comments_template();
 			// }
-
+			$counter++;
 			// End of the loop.
-		// endwhile;
+		endwhile;
 		?>
 
 	<!-- </main> --><!-- .site-main -->
