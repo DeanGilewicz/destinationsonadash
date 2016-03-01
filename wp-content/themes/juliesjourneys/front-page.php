@@ -171,7 +171,7 @@
 
 						<?php the_post_thumbnail(); ?>
 						<div class="item-description">
-							<span class="heading_font">Destinations</span>
+							<span>Destinations</span>
 							<p>All Posts</p>
 						</div>
 						<span class="overlay-border"></span>
@@ -200,7 +200,7 @@
 
 						<?php the_post_thumbnail(); ?>
 						<div class="item-description">
-							<span class="heading_font">Insights</span>
+							<span>Insights</span>
 							<p>All Posts</p>
 						</div>
 						<span class="overlay-border"></span>
@@ -229,7 +229,7 @@
 
 						<?php the_post_thumbnail(); ?>
 						<div class="item-description">
-							<span class="heading_font">Eating Ethnic</span>
+							<span>Eating Ethnic</span>
 							<p>All Posts</p>
 						</div>
 						<span class="overlay-border"></span>
@@ -258,7 +258,7 @@
 
 						<?php the_post_thumbnail(); ?>
 						<div class="item-description">
-							<span class="heading_font">Favs</span>
+							<span>Favs</span>
 							<p>All Posts</p>
 						</div>
 						<span class="overlay-border"></span>
@@ -367,36 +367,42 @@
 
 <section class="block-3">
 
-	<?php if ( $the_query_home_quotes->have_posts() ) : ?>
+	<div class="row">
 
-		<?php while ( $the_query_home_quotes->have_posts() ) : $the_query_home_quotes->the_post(); ?>
+		<div class="small-12 columns quote">
 
-			<?php 
+			<?php if ( $the_query_home_quotes->have_posts() ) : ?>
 
-				$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID) ); 
-				// print_r($src);
-			?>				
+				<?php while ( $the_query_home_quotes->have_posts() ) : $the_query_home_quotes->the_post(); ?>
 
-		<article class="row home-quote">
-			<div class="small-12 columns">
-				<div class="bg" style="background-image: url('<?= $src[0]; ?>')">
-					<span class="overlay-border"></span>
-					<div class="item-description">
-						<span class="heading_font"><?php the_content(); ?></span>
-					</div>
-				</div>
-			</div>
-		</article>
+					<?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
 
-		<?php endwhile; ?>
+					<a href="/quotes">
+
+						<div class="bg" style="background-image: url('<?= $src[0]; ?>')"></div>
+						<div class="quote-description">
+							<img src="http://placehold.it/60x60?text=ll">
+							<p><?php the_date('M j, Y'); ?></p>
+							<span><?= get_the_content(); ?></span>
+							<p>Author</p>
+						</div>
+						<span class="overlay-border"></span>
+
+					</a>
+
+				<?php endwhile; ?>
 		
-	<?php else: ?>
+			<?php else: ?>
 
-		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 
-	<?php endif; ?>
+			<?php endif; ?>
 
-	<?php wp_reset_postdata(); ?>
+			<?php wp_reset_postdata(); ?>
+
+		</div>
+
+	</div>
 
 </section>
 
