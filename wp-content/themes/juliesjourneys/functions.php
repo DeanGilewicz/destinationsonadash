@@ -364,6 +364,25 @@ add_action( 'widgets_init', 'juliesjourneys_widgets_init' );
 // }
 // add_filter( 'body_class', 'twentysixteen_body_classes' );
 
+// Add specific CSS class by filter
+// add_filter( 'body_class', 'my_class_names' );
+// function my_class_names( $classes ) {
+// 	// add 'class-name' to the $classes array
+// 	$classes[] = 'class-name';
+// 	// return the $classes array
+// 	return $classes;
+// }
+
+function juliesjourneys_add_slug_body_class( $classes ) {
+	global $post;
+	if ( isset( $post ) ) {
+		$classes[] = $post->post_type . '-' . $post->post_name;
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'juliesjourneys_add_slug_body_class' );
+
+
 /**
  * Converts a HEX value to RGB.
  *
