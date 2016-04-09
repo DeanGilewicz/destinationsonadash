@@ -167,11 +167,11 @@
 				<?php while ( $the_query_trip->have_posts() ) : $the_query_trip->the_post(); ?>
 
 					<!-- <a href="<?php the_permalink(); ?>"> -->
-					<a href="/destinations">
+					<a href="/trips">
 
 						<?php the_post_thumbnail(); ?>
 						<div class="item-description">
-							<span>Destinations</span>
+							<span>Trips</span>
 							<p>All Posts</p>
 						</div>
 						<span class="overlay-border"></span>

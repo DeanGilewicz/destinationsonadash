@@ -1,4 +1,7 @@
-<?php // THIS IS THE TEMPLATE /FAVORITES
+<?php
+/*
+ * This is a custom page for /favorites - must have page created in admin called Favorites
+*/
 
 	$argsFavs = array(
 		'post_type' => array('post', 'insights', 'eating_ethnic'),
