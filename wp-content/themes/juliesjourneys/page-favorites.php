@@ -15,16 +15,15 @@
 
 <?php get_header(); ?>
 
-<?php if ( $the_query_favs->have_posts() ) : ?>
+<div class="content-area favs">
 
-	<?php $counter = 0; ?>
+	<?php if ( $the_query_favs->have_posts() ) : ?>
+
+		<?php $counter = 0; ?>
 
 		<?php while ( $the_query_favs->have_posts() ) : $the_query_favs->the_post(); ?>
 
-			<?php 
-				$postType = get_post_type_object(get_post_type());
-				// echo '<pre>'; print_r($postType);
-			?>
+			<?php $postType = get_post_type_object(get_post_type()); ?>
 
 			<?php if ($counter % 2 === 0) : ?>
 
@@ -39,10 +38,13 @@
 							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
 							<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
 						</div>
+
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
+							
 						<div class="post-excerpt">
 							<?php the_excerpt(); ?>
 						</div>
+			
 						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
 
 					</div>
@@ -74,33 +76,34 @@
 							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
 							<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
 						</div>
+							
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
+						
 						<div class="post-excerpt">
 							<?php the_excerpt(); ?>
 						</div>
+						
 						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
 
 					</div>
 
-				<?php endif; ?>
+				</article>
 
-				</div>
-
-			</article>
+			<?php endif; ?>
 
 			<?php $counter++; ?>
 
 		<?php endwhile; ?>
 
-	</div>
+			<?php wp_reset_postdata(); ?>
 
-<?php else: ?>
+	<?php else: ?>
 
-	<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 
-<?php endif; ?>
+	<?php endif; ?>
 
-<?php wp_reset_postdata(); ?>
+</div>
 
 <?php // get_sidebar(); ?>
 
