@@ -6,33 +6,24 @@
 
 <?php 
 
-// set up category display params
+// taxonomy/slug/post-name
+// $term =	$wp_query->queried_object;
+
 // $args = array(
-// 	'posts_per_page' => '-1'
+// 	'tax_query' => array(
+// 		array(
+// 			'taxonomy' => 'destination',
+// 			'field'    => 'slug',
+// 			'terms'    => $term->name
+// 		)
+// 	)
 // );
 
-// $the_query_continents = new WP_Query( $args );
-
-// taxonomy/slug/post-name
-$term =	$wp_query->queried_object;
-
-$args = array(
-	// 'post_type' => 'post',
-	'tax_query' => array(
-		array(
-			'taxonomy' => 'destination',
-			'field'    => 'slug',
-			'terms'    => $term->name
-		)
-	)
-);
-$query = new WP_Query( $args );
+// $query = new WP_Query( $args );
 
 ?>
 
 <?php get_header(); ?>
-
-HELLO I AM HERE
 
 <div class="content">
 
@@ -46,72 +37,92 @@ HELLO I AM HERE
 
 	</div>
 
-	<?php if ( $query->have_posts() ) : ?>
+	<?php if ( have_posts() ) : ?>
 
-		<?php 
+		<?php $counter = 0; ?>
 
-			$totalPostNum = $wp_query->post_count; ?>
-		
-		<div class="row">
-
-			<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php 
 					$postType = get_post_type_object(get_post_type());
 					// echo '<pre>'; print_r($postType);
 				?>
 
-				<?php if ($totalPostNum % 4 === 0) : ?>
-				
-					<div class="medium-3 columns">
+				<?php if ($counter % 2 === 0) : ?>
 
-				<?php elseif ($totalPostNum % 3 === 0) : ?>
+					<article class="row post-favorite rtl">
 
-					<div class="medium-4 columns quote">
+						<div class="medium-5 columns">
 
-				<?php elseif ($totalPostNum % 2 === 0) : ?>
-				
-					<div class="medium-6 columns">
+							<div class="post-meta">
+								<span class="post-meta-category">
+									<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+								</span>
+								<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+								<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
+							</div>
+							<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
+							<div class="post-excerpt">
+								<?php the_excerpt(); ?>
+							</div>
+							<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+
+						</div>
+
+						<div class="medium-7 columns">
+
+							<?php the_post_thumbnail(); ?>
+
+						</div>
+
+					</article>
 
 				<?php else : ?>
-				
-					<div class="medium-12 columns">
 
-				<?php endif; ?>
+					<article class="row post-favorite ltr">
 
-						<?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
+						<div class="medium-7 columns">
 
-								<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail(); ?>
 
-									<div class="bg" style="background-image: url('<?= $src[0]; ?>')"></div>
-									<div class="quote-description">
-										<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
-										<h2><?php the_title(); ?></h2>
-										<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
-										<div class="post-excerpt">
-											<?php the_excerpt(); ?>
-										</div>
-										<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
-										</div>
-									<span class="overlay-border"></span>
+						</div>
 
-								</a>
+						<div class="medium-5 columns">
 
-							<?php // the_post_thumbnail('medium'); ?>
+							<div class="post-meta">
+								<span class="post-meta-category">
+									<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+								</span>
+								<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+								<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
+							</div>
+							<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
+							<div class="post-excerpt">
+								<?php the_excerpt(); ?>
+							</div>
+							<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
 
-								<!-- <div class="post-continent">
-									
-								</div> -->
+						</div>
+
+					<?php endif; ?>
 
 					</div>
 
-			<?php endwhile; ?>
+				</article>
 
-			<?php wp_reset_postdata(); ?>
+				<?php $counter++; ?>
+
+			<?php endwhile; ?>
 
 		</div>
 
+	<?php else: ?>
+
+		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+
 	<?php endif; ?>
+
+	<?php wp_reset_postdata(); ?>
 
 </div>
 
