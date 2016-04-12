@@ -31,6 +31,12 @@
 	    $labels->all_items = 'All Trips';
 	    $labels->menu_name = 'Trips';
 	    $labels->name_admin_bar = 'Trips';
+
+	    // $wp_post_types['post']->rewrite = array('slug' => 'banana');
+
+	    // echo '<pre>';
+	    // print_r($wp_post_types);
+	    // echo '</pre>';
 	}
 	
 	add_action( 'init', 'change_post_object_to_trips' );
