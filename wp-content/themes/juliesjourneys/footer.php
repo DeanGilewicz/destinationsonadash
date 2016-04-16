@@ -5,7 +5,7 @@
 	* Contains the closing of the #content div and all content after
 	*
 	* @package WordPress
-	* @subpackage JuliesJourneys
+	* @subpackage Julies_Journeys
 	* @since JuliesJourneys 1.0
 */
 ?>

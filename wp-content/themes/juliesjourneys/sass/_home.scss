@@ -16,9 +16,11 @@
 			left: 0;
 			right: 0;
 			bottom: 0;
+			z-index: 0;
+			margin-left: .9375rem;
+			margin-right: .9375rem;
 			background: #fff no-repeat center center;
 			background-size: cover;
-			z-index: 0;
 			transition: opacity .4s linear;
 			transition: z-index 0 linear 0.4s;
 			opacity: 0;
@@ -80,6 +82,8 @@
 			left: 0;
 			z-index: 1;
 			width: 100%;
+			margin-left: .9375rem;
+			margin-right: .9375rem;
 
 			.progress-btn {
 				font-size: 13px;
