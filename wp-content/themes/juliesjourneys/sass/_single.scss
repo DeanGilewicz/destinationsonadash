@@ -1,0 +1,36 @@
+.post-single {
+
+	figure {
+		display: inline-block;
+		max-width: 100%;
+		margin: 0;
+	}
+
+	.alignleft {
+		float: left;
+		margin-right: $base_size;
+	}
+
+	.alignright {
+		float: right;
+		margin-left: $base_size;
+	}
+
+	.post-meta-category-single {
+		font-family: $font_pacifico;
+		text-transform: capitalize;
+
+		a {
+			font-size: $base_font_size*2.4;
+		}
+	}
+
+	.post-title h2 {
+		text-transform: uppercase;
+	}
+
+	.container-content {
+		// font-family: 'Open Sans, Arial, Helvetica, sans-serif';
+	}
+
+}

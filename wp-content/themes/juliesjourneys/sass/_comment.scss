@@ -1,0 +1,21 @@
+.comments-area {
+
+	.comment-respond {
+		padding: $base_size*5 23% $base_size*3;
+	}
+
+	textarea[name="comment"] {
+		height: 150px;
+		margin-bottom: $base_size;
+		padding: 10px 13px;
+		resize: none;
+	}
+
+	.comment-form-author,
+	.comment-form-email {
+		float: left;
+		width: 50%;
+		padding: 0 5px 10px;
+	}
+
+}
