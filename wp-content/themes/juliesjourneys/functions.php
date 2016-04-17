@@ -482,3 +482,60 @@ add_filter( 'wp_get_attachment_image_attributes', 'juliesjourneys_post_thumbnail
 // 	return $args;
 // }
 // add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
+
+
+function julies_journeys_custom_comments( $comment, $args, $depth ) {
+    $GLOBALS['comment'] = $comment;
+    switch( $comment->comment_type ) :
+        case 'pingback' :
+        case 'trackback' : ?>
+            <li <?php comment_class(); ?> id="comment<?php comment_ID(); ?>">
+            <div class="back-link"><?php comment_author_link(); ?></div>
+        <?php break;
+        default : 
+        ?>
+            <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+           
+	            <article <?php comment_class('row'); ?>>
+	 
+	            	<div class="medium-2 columns">
+	            		<div class="author vcard">
+	            			<?php echo get_avatar( $comment, 48 ); ?>
+	            		</div><!-- .vcard -->
+					</div>
+
+					<div class="medium-3 columns">
+						<span>posted by</span>
+						<h6 class="author-name"><?php comment_author(); ?></h6>
+            			<p class="date">
+            				<?php comment_date('M j, Y'); ?>
+            			</p>
+            			<p class="time">
+            				<?php comment_time('g:i a'); ?>
+            			</p>
+					</div>
+
+					<div class="medium-5 columns">
+						<?php comment_text(); ?>
+					</div>
+	 
+	            	<div class="medium-2 columns">
+            			<?php 
+            				comment_reply_link( array_merge( $args, array(
+            					'before' => '<span class="reply-link">',
+            					'reply_text' => 'Reply',
+            					'after' => '</span>' . edit_comment_link( 'Edit', '<span class="edit-link">', '</span> '), 
+            					'depth' => $depth,
+            					'max_depth' => $args['max_depth'] 
+            				) ) ); 
+            			?>
+	            	</div><!-- .reply -->
+	 
+	            </article><!-- #comment-<?php comment_ID(); ?> -->
+        	<?php // End the default styling of comment -  wordpress automatically closes li tag
+        break;
+    endswitch;
+}
+
+
+

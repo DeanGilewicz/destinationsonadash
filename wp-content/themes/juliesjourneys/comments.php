@@ -25,45 +25,62 @@ if ( post_password_required() ) {
 	<div class="row">
 		<div class="small-12 columns">
 
-
-
 			<?php if ( have_comments() ) : ?>
-				<h2 class="comments-title">
-					<?php
-						$comments_number = get_comments_number();
-						if ( 1 === $comments_number ) {
-							/* translators: %s: post title */
-							printf( _x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'juliesjourneys' ), get_the_title() );
-						} else {
-							printf(
-								/* translators: 1: number of comments, 2: post title */
-								_nx(
-									'%1$s thought on &ldquo;%2$s&rdquo;',
-									'%1$s thoughts on &ldquo;%2$s&rdquo;',
-									$comments_number,
-									'comments title',
-									'juliesjourneys'
-								),
-								number_format_i18n( $comments_number ),
-								get_the_title()
-							);
-						}
-					?>
-				</h2>
 
-				<?php the_comments_navigation(); ?>
+				<?php $comments_number = get_comments_number(); ?>
 
-				<ol class="comment-list">
-					<?php
-						wp_list_comments( array(
-							'style'       => 'ol',
-							'short_ping'  => true,
-							'avatar_size' => 42,
-						) );
-					?>
-				</ol><!-- .comment-list -->
+				<div class="container-comment-area">
 
-				<?php the_comments_navigation(); ?>
+					<div class="container-comments-title">
+						
+						<h2 class="comments-title">
+							<?php
+								if ( 1 === $comments_number ) {
+									printf( _x( 'Comment on %s', 'comments title', 'juliesjourneys' ), get_the_title() );
+								} else {
+									printf( _x( 'Comments on %s', 'comments title', 'juliesjourneys' ), get_the_title() );	
+								}
+							?>
+						</h2>
+						<h6>
+							<?php
+								if ( 1 === $comments_number ) {
+									echo '1 comment';
+								} else {
+									printf(
+										/* translators: 1: number of comments, 2: post title */
+										_nx(
+											'%1$s comment',
+											'%1$s comments',
+											$comments_number,
+											'comments title',
+											'juliesjourneys'
+										),
+										number_format_i18n( $comments_number ),
+										get_the_title()
+									);
+								}
+							?>
+						</h6>
+
+					</div>
+
+					<?php the_comments_navigation(); ?>
+
+					<ul class="container-comment-list">
+						<?php
+							wp_list_comments( array(
+								'callback'	  => 'julies_journeys_custom_comments',
+								'style'       => 'ul',
+								'short_ping'  => true,
+								'avatar_size' => 42
+							) );
+						?>
+					</ul><!-- .comment-list -->
+
+					<?php the_comments_navigation(); ?>
+
+				</div>
 
 			<?php endif; // Check for have_comments(). ?>
 
@@ -83,14 +100,14 @@ if ( post_password_required() ) {
 				$fields =  array(
 
 					'author' =>
-						'<p class="comment-form-author"><label for="author">
+						'<p class="comment-form-author">
 							<input id="author" name="author" type="text" placeholder="Name *" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' />
 						</p>',
 
 					'email' =>
 						'<p class="comment-form-email">
 							<input id="email" name="email" type="text" placeholder="Email *" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' />
-						</p>'
+						</p></div>'
 
 					// 'url' =>
 					// 	'<p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) . '</label>' .
@@ -106,7 +123,8 @@ if ( post_password_required() ) {
 					'comment_field' 	 => '<p class="comment-form-comment">
 		    									<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="Comment *"></textarea>
 		    								</p>',
-		    		'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+		    		'comment_notes_after' => '<div class="respond-inputs">',
+		    		'fields' => apply_filters( 'comment_form_default_fields', $fields )
 				) );
 			?>
 

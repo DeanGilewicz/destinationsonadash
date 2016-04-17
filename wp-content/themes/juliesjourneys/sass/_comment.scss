@@ -1,21 +1,137 @@
 .comments-area {
 
+	// All comments section
+
+	.container-comment-area {
+		margin-top: $base_size*6;
+		margin-bottom: $base_size*6;
+		padding: 0 60px 30px;
+		border: 5px solid $black;
+	}
+
+	.container-comments-title {
+		margin: -24px 0 0;
+		text-align: center;
+	}
+
+	h2.comments-title {
+		display: inline-block;
+		vertical-align: top;
+		margin: 0;
+		padding: 0 30px;
+		text-transform: uppercase;
+		// line-height: 42px;
+		// font-size: 38px;
+		background-color: $white;
+	}
+
+	.container-comment-list {
+		list-style-type: none;
+		margin: 0;
+	}
+
+	li.comment {
+		margin-top: $base_size*4;
+		margin-bottom: $base_size*4;
+		padding-bottom: $base_size*4;
+		border-bottom: 1px solid $grey_lightest;
+	
+		.vcard {
+			margin: 0;
+			padding: 0;
+			border: none;
+
+			img {
+				border-radius: 50%;
+			}
+		}
+
+		.author-name,
+		.date,
+		.time {
+			margin-top: $base_size*0.5;
+			margin-bottom: 0;
+		}
+
+		.author-name {
+			text-transform: uppercase;
+		}
+	}
+
+
+	// Post a comment section
+
 	.comment-respond {
+		position: relative;
 		padding: $base_size*5 23% $base_size*3;
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: -1;
+			margin-left: -0.9375rem;
+			margin-right: -0.9375rem;
+			background-color: $grey_lightest;
+		}
+
+		p {
+			margin-bottom: $base_size*2;
+		}
+
+		.comment-reply-title {
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		textarea[name="comment"],
+		input[name="author"],
+		input[name="email"] {
+			background: $white;
+			border: 1px solid $grey_lighter;
+		}
+
+		textarea[name="comment"] {
+			height: 150px;
+			margin-bottom: $base_size;
+			padding: 10px 13px;
+			resize: none;
+		}
+
+		input[type="submit"] {
+			margin: 0;
+			padding: 0 26px;
+			height: 50px;
+			text-transform: uppercase;
+			font-weight: 700;
+			line-height: 50px;
+			font-size: 15px;
+			border: 0;
+		}
+
+		.respond-inputs {
+			@extend .clearfix;
+			margin: 0 -5px;
+		}
+
+		.comment-form-author,
+		.comment-form-email {
+			float: left;
+			width: 50%;
+			padding: 0 5px;
+
+			input {
+				margin: 0;
+			}
+		}
+
+		.form-submit {
+			text-align: center;
+		}
 	}
 
-	textarea[name="comment"] {
-		height: 150px;
-		margin-bottom: $base_size;
-		padding: 10px 13px;
-		resize: none;
-	}
-
-	.comment-form-author,
-	.comment-form-email {
-		float: left;
-		width: 50%;
-		padding: 0 5px 10px;
-	}
 
 }
