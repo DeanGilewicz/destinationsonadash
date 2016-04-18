@@ -3,8 +3,8 @@
  * The template part for displaying single posts
  *
  * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @subpackage Julies_Journeys
+ * @since Julies Journeys 1.0
  */
 ?>
 
@@ -28,22 +28,15 @@
 
 			<div class="small-12 columns">
 				
-				<div class="post-meta-category-single">
+				<div class="post-meta-single-category">
 					<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
 				</div>
+				<div class="post-meta-single-title">
+					<a href="<?php the_permalink(); ?>" class="post-title">
+						<h2><?php the_title(); ?></h2>
+					</a>
+				</div>
 			
-			</div>
-
-		</div>
-
-		<div class="row">
-
-			<div class="small-12 columns">
-
-				<a href="<?php the_permalink(); ?>" class="post-title">
-					<h2><?php the_title(); ?></h2>
-				</a>
-
 			</div>
 
 		</div>
@@ -78,9 +71,6 @@
 			</div>
 		</div>	
 
-			
-
-
 		<?php
 			// wp_link_pages( array(
 			// 	'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentysixteen' ) . '</span>',
@@ -98,7 +88,8 @@
 
 	</div><!-- .entry-content -->
 
-	<!-- <footer class="entry-footer">
+	<footer class="row entry-footer">
+		<div class="medium-12 columns">
 		<?php // twentysixteen_entry_meta(); ?>
 		<?php
 			edit_post_link(
@@ -111,5 +102,7 @@
 				'</span>'
 			);
 		?>
-	</footer> --><!-- .entry-footer -->
+	</div>
+	</footer><!-- .entry-footer -->
+
 </article><!-- #post-## -->

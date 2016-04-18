@@ -1,0 +1,22 @@
+// single post nav
+.container-single-post-nav {
+
+	.navigation.post-navigation h2 {
+		display: none !important;
+	}
+
+	.nav-links {
+		@extend .clearfix;
+		margin-top: $base_size*3;
+	}
+
+	.nav-previous {
+		float: left;
+	}
+
+	.nav-next {
+		float: right;
+	}
+
+}
+
