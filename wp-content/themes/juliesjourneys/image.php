@@ -46,7 +46,7 @@ get_header(); ?>
 								echo wp_get_attachment_image( get_the_ID(), $image_size );
 							?>
 
-							<?php twentysixteen_excerpt( 'entry-caption' ); ?>
+							<?php //twentysixteen_excerpt( 'entry-caption' ); ?>
 
 						</div><!-- .entry-attachment -->
 
@@ -64,7 +64,7 @@ get_header(); ?>
 					</div><!-- .entry-content -->
 
 					<footer class="entry-footer">
-						<?php twentysixteen_entry_meta(); ?>
+						<?php //twentysixteen_entry_meta(); ?>
 						<?php
 							// Retrieve attachment metadata.
 							$metadata = wp_get_attachment_metadata();
