@@ -1,0 +1,24 @@
+body.attachment {
+
+	article {
+		text-align: center;
+	}
+    
+	.entry-header {
+		background-color: transparent;
+	}
+
+	.entry-title {
+		display: inline-block;
+	}
+
+	.entry-attachment {
+		margin-bottom: $base_size*6;
+
+		img {
+			max-width: 500px;
+		}
+
+	}
+
+}

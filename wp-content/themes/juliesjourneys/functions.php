@@ -644,50 +644,68 @@ function filter_gallery( $output, $attr ) {
 
 	// GALLERY OUTPUT START HERE---------------------------------------//
     
-    $output = "<div class='gallery-images'>\n";
-	$counter = 0;
-	$pos = 0;
+    $output = "<div class='gallery-images'>";
+		$counter = 0;
+		$pos = 0;
 
-    foreach ( $attachments as $id => $attachment ) {
-    	$pos++;
-        //$img = wp_get_attachment_image_src($id, 'medium');
-		//$img = wp_get_attachment_image_src($id, 'thumbnail');
-        //$img = wp_get_attachment_image_src($id, 'full');	
+		// PAGINATION OUTPUT START HERE-------------------------------------//
+		
+		$output .= "<div class='gallery-pagination-top'>";
+		$output .= paginate_links( array(
+			'base' => str_replace($big,'%#%',esc_url(get_pagenum_link($big))),
+			'format' => '?paged=%#%',
+			'current' => $current,
+			'total' => $total_pages,
+			'prev_text'    => __('«'),
+			'next_text'    => __('»')
+		) );
+		$output .= "</div>";
+		
+		// PAGINATION OUTPUT ENDS HERE-------------------------------------//
 
-		if( ( $counter < $per_page ) && ( $pos > $offset ) ) {
-			$counter++;
-			$largetitle = get_the_title($attachment->ID);
-			$largeimg = wp_get_attachment_image_src($id, 'large');
-			$img = wp_get_attachment_image_src($id, array(100,100));
-			$link = get_permalink($id);
-			// echo '<pre>';
-			// print_r($attr);
-			// print_r($attachment);
-			// print_r($largeimg);
-			// print_r($link);
-			// exit;
-			$output .= '<a href='.$link.' title='.$largetitle.'><img src='.$img[0].' width='.$img[1].' height='.$img[2].'/></a>';
-		}
-    }
+	    foreach ( $attachments as $id => $attachment ) {
+	    	$pos++;
+	        //$img = wp_get_attachment_image_src($id, 'medium');
+			//$img = wp_get_attachment_image_src($id, 'thumbnail');
+	        //$img = wp_get_attachment_image_src($id, 'full');	
 
-    $output .= "<div class=\"clear\"></div>\n";
-    $output .= "</div>\n";
+			if( ( $counter < $per_page ) && ( $pos > $offset ) ) {
+				$counter++;
+				$largetitle = get_the_title($attachment->ID);
+				$largeimg = wp_get_attachment_image_src($id, 'large');
+				$img = wp_get_attachment_image_src($id, array(150,150));
+				$link = get_permalink($id);
+				// echo '<pre>';
+				// print_r($attr);
+				// print_r($attachment);
+				// print_r($largeimg);
+				// print_r($link);
+				// exit;
+				$output .= '<a href='.$link.' title='.$largetitle.'><img src='.$img[0].' width='.$img[1].' height='.$img[2].'/></a>';
+			}
+	    }
+
+	    // PAGINATION OUTPUT START HERE-------------------------------------//
+		$output .= "<div class='gallery-pagination-bottom'>";
+		$output .= paginate_links( array(
+			'base' => str_replace($big,'%#%',esc_url(get_pagenum_link($big))),
+			'format' => '?paged=%#%',
+			'current' => $current,
+			'total' => $total_pages,
+			'prev_text'    => __('«'),
+			'next_text'    => __('»')
+		) );
+		$output .= "</div>";
+		
+		// PAGINATION OUTPUT ENDS HERE-------------------------------------//
+		$output .= "<div class='clear'></div>";
+
+    $output .= "</div>";
 	
 	// GALLERY OUTPUT ENDS HERE---------------------------------------//
 
 
-	// PAGINATION OUTPUT START HERE-------------------------------------//
-	
-	$output .= paginate_links( array(
-		'base' => str_replace($big,'%#%',esc_url(get_pagenum_link($big))),
-		'format' => '?paged=%#%',
-		'current' => $current,
-		'total' => $total_pages,
-		'prev_text'    => __('«'),
-		'next_text'    => __('»')
-	) );
-	
-	// PAGINATION OUTPUT ENDS HERE-------------------------------------//
+
 
     return $output;
 }

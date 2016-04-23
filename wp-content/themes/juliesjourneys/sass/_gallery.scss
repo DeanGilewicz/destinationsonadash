@@ -1,0 +1,32 @@
+.gallery-images {
+	padding-top: $base_size*2;
+	text-align: center;
+
+	img {
+		margin: 0.5%;
+	}
+
+	.gallery-pagination-top,
+	.gallery-pagination-bottom {
+		padding-top: $base_size*2;
+		padding-bottom: $base_size*2;
+
+		span, a {
+			margin-left: $base_size;
+			margin-right: $base_size;
+			padding-left: $base_size;
+			padding-right: $base_size;
+			font-size: $base_font_size*2;
+		}
+
+		span {
+			border-bottom: 1px solid $purple;
+		}
+
+		a:hover {
+			color: $purple_light;
+		}
+
+	}
+
+}
