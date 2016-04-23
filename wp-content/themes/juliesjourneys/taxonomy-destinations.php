@@ -25,7 +25,7 @@
 
 <?php get_header(); ?>
 
-<div class="content">
+<div class="content destination">
 
 	<div class="row">
 		
@@ -50,7 +50,7 @@
 
 				<?php if ($counter % 2 === 0) : ?>
 
-					<article class="row post-favorite rtl">
+					<article class="row post-destination rtl">
 
 						<div class="medium-5 columns">
 
@@ -79,7 +79,7 @@
 
 				<?php else : ?>
 
-					<article class="row post-favorite ltr">
+					<article class="row post-destination ltr">
 
 						<div class="medium-7 columns">
 
@@ -104,17 +104,13 @@
 
 						</div>
 
-					<?php endif; ?>
+					</article>
 
-					</div>
-
-				</article>
+				<?php endif; ?>
 
 				<?php $counter++; ?>
 
 			<?php endwhile; ?>
-
-		</div>
 
 	<?php else: ?>
 
