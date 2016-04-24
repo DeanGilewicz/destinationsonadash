@@ -3,107 +3,87 @@
  * This is a custom page for /gallery - must have page created in admin called Gallery
 */
 
-	$argsFavs = array(
+	$argsGallery = array(
 		'post_type' => array('page'),
 		'post_parent' => $post->ID,
 		'orderby' => 'name',
-		// 'posts_per_page' => '-1',
-		// 'category_name' => 'favorite'
+		'posts_per_page' => '-1'
 	);
 
-	$the_query_favs = new WP_Query( $argsFavs );
-
+	$the_query_gallery = new WP_Query( $argsGallery );
+	
+	$totalPostNum = $the_query_gallery->post_count;
+	// echo '<pre>';
+	// print_r($the_query_gallery);
+	// exit;
 ?>
 
 <?php get_header(); ?>
 
-<div class="content-area favs">
+<div class="content-area gallery-overview">
 
-	<?php if ( $the_query_favs->have_posts() ) : ?>
-
-		<?php $counter = 0; ?>
-
-		<?php while ( $the_query_favs->have_posts() ) : $the_query_favs->the_post(); ?>
-
-			<?php $postType = get_post_type_object(get_post_type()); ?>
-
-			<?php if ($counter % 2 === 0) : ?>
-
-				<article class="row post-favorite rtl">
-
-					<div class="medium-5 columns">
-
-						<div class="post-meta">
-							<span class="post-meta-category">
-								<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
-							</span>
-							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
-							<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
-						</div>
-
-						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
-							
-						<div class="post-excerpt">
-							<?php the_excerpt(); ?>
-						</div>
+	<div class="row">
+		
+		<div class="medium-12 columns">
 			
-						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+			<h1 class="gallery-title"><?php the_title(); ?></h1>
+
+		</div>
+
+	</div>
+
+	<?php if ( $the_query_gallery->have_posts() ) : ?>
+
+	<div class="row">
+
+		<?php while ( $the_query_gallery->have_posts() ) : $the_query_gallery->the_post(); ?>
+
+			<?php 
+				// $postType = get_post_type_object(get_post_type());
+			?>
+
+				<?php if ($totalPostNum % 4 === 0) : ?>
+				
+					<div class="medium-3 columns bottom-margin">
+
+				<?php elseif ($totalPostNum % 3 === 0) : ?>
+
+					<div class="medium-4 columns bottom-margin">
+
+				<?php elseif ($totalPostNum % 1 === 0) : ?>
+				
+					<div class="medium-6 columns end bottom-margin">
+
+				<?php else : ?>
+				
+					<div class="medium-6 columns">
+
+				<?php endif; ?>
+
+						<?php // $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
+
+						<a href="<?php the_permalink(); ?>">
+
+							<img src="http://placehold.it/500x300?text=flag"/>
+
+						</a>
+
+						<?php // the_post_thumbnail('medium'); ?>
 
 					</div>
 
-					<div class="medium-7 columns">
-
-						<?php the_post_thumbnail(); ?>
-
-					</div>
-
-				</article>
-
-			<?php else : ?>
-
-				<article class="row post-favorite ltr">
-
-					<div class="medium-7 columns">
-
-						<?php the_post_thumbnail(); ?>
-
-					</div>
-
-					<div class="medium-5 columns">
-
-						<div class="post-meta">
-							<span class="post-meta-category">
-								<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
-							</span>
-							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
-							<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
-						</div>
-							
-						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
-						
-						<div class="post-excerpt">
-							<?php the_excerpt(); ?>
-						</div>
-						
-						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
-
-					</div>
-
-				</article>
-
-			<?php endif; ?>
-
-			<?php $counter++; ?>
-
+	
 		<?php endwhile; ?>
 
-			<?php wp_reset_postdata(); ?>
+		<?php wp_reset_postdata(); ?>
 
 	<?php else: ?>
 
 		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 
 	<?php endif; ?>
+
+	</div>
 
 </div>
 
