@@ -42,6 +42,8 @@
 
 					<a href="/gallery">Gallery</a>
 
+					<a href="/map">Map</a>
+
 					<a href="">F</a>
 
 					<form role="search" method="GET" id="header-search-form" action="<?= esc_url( home_url( '/' ) ); ?>">

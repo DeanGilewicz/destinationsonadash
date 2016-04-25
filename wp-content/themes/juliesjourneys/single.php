@@ -12,7 +12,7 @@ get_header(); ?>
 <div id="primary" class="content-area">
 
 	<main id="main" class="site-main" role="main">
-		
+
 		<?php
 			while ( have_posts() ) : the_post();
 
@@ -36,8 +36,8 @@ get_header(); ?>
 						?>
 						</div>
 					</div>
-				
-				<?php elseif ( is_singular( 'post' ) ) : ?>
+					
+				<?php elseif ( is_singular( 'post' ) ) : // if trips then show trip navigation ?>
 
 					<div class="row container-single-post-nav">
 						<div class="medium-12 columns">

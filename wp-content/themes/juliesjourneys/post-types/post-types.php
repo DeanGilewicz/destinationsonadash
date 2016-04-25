@@ -47,7 +47,7 @@
 	function juliesjourneys_create_eating_ethnic_custom_post_type() {
 		register_post_type('eating_ethnic', array(
 		        'labels' => array(
-		            'name' => 'Foods',
+		            'name' => 'Eating Ethnic',
 		            'singular_name' => 'Food',
 		            'add_new' => 'Add Foods',
 		            'edit_item' => 'Edit Food',

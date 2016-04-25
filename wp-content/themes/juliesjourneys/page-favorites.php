@@ -2,11 +2,12 @@
 /*
  * This is a custom page for /favorites - must have page created in admin called Favorites
 */
-
+	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 	$argsFavs = array(
 		'post_type' => array('post', 'insights', 'eating_ethnic'),
-		'posts_per_page' => '-1',
-		'category_name' => 'favorite'
+		'posts_per_page' => '5',
+		'category_name' => 'favorite',
+		'paged' => $paged
 	);
 
 	$the_query_favs = new WP_Query( $argsFavs );
@@ -33,7 +34,7 @@
 
 						<div class="post-meta">
 							<span class="post-meta-category">
-								<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>
 							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
 							<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
@@ -71,7 +72,7 @@
 
 						<div class="post-meta">
 							<span class="post-meta-category">
-								<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>
 							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
 							<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
@@ -94,6 +95,17 @@
 			<?php $counter++; ?>
 
 		<?php endwhile; ?>
+
+			<?php if ( $the_query_favs->max_num_pages > 1 ) : // check if the max number of pages is greater than 1 ?>
+				<nav class="prev-next-posts">
+					<div class="prev-posts-link">
+						<?php echo get_next_posts_link( 'Older Entries', $the_query_favs->max_num_pages ); // display older posts link ?>
+					</div>
+					<div class="next-posts-link">
+						<?php echo get_previous_posts_link( 'Newer Entries' ); // display newer posts link ?>
+					</div>
+				</nav>
+			<?php endif; ?>
 
 			<?php wp_reset_postdata(); ?>
 

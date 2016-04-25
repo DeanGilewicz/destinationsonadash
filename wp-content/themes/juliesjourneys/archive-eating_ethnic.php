@@ -23,6 +23,8 @@
 				// print_r($post);
 				// print_r(get_post_meta(get_the_id()));
 				$postType = get_post_type_object(get_post_type());
+				// print_r($postType);
+				// print_r($postType->rewrite['slug']);
 				// echo '</pre>'; 
 			?>
 
@@ -42,7 +44,7 @@
 
 					<div class="post-meta">
 						<span class="post-meta-category">
-							<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+							<a href="/<?= strtolower($postType->rewrite['slug']); ?>"><?= $postType->labels->name; ?></a>
 						</span>
 					</div>
 
@@ -62,6 +64,8 @@
 			</article>
 
 		<?php endwhile; ?>
+
+		<?php echo paginate_links(); ?>
 
 		<?php wp_reset_postdata(); ?>
 

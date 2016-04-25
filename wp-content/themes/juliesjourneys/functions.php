@@ -484,6 +484,9 @@ add_filter( 'wp_get_attachment_image_attributes', 'juliesjourneys_post_thumbnail
 // add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
 
 
+
+// custom global comment section 
+
 function julies_journeys_custom_comments( $comment, $args, $depth ) {
     $GLOBALS['comment'] = $comment;
     switch( $comment->comment_type ) :
@@ -536,6 +539,9 @@ function julies_journeys_custom_comments( $comment, $args, $depth ) {
         break;
     endswitch;
 }
+
+
+// gallery fn with pagination
 
 /*FILTER: GALLERY:  --------------------------------------------------------------*/
 add_filter( 'post_gallery', 'filter_gallery', 10, 2 );
@@ -704,11 +710,17 @@ function filter_gallery( $output, $attr ) {
 	
 	// GALLERY OUTPUT ENDS HERE---------------------------------------//
 
-
-
-
     return $output;
 }
+
+
+// set archive pages to limit of 5 posts per page
+function limit_posts_per_archive_page() {
+	if ( is_archive() ) {
+		set_query_var('posts_per_archive_page', 5);
+	}
+}
+add_filter('pre_get_posts', 'limit_posts_per_archive_page');
 
 
 

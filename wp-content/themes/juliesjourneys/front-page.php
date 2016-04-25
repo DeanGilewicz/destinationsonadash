@@ -292,9 +292,11 @@
 
 		<?php while ( $the_query_home_posts->have_posts() ) : $the_query_home_posts->the_post(); ?>
 			
-			<?php 
+			<?php
+				// echo '<pre>';
 				$postType = get_post_type_object(get_post_type());
-				// echo '<pre>'; print_r($postType);
+				// print_r($postType);
+				// echo '</pre>'; 
 			?>
 
 			<?php if ($counter % 2 === 0) : ?>
@@ -308,7 +310,7 @@
 					<div class="small-7 columns">
 						<div class="post-meta">
 							<span class="post-meta-category">
-								<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>
 							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
 							<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
@@ -329,7 +331,7 @@
 							<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
 							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
 							<span class="post-meta-category">
-								<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>
 						</div>
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
@@ -419,7 +421,10 @@
 		<?php while ( $the_query_all_posts->have_posts() ) : $the_query_all_posts->the_post(); ?>
 			
 			<?php 
+				// echo '<pre>';
 				$postType = get_post_type_object(get_post_type());
+				// print_r($postType);
+				// echo '</pre>';
 				// $postCats = get_the_category();
 				// $postTags = get_the_tags();
 				// echo '<pre>'; print_r($postCats);
@@ -437,7 +442,7 @@
 					<div class="small-7 columns">
 						<div class="post-meta">
 							<span class="post-meta-category">
-								<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>
 							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
 							<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
@@ -458,7 +463,7 @@
 							<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
 							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
 							<span class="post-meta-category">
-								<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>
 						</div>
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>

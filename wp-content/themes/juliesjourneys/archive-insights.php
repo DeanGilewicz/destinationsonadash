@@ -23,6 +23,7 @@
 				// print_r($post);
 				// print_r(get_post_meta(get_the_id()));
 				$postType = get_post_type_object(get_post_type());
+				// print_r($postType);
 				// echo '</pre>'; 
 			?>
 
@@ -42,7 +43,7 @@
 
 					<div class="post-meta">
 						<span class="post-meta-category">
-							<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+							<a href="/<?= strtolower($postType->labels->name); ?>"><?= $postType->labels->name; ?></a>
 						</span>
 					</div>
 
@@ -62,6 +63,17 @@
 			</article>
 
 		<?php endwhile; ?>
+
+		<?php if ( $wp_query->max_num_pages > 1 ) : // check if the max number of pages is greater than 1 ?>
+			<nav class="prev-next-posts">
+				<div class="prev-posts-link">
+					<?php echo get_next_posts_link( 'Older Entries', $wp_query->max_num_pages ); // display older posts link ?>
+				</div>
+				<div class="next-posts-link">
+					<?php echo get_previous_posts_link( 'Newer Entries' ); // display newer posts link ?>
+				</div>
+			</nav>
+		<?php endif; ?>
 
 		<?php wp_reset_postdata(); ?>
 
