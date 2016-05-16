@@ -60,22 +60,6 @@
 					font-weight: 300;
 					color: $white;
 				}
-
-				.button {
-					display: inline-block;
-					margin: 10px 0;
-					padding: 10px;
-					border: 1px solid $white;
-					text-align: center;
-					color: $white;
-					text-decoration: none;
-
-					&:hover {
-						background: $white;
-						color: #000;
-					}
-				}
-
 			}
 		}
 

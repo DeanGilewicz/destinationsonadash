@@ -53,6 +53,22 @@ a {
 
 }
 
+.button {
+	display: inline-block;
+	margin: 10px 0;
+	padding: 10px 20px;
+	background-color: $purple;
+	border: 1px solid $white;
+	border-radius: 5px;
+	text-align: center;
+	color: $white;
+	text-decoration: none;
+
+	&:hover {
+		background-color: $purple_dark;
+	}
+}
+
 img {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-tap-highlight-color: transparent;
