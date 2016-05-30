@@ -53,22 +53,6 @@ a {
 
 }
 
-.button {
-	display: inline-block;
-	margin: 10px 0;
-	padding: 10px 20px;
-	background-color: $purple;
-	border: 1px solid $white;
-	border-radius: 5px;
-	text-align: center;
-	color: $white;
-	text-decoration: none;
-
-	&:hover {
-		background-color: $purple_dark;
-	}
-}
-
 img {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-tap-highlight-color: transparent;
@@ -84,4 +68,55 @@ img {
 .clearfix:after {
 	clear: both;
 }
+
+.button {
+	display: inline-block;
+	margin: $base_size 0;
+	padding: $base_size*0.5 $base_size;
+	background-color: $purple;
+	border: 1px solid $white;
+	text-align: center;
+	color: $white;
+	text-decoration: none;
+
+	@media (min-width: $large) {
+		padding: $base_size $base_size*2;
+	}
+
+	@media (min-width: $large) {
+		background-color: transparent;
+	}
+
+	&:hover {
+		background-color: $purple_dark;
+	}
+}
+
+.read-more {
+	position: relative;
+	text-transform: uppercase;
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		width: 0;
+		height: 0;
+		margin-left: 5px;
+		border-style: solid;
+		border-width: 8px 0 8px 10px;
+		border-color: transparent transparent transparent $purple;
+		opacity: 0;
+		transform-style: preserve-3d;
+		transform: translate3d(-15px, -50%, 0px);
+		transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+	}
+
+	&:hover:after {
+		transform: translate3d(0px, -50%, 0px);
+		opacity: 1;
+	}
+}
+
+
 

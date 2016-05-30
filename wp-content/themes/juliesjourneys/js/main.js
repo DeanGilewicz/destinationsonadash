@@ -83,6 +83,21 @@ jQuery(document).ready(function($) {
 
 		});
 
+
+		// mobile handling of block categories
+
+		$('.block-1 .item a').on('click', function(e) {
+			if( $(this).hasClass('active') ) {
+				return true;
+			} else {
+				$('.block-1 .item a').removeClass('active');
+				e.preventDefault();
+				$(this).addClass('active');
+			}
+		});
+
+
+
 	}
 
 	// if using lightbox then uncomment
