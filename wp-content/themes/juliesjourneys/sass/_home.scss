@@ -61,6 +61,15 @@ body.home {
 					font-weight: 300;
 					color: $white;
 				}
+
+				.button.mobile-slider {
+					font-size: $base_size;
+					text-transform: uppercase;
+
+					@media (min-width: $medium) {
+						font-size: $base_size*1.4;
+					}
+				}
 			}
 		}
 
@@ -76,13 +85,13 @@ body.home {
 			.progress-btn {
 				font-size: 13px;
 				text-transform: uppercase;
-				width: 10px;
-				height: 10px;
+				width: 18px;
+				height: 18px;
 				background: $white;
 				color: $white;
 				float: left;
-				border-radius: 5px;
-				margin: 0 5px;
+				border-radius: 50%;
+				margin: 0 8px;
 				overflow: hidden;
 				cursor: pointer;
 
@@ -91,24 +100,25 @@ body.home {
 				}
 
 				&.active {
-					background: $white;
-					color: $white;
-					border-color: $white;
+					background-color: $purple;
+					color: $purple;
+					border: 1px solid $white;
 				}
 
 				@media (min-width: $medium) {
 					width: 25%;
+					height: auto;
+					margin: 0;
 					padding: 10px 0;
 					border-top: 1px solid $white;
-					transition: border-color .4s linear, color .4s linear;
-					height: auto;
 					background: transparent;
 					border-radius: 0;
-					margin: 0;
+					transition: border-color .4s linear, color .4s linear;
 
 					&.active,
 					&:hover {
 						background: transparent;
+						border: none;
 						border-top: 1px solid $purple_dark;
 					}
 				}
@@ -221,6 +231,22 @@ body.home {
 					transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
 				}
 
+				.mobile-go {
+					color: $white;
+					opacity: 0;
+					transform: translate3d(30px, 0px, 0px);
+					transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+				
+					&.active {
+						opacity: 1;
+						transform: translate3d(0,0,0);
+					}
+
+					@media (min-width: $medium) {
+						display: none;
+					}
+				}
+
 			}
 
 			.overlay-border {
@@ -269,7 +295,8 @@ body.home {
 	.block-4 {
 
 		.home-post {
-			padding-bottom: $base_size*6;
+			padding-top: $base_size*4;
+			padding-bottom: $base_size*4;
 
 			&.ltr {
 

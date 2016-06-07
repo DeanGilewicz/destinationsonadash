@@ -85,17 +85,20 @@ jQuery(document).ready(function($) {
 
 
 		// mobile handling of block categories
-
-		$('.block-1 .item a').on('click', function(e) {
-			if( $(this).hasClass('active') ) {
-				return true;
-			} else {
-				$('.block-1 .item a').removeClass('active');
-				e.preventDefault();
-				$(this).addClass('active');
-			}
-		});
-
+		if( $(window).width() <= 640 ) {
+			$('.block-1 .item a').on('click', function(e) {
+				console.log('clicked');
+				if( $(this).hasClass('active') ) {
+					return true;
+				} else {
+					$('.block-1 .item a').removeClass('active');
+					$('.block-1 .item a .mobile-go').removeClass('active');
+					e.preventDefault();
+					$(this).addClass('active');
+					$(this).find('.mobile-go').addClass('active');
+				}
+			});
+		}
 
 
 	}

@@ -87,7 +87,9 @@ img {
 		background-color: transparent;
 	}
 
-	&:hover {
+	&:hover,
+	&:active,
+	&:focus {
 		background-color: $purple_dark;
 	}
 }

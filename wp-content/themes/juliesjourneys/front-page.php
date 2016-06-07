@@ -117,7 +117,7 @@
 
 								<h2><?php the_title(); ?></h2>
 								<?php the_excerpt(); ?>
-								<a class="button" href="<?php the_permalink(); ?>">go</a>
+								<a class="button mobile-slider" href="<?php the_permalink(); ?>">go</a>
 
 							</div>
 						</div>
@@ -171,6 +171,7 @@
 
 						<?php the_post_thumbnail(); ?>
 						<div class="item-description">
+							<p class="mobile-go">Go</p>
 							<span>Trips</span>
 							<p>All Posts</p>
 						</div>
@@ -200,6 +201,7 @@
 
 						<?php the_post_thumbnail(); ?>
 						<div class="item-description">
+							<p class="mobile-go">Go</p>
 							<span>Insights</span>
 							<p>All Posts</p>
 						</div>
@@ -229,6 +231,7 @@
 
 						<?php the_post_thumbnail(); ?>
 						<div class="item-description">
+							<p class="mobile-go">Go</p>
 							<span>Eating Ethnic</span>
 							<p>All Posts</p>
 						</div>
@@ -258,6 +261,7 @@
 
 						<?php the_post_thumbnail(); ?>
 						<div class="item-description">
+							<p class="mobile-go">Go</p>
 							<span>Favs</span>
 							<p>All Posts</p>
 						</div>
