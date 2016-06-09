@@ -18,6 +18,16 @@
 
 <div class="content-area favs">
 
+	<div class="row">
+		
+		<div class="medium-12 columns">
+			
+			<h1 class="page-title">Favorites</h1>
+
+		</div>
+
+	</div>
+
 	<?php if ( $the_query_favs->have_posts() ) : ?>
 
 		<?php $counter = 0; ?>
@@ -28,10 +38,8 @@
 
 			<?php if ($counter % 2 === 0) : ?>
 
-				<article class="row post-favorite rtl">
-
-					<div class="medium-5 columns">
-
+				<article class="row post-favorite ltr">
+					<div class="medium-7 medium-push-5 columns">
 						<div class="post-meta">
 							<span class="post-meta-category">
 								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
@@ -39,55 +47,41 @@
 							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
 							<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
 						</div>
-
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
-							
 						<div class="post-excerpt">
 							<?php the_excerpt(); ?>
 						</div>
-			
 						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
-
 					</div>
-
-					<div class="medium-7 columns">
-
-						<?php the_post_thumbnail(); ?>
-
+					<div class="medium-5 medium-pull-7 columns">
+						<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail(); ?>
+						</a>
 					</div>
-
 				</article>
 
 			<?php else : ?>
 
-				<article class="row post-favorite ltr">
-
+				<article class="row post-favorite rtl">
 					<div class="medium-7 columns">
-
-						<?php the_post_thumbnail(); ?>
-
-					</div>
-
-					<div class="medium-5 columns">
-
 						<div class="post-meta">
+							<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
 							<span class="post-meta-category">
 								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>
 							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
-							<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
 						</div>
-							
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
-						
 						<div class="post-excerpt">
 							<?php the_excerpt(); ?>
 						</div>
-						
 						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
-
 					</div>
-
+					<div class="medium-5 columns">
+						<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail(); ?>
+						</a>
+					</div>
 				</article>
 
 			<?php endif; ?>

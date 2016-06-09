@@ -12,7 +12,15 @@
 
 <div class="content-area eating-ethnic">
 
-	<h1>Eating Ethnic</h1>
+	<div class="row">
+		
+		<div class="medium-12 columns">
+			
+			<h1 class="page-title">Eating Ethnic</h1>
+
+		</div>
+
+	</div>
 
 	<?php if ( have_posts() ) : ?>
 
@@ -42,22 +50,26 @@
 
 				<div class="row">
 
-					<div class="post-meta">
+					<div class="medium-12 columns">
+
+					<!-- <div class="post-meta">
 						<span class="post-meta-category">
 							<a href="/<?= strtolower($postType->rewrite['slug']); ?>"><?= $postType->labels->name; ?></a>
 						</span>
+					</div> -->
+
+						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
+
+						<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+						<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
+
+						<div class="post-excerpt">
+							<?php the_excerpt(); ?>
+						</div>
+
+						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+
 					</div>
-
-					<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
-
-					<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
-					<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
-
-					<div class="post-excerpt">
-						<?php the_excerpt(); ?>
-					</div>
-
-					<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
 
 				</div>
 

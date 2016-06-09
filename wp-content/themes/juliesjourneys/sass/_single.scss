@@ -2,22 +2,40 @@
 
 	figure {
 		display: inline-block;
+		width: 100% !important;
 		max-width: 100%;
 		margin: 0;
 	}
 
 	.alignleft {
-		float: left;
-		margin-right: $base_size;
+		display: block;
+
+		@media (min-width: $medium) {
+			float: left;
+			margin-right: $base_size;
+		}
+
+		img {
+			width: 100%;
+		}	
 	}
 
 	.alignright {
-		float: right;
-		margin-left: $base_size;
+		display: block;
+
+		@media (min-width: $medium) {
+			float: right;
+			margin-left: $base_size;
+		}
+
+		img {
+			width: 100%;
+		}
 	}
 
 	.post-meta-single-category {
 		font-family: $font_pacifico;
+		text-align: center;
 		text-transform: capitalize;
 
 		a {
@@ -26,6 +44,7 @@
 	}
 
 	.post-title h2 {
+		text-align: center;
 		text-transform: uppercase;
 	}
 
