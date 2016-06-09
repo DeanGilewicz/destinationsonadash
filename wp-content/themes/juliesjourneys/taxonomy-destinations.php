@@ -50,10 +50,8 @@
 
 				<?php if ($counter % 2 === 0) : ?>
 
-					<article class="row post-destination rtl">
-
-						<div class="medium-5 columns">
-
+					<article class="row post-destination ltr">
+						<div class="medium-7 medium-push-5 columns">
 							<div class="post-meta">
 								<span class="post-meta-category">
 									<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
@@ -66,29 +64,18 @@
 								<?php the_excerpt(); ?>
 							</div>
 							<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
-
 						</div>
-
-						<div class="medium-7 columns">
-
-							<?php the_post_thumbnail(); ?>
-
+						<div class="medium-5 medium-pull-7 columns">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail(); ?>
+							</a>
 						</div>
-
 					</article>
 
 				<?php else : ?>
 
-					<article class="row post-destination ltr">
-
+					<article class="row post-destination rtl">
 						<div class="medium-7 columns">
-
-							<?php the_post_thumbnail(); ?>
-
-						</div>
-
-						<div class="medium-5 columns">
-
 							<div class="post-meta">
 								<span class="post-meta-category">
 									<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
@@ -101,9 +88,12 @@
 								<?php the_excerpt(); ?>
 							</div>
 							<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
-
 						</div>
-
+						<div class="medium-5 columns">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail(); ?>
+							</a>
+						</div>
 					</article>
 
 				<?php endif; ?>

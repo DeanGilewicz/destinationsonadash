@@ -438,12 +438,7 @@
 			<?php if ($counter % 2 === 0) : ?>
 
 				<article class="row home-post ltr">
-					<div class="small-5 columns">
-						<a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail('large'); ?>
-						</a>
-					</div>
-					<div class="small-7 columns">
+					<div class="medium-7 medium-push-5 columns">
 						<div class="post-meta">
 							<span class="post-meta-category">
 								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
@@ -456,13 +451,18 @@
 							<?php the_excerpt(); ?>
 						</div>
 						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+					</div>
+					<div class="medium-5 medium-pull-7 columns">
+						<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail('large'); ?>
+						</a>
 					</div>
 				</article>
 
 			<?php else: ?>
 
 				<article class="row home-post rtl">
-					<div class="small-7 columns">
+					<div class="medium-7 columns">
 						<div class="post-meta">
 							<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
 							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
@@ -476,7 +476,7 @@
 						</div>
 						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
 					</div>
-					<div class="small-5 columns">
+					<div class="medium-5 columns">
 						<a href="<?php the_permalink(); ?>">
 							<?php the_post_thumbnail('large'); ?>
 						</a>

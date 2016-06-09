@@ -96,6 +96,8 @@ img {
 
 .read-more {
 	position: relative;
+	display: inline-block;
+	margin-bottom: 10px;
 	text-transform: uppercase;
 
 	&:after {

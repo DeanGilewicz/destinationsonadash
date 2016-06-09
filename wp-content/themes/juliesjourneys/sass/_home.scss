@@ -164,7 +164,8 @@ body.home {
 
 				&:active,
 				&:focus,
-				&:hover {
+				&:hover,
+				&.active {
 					color: $purple;
 
 					img {
@@ -339,7 +340,11 @@ body.home {
 			}
 
 			&.rtl {
-				text-align: right;
+				text-align: left;
+
+				@media (min-width: $medium) {
+					text-align: right;
+				}
 
 				h2 {
 					background-color: $white;
@@ -365,7 +370,7 @@ body.home {
 					@media (min-width: $medium) {
 						margin-top: 0;
 						padding: $base_size*2 0;
-						text-align: left;
+						text-align: right;
 					}
 
 					span {
