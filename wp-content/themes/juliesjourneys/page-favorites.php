@@ -58,6 +58,7 @@
 							<?php the_post_thumbnail(); ?>
 						</a>
 					</div>
+					<span class="divider"></span>
 				</article>
 
 			<?php else : ?>
@@ -82,6 +83,7 @@
 							<?php the_post_thumbnail(); ?>
 						</a>
 					</div>
+					<span class="divider"></span>
 				</article>
 
 			<?php endif; ?>

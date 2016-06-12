@@ -122,5 +122,16 @@ img {
 	}
 }
 
+.divider {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 50%;
+	height: 2px;
+	background-color: $purple;
+	margin: 0 auto;
+}
+
 
 
