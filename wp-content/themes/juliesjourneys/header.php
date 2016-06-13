@@ -64,19 +64,61 @@
 
 				<ul class="small-12 columns header-continents">
 
-					<li><a href="/continent/africa">Africa</a></li>
+					<li>
+						<a href="/continent/africa">
+							<span>Africa</span>
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/africa.png" class="icon_africa" />
+							<span>Go</span>
+						</a>
+					</li>
 
-					<li><a href="/continent/antarctica">Antarctica</a></li>
+					<li>
+						<a href="/continent/antarctica">
+							<span>Antarctica</span>
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/antarctica.png" class="icon_antarctica" />
+							<span>Go</span>
+						</a>
+					</li>
 
-					<li><a href="/continent/asia">Asia</a></li>
+					<li>
+						<a href="/continent/asia">
+							<span>Asia</span>
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/asia.png" class="icon_asia" />
+							<span>Go</span>
+						</a>
+					</li>
 
-					<li><a href="/continent/australia">Australia</a></li>
+					<li>
+						<a href="/continent/australia">
+							<span>Australia</span>
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/australia.png" class="icon_australia" />
+							<span>Go</span>
+						</a>
+					</li>
 
-					<li><a href="/continent/europe">Europe</a></li>
+					<li>
+						<a href="/continent/europe">
+							<span>Europe</span>
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/europe.png" class="icon_europe" />
+							<span>Go</span>
+						</a>
+					</li>
 
-					<li><a href="/continent/north-america">N America</a></li>
+					<li>
+						<a href="/continent/north-america">
+							<span class="text_long">N. America</span>
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/north_america.png" class="icon_north_america" />
+							<span>Go</span>
+						</a>
+					</li>
 
-					<li><a href="/continent/south-america">S America</a></li>
+					<li>
+						<a href="/continent/south-america">
+							<span class="text_long">S. America</span>
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/south_america.png" class="icon_south_america" />
+							<span>Go</span>
+						</a>
+					</li>
 
 				</ul>
 

@@ -67,10 +67,10 @@
 					<div class="medium-7 columns">
 						<div class="post-meta">
 							<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
+							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
 							<span class="post-meta-category">
 								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>
-							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
 						</div>
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
 						<div class="post-excerpt">

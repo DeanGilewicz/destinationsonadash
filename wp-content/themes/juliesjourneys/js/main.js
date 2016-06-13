@@ -22,6 +22,23 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+
+	// GLOBAL NAV
+	// small device
+	if( $(window).width() <= 640 ) {
+		$('.header-continents li').on('click', function(e) {
+			if( $(this).find('span').hasClass('active') ) {
+				return true;
+			} else {
+				e.preventDefault();
+				$('.header-continents li span').removeClass('active');
+				$(this).find('span').addClass('active');
+			}
+
+		});
+	}
+	
+
 	// HOME PAGE
 
 	if ($('body').hasClass('home')) {
@@ -85,15 +102,16 @@ jQuery(document).ready(function($) {
 
 
 		// mobile handling of block categories
+		
 		if( $(window).width() <= 640 ) {
 			$('.block-1 .item a').on('click', function(e) {
-				console.log('clicked');
+				// console.log('clicked');
 				if( $(this).hasClass('active') ) {
 					return true;
 				} else {
+					e.preventDefault();
 					$('.block-1 .item a').removeClass('active');
 					$('.block-1 .item a .mobile-go').removeClass('active');
-					e.preventDefault();
 					$(this).addClass('active');
 					$(this).find('.mobile-go').addClass('active');
 				}

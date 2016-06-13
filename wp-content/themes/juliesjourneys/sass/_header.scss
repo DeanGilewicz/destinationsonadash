@@ -1,7 +1,12 @@
 header {
-	padding-top: $base_size * 3;
-	padding-bottom: $base_size * 3;
+	padding-top: $base_size*2;
+	padding-bottom: $base_size*2;
 	background-color: $purple_light;
+
+	@media (min-width: $medium) {
+		padding-top: $base_size*3;
+		padding-bottom: $base_size*3;
+	}
 
 	.header-top {
 
@@ -77,10 +82,20 @@ header {
 			float: left;
 			width: 14.28%;
 			text-align: center;
+			overflow: hidden;
+			height: 64px;
 
-			&:last-child {
-				border-right: none;
+			@media (min-width: 440px) and (max-width: $medium) {
+				height: 84px;
 			}
+
+			@media (min-width: $medium) {
+				height: 100px;
+			}
+
+			// &:last-child {
+			// 	border-right: none;
+			// }
 
 			&:before {
 				content: "";
@@ -103,6 +118,94 @@ header {
 			display: block;
 			text-transform: uppercase;
 			padding: $base_size*0.5 0 $base_size;
+
+			img {
+				margin-top: $base_size*2;
+
+				@media (min-width: $medium) {
+					margin-top: 0;
+				}
+
+				&.icon_africa {
+					width: 45%;
+					max-width: 36px;
+				}
+
+				&.icon_antarctica {
+					width: 50%;
+					max-width: 43px;
+				}
+
+				&.icon_asia {
+					width: 60%;
+					max-width: 50px;
+				}
+
+				&.icon_australia {
+					width: 55%;
+					max-width: 54px;
+				}
+
+				&.icon_europe {
+					width: 65%;
+					max-width: 60px;
+				}
+
+				&.icon_north_america {
+					width: 80%;
+					max-width: 74px;
+				}
+
+				&.icon_south_america {
+					width: 35%;
+					max-width: 30px;
+				}
+
+			}
+
+			span:first-child {
+				position: absolute;
+				display: block;
+				width: 100%;
+				font-size: $base_size*0.8;
+				transform: translate3d(100%,0,0);
+				transition: transform 0.4s ease-in-out;
+
+				@media (min-width: $medium) {
+					position: relative;
+					width: auto;
+					margin-bottom: $base_size;
+					font-size: initial;
+					transform: translate3d(0,0,0);
+				}
+
+				&.text_long {
+					width: 116%;
+				}
+
+				&.active {
+					transform: translate3d(0,0,0);
+				}
+				
+			}
+
+			span:last-child {
+				position: absolute;
+				bottom: 0;
+				display: block;
+				width: 100%;
+				font-size: $base_size*0.8;
+				transform: translate3d(-100%,0,0);
+				transition: transform 0.4s ease-in-out;
+
+				@media (min-width: $medium) {
+					display: none;
+				}
+
+				&.active {
+					transform: translate3d(0,0,0);
+				}
+			}
 		}
 		
 	}

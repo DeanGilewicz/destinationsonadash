@@ -131,6 +131,10 @@ img {
 	height: 2px;
 	background-color: $purple;
 	margin: 0 auto;
+
+	@media (min-width: $medium) {
+		display: none;
+	}
 }
 
 

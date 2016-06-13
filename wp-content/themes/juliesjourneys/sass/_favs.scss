@@ -29,6 +29,14 @@
 				}
 			}
 
+			.post-meta-category {
+				margin-bottom: $base_size;
+
+				@media (min-width: $medium) {
+					margin-bottom: 0;
+				}
+			}
+
 			.post-meta {
 				margin-top: $base_size;
 				text-align: center;
@@ -58,6 +66,7 @@
 
 			h2 {
 				background-color: $white;
+				margin-top: $base_size*2.5;
 
 				@media (min-width: $medium) {
 					position: relative;
@@ -70,6 +79,24 @@
 
 				&:hover {
 					color: $purple_dark;
+				}
+			}
+
+			.post-meta-comments,
+			.post-meta-date {
+				position: relative;
+				top: $base_size*4.5;
+
+				@media (min-width: $medium) {
+					top: 0;
+				}
+			}
+
+			.post-meta-category {
+				margin-top: -15px;
+
+				@media (min-width: $medium) {
+					margin: 0;
 				}
 			}
 
