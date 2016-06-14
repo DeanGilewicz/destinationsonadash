@@ -98,11 +98,19 @@ $totalPostNum = count($postArray);
 
 						<?php // $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
 
-						<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
+						<?php 
+							// advanced custom fields 
+							$customFields = get_fields($modifiedPost->ID);
+							$flag = $customFields['trip_flag'];
+						?>
 
-							<img src="http://placehold.it/500x300?text=flag"/>
+						<?php if( !empty($flag) ) : ?>
 
-						</a>
+							<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
+								<img src="<?php echo $flag['url']; ?>" alt="<?php echo $flag['alt']; ?>" />
+							</a>
+
+						<?php endif; ?>
 
 						<?php // the_post_thumbnail('medium'); ?>
 

@@ -6,6 +6,11 @@
  * @subpackage Julies_Journeys
  * @since Julies Journeys 1.0
  */
+
+// Advanced Custom Fields
+$trip_date = get_field('trip_date');
+$trip_duration = get_field('trip_duration');
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -39,6 +44,17 @@
 			
 			</div>
 
+		</div>
+
+		<div class="row">
+			<div class="small-12 columns">
+				<?php if( $trip_date ): ?>
+					<span class="post-meta-trip-date"><?php echo $trip_date; ?></span>
+				<?php endif; ?>
+				<?php if( $trip_duration ): ?>
+					<span class="post-meta-trip-duration"><?php echo $trip_duration; ?></span>
+				<?php endif; ?>
+			</div>
 		</div>
 
 		<div class="row">

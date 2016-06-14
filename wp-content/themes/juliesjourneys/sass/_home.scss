@@ -9,6 +9,14 @@ body.home {
 		margin-left: auto;
 		margin-right: auto;
 
+		@media (min-width: 420px) {
+			height: 330px;
+		}
+
+		@media (min-width: 520px) {
+			height: 420px;
+		}
+
 		@media (min-width: $medium) {
 			height: 500px;
 			margin-top: $base_size*6;
