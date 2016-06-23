@@ -432,6 +432,7 @@ body.home {
 	}
 
 	.block-3 {
+		padding-top: $base_size*7;
 		padding-bottom: $base_size*6;
 
 		.quote {
@@ -509,9 +510,13 @@ body.home {
 				span {
 					display: block;
 					margin-bottom: $base_size*3;
-					font-size: $base_font_size*2.6;
-					color: $white;
+					font-size: $base_font_size*1.8;
 					text-transform: uppercase;
+					color: $white;
+
+					@media (min-width: $medium) {
+						font-size: $base_font_size*2.6;
+					}
 				}
 
 				p {
@@ -563,6 +568,10 @@ body.home {
 
 		}	
 
+	}
+
+	.block-4 {
+		padding-bottom: $base_size*6;
 	}
 
 }

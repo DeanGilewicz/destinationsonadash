@@ -1,3 +1,33 @@
 footer {
-	
+	padding-top: $base_size*2;
+	padding-bottom: $base_size*2;
+	background-color: $purple;
+	color: $white;
+
+	.footer-area {
+		padding-top: $base_size;
+		padding-bottom: $base_size;
+	}
+
+	h6 {
+		font-size: $base_font_size*1.2;
+		text-transform: uppercase;
+		font-weight: bold;
+		color: $white;
+		
+	}
+
+	a {
+		display: block;
+		margin-top: $base_size;
+		margin-bottom: $base_size;
+		font-size: $base_font_size;
+		color: $white;
+
+		&.active {
+			font-weight: 700;
+			// text-decoration: underline;
+		}
+	}
+
 }

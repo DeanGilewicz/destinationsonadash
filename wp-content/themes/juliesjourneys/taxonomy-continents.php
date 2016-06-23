@@ -101,18 +101,22 @@ $totalPostNum = count($postArray);
 						<?php 
 							// advanced custom fields 
 							$customFields = get_fields($modifiedPost->ID);
-							$flag = $customFields['trip_flag'];
+							if( isset($customFields['trip_flag']) ) { $flag = $customFields['trip_flag']; }							
 						?>
 
-						<?php if( !empty($flag) ) : ?>
+						<?php if( isset($flag) ) : ?>
 
 							<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
 								<img src="<?php echo $flag['url']; ?>" alt="<?php echo $flag['alt']; ?>" />
 							</a>
 
-						<?php endif; ?>
+						<?php else: ?>
 
-						<?php // the_post_thumbnail('medium'); ?>
+							<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
+								<?php the_post_thumbnail('medium'); ?>
+							</a>
+
+						<?php endif; ?>
 
 					</div>
 

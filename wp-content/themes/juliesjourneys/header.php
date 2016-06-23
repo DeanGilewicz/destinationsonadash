@@ -11,7 +11,7 @@
 	<?php // endif; ?>
 
 	<title><?php wp_title('|', true, 'right'); bloginfo( 'name' )?></title>
-    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Pacifico|Oswald' />
+    <!-- <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Pacifico|Oswald' /> -->
     <link rel="stylesheet" type='text/css' href="<?= get_stylesheet_directory_uri(); ?>/dist/css/vendor/normalize.min.css" />
     <link rel="stylesheet" type='text/css' href="<?= get_stylesheet_directory_uri(); ?>/dist/css/vendor/foundation.min.css" />
     <link rel="stylesheet" type='text/css' href="<?= get_stylesheet_directory_uri(); ?>/dist/css/main.min.css" />
@@ -64,7 +64,11 @@
 
 				<ul class="small-12 columns header-continents">
 
-					<li>
+					<?php 
+					// print_r(get_bloginfo());
+					// exit;
+					?>
+					<li class="active <?php // if match page then give active class ?>">
 						<a href="/continent/africa">
 							<span>Africa</span>
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/africa.png" class="icon_africa" />
@@ -72,7 +76,7 @@
 						</a>
 					</li>
 
-					<li>
+					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/antarctica">
 							<span>Antarctica</span>
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/antarctica.png" class="icon_antarctica" />
@@ -80,7 +84,7 @@
 						</a>
 					</li>
 
-					<li>
+					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/asia">
 							<span>Asia</span>
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/asia.png" class="icon_asia" />
@@ -88,7 +92,7 @@
 						</a>
 					</li>
 
-					<li>
+					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/australia">
 							<span>Australia</span>
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/australia.png" class="icon_australia" />
@@ -96,7 +100,7 @@
 						</a>
 					</li>
 
-					<li>
+					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/europe">
 							<span>Europe</span>
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/europe.png" class="icon_europe" />
@@ -104,7 +108,7 @@
 						</a>
 					</li>
 
-					<li>
+					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/north-america">
 							<span class="text_long">N. America</span>
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/north_america.png" class="icon_north_america" />
@@ -112,7 +116,7 @@
 						</a>
 					</li>
 
-					<li>
+					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/south-america">
 							<span class="text_long">S. America</span>
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/south_america.png" class="icon_south_america" />
