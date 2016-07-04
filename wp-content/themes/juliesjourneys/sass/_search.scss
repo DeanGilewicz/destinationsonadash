@@ -1,0 +1,22 @@
+body.search {
+
+	.search-form {
+
+		label {
+			display: inline-block;
+			width: calc(100% - 70px);
+		}
+
+		.search-submit {
+			display: inline-block;
+			height: 40px;
+			vertical-align: middle;
+		}
+
+	}
+
+	.not-found .term {
+		font-weight: 700;
+	}
+
+}

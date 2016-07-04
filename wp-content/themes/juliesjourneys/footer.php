@@ -18,12 +18,18 @@
 
 	$the_query_popular_posts = new WP_Query( $argsPopularPosts );
 
-// get 5 most popular tags (by number of mentions for tag)
+// TODO: get 5 most popular tags (by number of mentions for tag)
 
 	$argsPopularTags = array(
-		// 'category' => 'tags',
+		// 'taxonomy' => 'post_tag',
 		'posts_per_page' => '5',
+		// 'category_name' => 'post_tag',
 		// 'orderby' => 'name'
+		// 'tax_query' => array(
+		// 	array(
+		// 		'taxonomy' => 'post_tag'
+		// 	)
+		// )
 	);
 
 	$the_query_popular_tags = new WP_Query( $argsPopularTags );
@@ -54,6 +60,10 @@
 					<a href="/eating_ethnic">eating ethnic</a>
 					<a href="/favorites">favs</a>
 				</div>
+
+			</div>
+
+			<div class="row">
 
 				<div class="small-6 medium-3 columns footer-area">
 					<?php if ( $the_query_popular_posts->have_posts() ) : ?>

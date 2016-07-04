@@ -14,9 +14,12 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentysixteen' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
-			</header><!-- .page-header -->
+			<div class="row page-header">
+				<div class="medium-12 columns">
+					<!-- <h1 class="page-title"><?php printf( __( 'Search Results For: %s', 'twentysixteen' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1> -->
+					<h1 class="page-title">Search Results For: <?php echo esc_html( get_search_query() ); ?></h1>
+				</div>
+			</div><!-- .page-header -->
 
 			<?php
 			// Start the loop.
