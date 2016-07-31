@@ -9,30 +9,33 @@
 	* @since JuliesJourneys 1.0
 */
 
-// get 5 most popular posts (by comments)
+	// get 5 most popular posts (based on comments)
 
 	$argsPopularPosts = array(
 		'posts_per_page' => '5',
-		// 'orderby' => 'comments'
+		'orderby' => 'comment_count'
 	);
 
 	$the_query_popular_posts = new WP_Query( $argsPopularPosts );
 
-// TODO: get 5 most popular tags (by number of mentions for tag)
 
-	$argsPopularTags = array(
-		// 'taxonomy' => 'post_tag',
-		'posts_per_page' => '5',
-		// 'category_name' => 'post_tag',
-		// 'orderby' => 'name'
-		// 'tax_query' => array(
-		// 	array(
-		// 		'taxonomy' => 'post_tag'
-		// 	)
-		// )
+	// get the 5 most used tags (using the in built tag cloud)
+	$tagArgs = array(
+	    'smallest'                  => 10,
+	    'largest'                   => 10,
+	    'unit'                      => 'px',
+	    'number'                    => 5,
+	    'format'                    => 'flat',
+	    'separator'                 => "\n",
+	    'orderby'                   => 'count',
+	    'order'                     => 'DESC',
+	    'exclude'                   => '10', // exclude featured
+	    'include'                   => null,
+	    'topic_count_text_callback' => 'default_topic_count_text',
+	    'link'                      => 'view',
+	    'taxonomy'                  => 'post_tag',
+	    'echo'                      => true
 	);
-
-	$the_query_popular_tags = new WP_Query( $argsPopularTags );
 
 ?>
 
@@ -81,17 +84,11 @@
 				</div>
 
 				<div class="small-6 medium-3 columns footer-area">
-					<?php if ( $the_query_popular_tags->have_posts() ) : ?>
+					
+					<h6>Popular Tags</h6>
+					
+					<?php wp_tag_cloud($tagArgs); ?>
 
-						<h6>Popular Tags</h6>
-
-						<?php while ( $the_query_popular_tags->have_posts() ) : $the_query_popular_tags->the_post(); ?>
-							<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-						<?php endwhile; ?>
-
-					<?php endif; ?>
-				
-					<?php wp_reset_postdata(); ?>
 				</div>
 
 			</div>
