@@ -16,6 +16,10 @@
 
 <div class="content-area map">
 
+	<?php build_i_world_map(1); ?>
+
+	<!--
+
 	<?php if ( $the_query_trips->have_posts() ) : ?>
 
 		<?php while ( $the_query_trips->have_posts() ) : $the_query_trips->the_post(); ?>
@@ -55,7 +59,7 @@
 
 				</div>
 
-			</article> -->
+			</article>
 			
 		<?php endwhile; ?>
 
@@ -66,6 +70,8 @@
 		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 	
 	<?php endif; ?>
+
+	-->
 
 </div>
 
