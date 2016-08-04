@@ -252,4 +252,14 @@ jQuery(document).ready(function($) {
 	*/
 
 
+
+	// MAP PAGE
+
+	if ($('body').hasClass('page-map')) {
+
+		$('.accordion h4').on('click', function() {
+			$(this).next('.accordion-content').toggleClass('active');
+		});
+	}
+
 });
