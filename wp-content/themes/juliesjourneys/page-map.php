@@ -336,12 +336,14 @@ TOTAL // 194
 									     count($array_south_america); 
 			?>
 
-			<p>I have been to <?= $totalCountriesVisited; ?> out of <?= $totalCountriesToVisit; ?> countries - that's <?= round(($totalCountriesVisited / $totalCountriesToVisit ) * 100) . '%';?></p>
-
+			<div class="total">
+				<!-- <h4>So far I have been to <?= $totalCountriesVisited; ?> out of <?= $totalCountriesToVisit; ?> countries <span>Total <?= round(($totalCountriesVisited / $totalCountriesToVisit ) * 100) . '%';?></span></h4> -->
+				<h4>So far I have been to <?= $totalCountriesVisited; ?> countries</h4>
+			</div>
 
 			<div class="accordion">
 				<h4>Africa <span><?php echo round((count($array_africa) / 52 ) * 100) . '%';?></span></h4>  
-				<div class="accordion-content">
+				<div class="accordion-content active">
 					<?php foreach($array_africa as $african_place_name) : ?>
 						<p><?=$african_place_name;?></p> 
 					<?php endforeach; ?>

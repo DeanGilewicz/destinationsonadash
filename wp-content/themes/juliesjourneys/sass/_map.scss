@@ -1,11 +1,44 @@
 body.page-map {
 
+	.map {
+		padding-top: $base_size*2;
+		padding-bottom: $base_size*2;
+	}
+
+	// start map plugin overrides
+	#cboxOverlay {
+		opacity: 0.3 !important;
+	}
+
+	#cboxContent {
+		width: auto !important;
+		max-width: 400px !important;
+	}
+
+	#cboxClose {
+		width: 100%;
+		background-color: $purple_dark;
+	}
+
+	// end map plugin overrides
+
+	.visited {
+		padding-top: $base_size*2;
+	}
+
 	.accordion {
 
 		h4 {
+			position: relative;
 			margin: 0;
-			background-color: $grey_light;
 			cursor: pointer;
+			color: $purple_dark;
+			cursor: pointer;
+
+			span {
+				position: absolute;
+				right: 0;
+			}
 		}
 
 		.accordion-content {
@@ -17,8 +50,21 @@ body.page-map {
 			&.active {
 				max-height: 500px;
 			}
+
+			p {
+				margin: 0;
+				padding-top: $base_size;
+				padding-bottom: $base_size;
+				color: $purple;
+			}
+
 		}
 
+	}
+
+	.total {
+		padding-top: $base_size*3;
+		padding-bottom: $base_size*3;
 	}
 
 }
