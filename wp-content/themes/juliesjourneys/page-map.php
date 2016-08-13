@@ -240,7 +240,6 @@ TOTAL // 194
 
 	$totalCountriesToVisit = 194;
 
-
 	$argsTrips = array(
 		'post_type' => 'post', // post is trip
 		'posts_per_page' => '-1'
@@ -248,11 +247,158 @@ TOTAL // 194
 
 	$the_query_trips = new WP_Query( $argsTrips );
 
+	if ( $the_query_trips->have_posts() ) :
+
+		$array_africa = array();
+		$array_antarctica = array();
+		$array_asia = array();
+		$array_australia = array();
+		$array_europe = array();
+		$array_north_america = array();
+		$array_south_america = array();
+
+		while ( $the_query_trips->have_posts() ) : $the_query_trips->the_post();
+			
+			// $postType = get_post_type_object(get_post_type());
+			$continentName = wp_get_post_terms( $post->ID, 'continents', array("fields" => "names") );
+			$postDestination = wp_get_post_terms( $post->ID, 'destinations', array("fields" => "all") );
+			
+			// echo '<pre>';
+			// print_r($continentName);
+			// print_r($postDestination[0]);
+			// print_r(get_the_permalink());
+			// echo '</pre>';
+			// exit;
+
+			$object = new stdClass();
+			$object->name = $postDestination[0]->name;
+			$object->link = '/destination/' . $postDestination[0]->slug;
+			
+			switch (strtolower($continentName[0])) {
+				case 'africa':
+					$exits = false;
+					foreach ($array_africa as $destination) {
+						if ($postDestination[0]->name === $destination->name) {
+							$exits = true;
+							break;
+						}
+					}
+					if (!$exits) {
+						array_push($array_africa, $object);
+					}
+					// !in_array($postDestination[0]->name, $array_africa) ? array_push($array_africa,$object) : false;
+				break;
+				case 'antarctica':
+					$exits = false;
+					foreach ($array_antarctica as $destination) {
+						if ($postDestination[0]->name === $destination->name) {
+							$exits = true;
+							break;
+						}
+					}
+					if (!$exits) {
+						array_push($array_antarctica, $object);
+					}
+					// !in_array($postDestination[0]->name, $array_antarctica) ? array_push($array_north_america, $object) : false;
+				break;
+				case 'asia':
+					$exits = false;
+					foreach ($array_asia as $destination) {
+						if ($postDestination[0]->name === $destination->name) {
+							$exits = true;
+							break;
+						}
+					}
+					if (!$exits) {
+						array_push($array_asia, $object);
+					}
+					// !in_array($postDestination[0]->name, $array_asia) ? array_push($array_north_america, $object) : false;
+				break;
+				case 'australia':
+					$exits = false;
+					foreach ($array_australia as $destination) {
+						if ($postDestination[0]->name === $destination->name) {
+							$exits = true;
+							break;
+						}
+					}
+					if (!$exits) {
+						array_push($array_australia, $object);
+					}
+					// !in_array($postDestination[0]->name, $array_australia) ? array_push($array_north_america, $object) : false;
+				break;
+				case 'europe':
+					$exits = false;
+					foreach ($array_europe as $destination) {
+						if ($postDestination[0]->name === $destination->name) {
+							$exits = true;
+							break;
+						}
+					}
+					if (!$exits) {
+						array_push($array_europe, $object);
+					}
+					// !in_array($postDestination[0]->name, $array_europe) ? array_push($array_north_america, $object) : false;
+				break;
+				case 'north america':
+					$exits = false;
+					foreach ($array_north_america as $destination) {
+						if ($postDestination[0]->name === $destination->name) {
+							$exits = true;
+							break;
+						}
+					}
+					if (!$exits) {
+						array_push($array_north_america, $object);
+					}
+					// !in_array($postDestination[0]->name, $array_north_america) ? array_push($array_north_america, $object) : false;
+				break;
+				case 'south america':
+					$exits = false;
+					foreach ($array_south_america as $destination) {
+						if ($postDestination[0]->name === $destination->name) {
+							$exits = true;
+							break;
+						}
+					}
+					if (!$exits) {
+						array_push($array_south_america, $object);
+					}
+					// !in_array($postDestination[0]->name, $array_south_america) ? array_push($array_north_america, $object) : false;
+				break;
+			}
+
+		endwhile;
+
+		wp_reset_postdata();
+
+		else : ?>
+
+			<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+				
+	<?php endif;
+
+	$totalCountriesVisited = count($array_africa) + 
+						     count($array_antarctica) + 
+						     count($array_asia) + 
+						     count($array_australia) +
+						     count($array_europe) +
+						     count($array_north_america) +
+						     count($array_south_america);
 ?>
 
 <?php get_header(); ?>
 
 <div class="content-area map">
+
+	<div class="row">
+		<div class="medium-12 columns total">
+
+			<!-- <h4>So far I have been to <?= $totalCountriesVisited; ?> out of <?= $totalCountriesToVisit; ?> countries <span>Total <?= round(($totalCountriesVisited / $totalCountriesToVisit ) * 100) . '%';?></span></h4> -->
+			<h4>So far I have been to <?= $totalCountriesVisited; ?> countries</h4>
+		
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="medium-12 columns">
@@ -265,123 +411,47 @@ TOTAL // 194
 	<div class="row">
 		<div class="medium-12 columns visited">
 	
-			<?php if ( $the_query_trips->have_posts() ) : ?>
-
-				<?php 
-					$array_africa = array();
-					$array_antarctica = array();
-					$array_asia = array();
-					$array_australia = array();
-					$array_europe = array();
-					$array_north_america = array();
-					$array_south_america = array();
-				?>
-
-				<?php while ( $the_query_trips->have_posts() ) : $the_query_trips->the_post(); ?>
-			
-					<?php 
-						// $postType = get_post_type_object(get_post_type());
-						$continentName = wp_get_post_terms( $post->ID, 'continents', array("fields" => "names") );
-						$postDestination = wp_get_post_terms( $post->ID, 'destinations', array("fields" => "names") );
-						// echo '<pre>';
-						// print_r($continentName);
-						// print_r($postDestination);
-						// echo '</pre>';
-						// exit;
-
-						switch (strtolower($continentName[0])) {
-							case 'africa':
-								!in_array($postDestination[0], $array_africa) ? array_push($array_africa, $postDestination[0]) : false;
-							break;
-							case 'antarctica':
-								!in_array($postDestination[0], $array_antarctica) ? array_push($array_antarctica, $postDestination[0]) : false;
-							break;
-							case 'asia':
-								!in_array($postDestination[0], $array_asia) ? array_push($array_asia, $postDestination[0]) : false;
-							break;
-							case 'australia':
-								!in_array($postDestination[0], $array_australia) ? array_push($array_australia, $postDestination[0]) : false;
-							break;
-							case 'europe':
-								!in_array($postDestination[0], $array_europe) ? array_push($array_europe, $postDestination[0]) : false;
-							break;
-							case 'north america':
-								!in_array($postDestination[0], $array_north_america) ? array_push($array_north_america, $postDestination[0]) : false;
-							break;
-							case 'south america':
-								!in_array($postDestination[0], $array_south_america) ? array_push($array_south_america, $postDestination[0]) : false;
-							break;
-						}
-
-					?>
-
-				<?php endwhile; ?>
-
-					<?php wp_reset_postdata(); ?>
-
-			<?php else : ?>
-
-				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-				
-			<?php endif; ?>
-
-			
-			<?php 
-				$totalCountriesVisited = count($array_africa) + 
-									     count($array_antarctica) + 
-									     count($array_asia) + 
-									     count($array_australia) +
-									     count($array_europe) +
-									     count($array_north_america) +
-									     count($array_south_america); 
-			?>
-
-			<div class="total">
-				<!-- <h4>So far I have been to <?= $totalCountriesVisited; ?> out of <?= $totalCountriesToVisit; ?> countries <span>Total <?= round(($totalCountriesVisited / $totalCountriesToVisit ) * 100) . '%';?></span></h4> -->
-				<h4>So far I have been to <?= $totalCountriesVisited; ?> countries</h4>
-			</div>
-
 			<div class="accordion">
-				<h4>Africa <span><?php echo round((count($array_africa) / 52 ) * 100) . '%';?></span></h4>  
+				<h4>Africa <span><?= round((count($array_africa) / 52 ) * 100) . '%';?></span></h4>  
 				<div class="accordion-content active">
-					<?php foreach($array_africa as $african_place_name) : ?>
-						<p><?=$african_place_name;?></p> 
+					<?php foreach($array_africa as $african_destination) : ?>
+						<p><a href="<?= $african_destination->link; ?>"><?= $african_destination->name; ?></a></p> 
 					<?php endforeach; ?>
 				</div>
-				<h4>Antarctica <span><?php echo round((count($array_antarctica) / 1 ) * 100) . '%';?></span></h4>
+				<h4>Antarctica <span><?= round((count($array_antarctica) / 1 ) * 100) . '%';?></span></h4>
 				<div class="accordion-content">
-					<?php foreach($array_antarctica as $antarctica_place_name) : ?>
-						<p><?=$antarctica_place_name;?></p>
+					<?php foreach($array_antarctica as $antarctica_destination) : ?>
+						<p><a href="<?= $antarctica_destination->link; ?>"><?= $antarctica_destination->name ;?></a></p>
 					<?php endforeach; ?>
 				</div>
-				<h4>Asia <span><?php echo round((count($array_asia) / 47 ) * 100) . '%';?></span></h4>
+				<h4>Asia <span><?= round((count($array_asia) / 47 ) * 100) . '%';?></span></h4>
 				<div class="accordion-content">
-					<?php foreach($array_asia as $asia_place_name) : ?>
-						<p><?=$asia_place_name;?></p>
+					<?php foreach($array_asia as $asia_destination) : ?>
+						<p><a href="<?= $asia_destination->link; ?>"><?= $asia_destination->name ;?></a></p>
 					<?php endforeach; ?>
 				</div>
-				<h4>Australia <span><?php echo round((count($array_australia) / 15 ) * 100) . '%';?></span></h4>
+				<h4>Australia <span><?= round((count($array_australia) / 15 ) * 100) . '%';?></span></h4>
 				<div class="accordion-content">
-					<?php foreach($array_australia as $australia_place_name) : ?>
-						<p><?=$australia_place_name;?></p>
+					<?php foreach($array_australia as $australia_destination) : ?>
+						<p><a href="<?= $australia_destination->link; ?>"><?= $australia_destination->name ;?></a></p>
 					<?php endforeach; ?>
 				</div>
-				<h4>Europe <span><?php echo round((count($array_europe) / 43 ) * 100) . '%';?></span></h4>
+				<h4>Europe <span><?= round((count($array_europe) / 43 ) * 100) . '%';?></span></h4>
 				<div class="accordion-content">
-					<?php foreach($array_europe as $europe_place_name) : ?>
-						<p><?=$europe_place_name;?></p>
+					<?php foreach($array_europe as $europe_destination) : ?>
+						<p><a href="<?= $europe_destination->link; ?>"><?= $europe_destination->name ;?></a></p>
 					<?php endforeach; ?>
 				</div>
-				<h4>North America <span><?php echo round((count($array_north_america) / 24 ) * 100) . '%';?></span></h4>
+				<h4>North America <span><?= round((count($array_north_america) / 24 ) * 100) . '%';?></span></h4>
 				<div class="accordion-content">
-					<?php foreach($array_north_america as $north_america_place_name) : ?>
-						<p><?=$north_america_place_name;?></p>
+					<?php foreach($array_north_america as $north_america_destination) : ?>
+						<p><a href="<?= $north_america_destination->link; ?>"><?= $north_america_destination->name ;?></a></p>
 					<?php endforeach; ?>
 				</div>
-				<h4>South America <span><?php echo round((count($array_south_america) / 12 ) * 100) . '%';?></span></h4>
+				<h4>South America <span><?= round((count($array_south_america) / 12 ) * 100) . '%';?></span></h4>
 				<div class="accordion-content">
-					<?php foreach($array_south_america as $south_america_place_name) : ?>
-						<p><?=$south_america_place_name;?></p>
+					<?php foreach($array_south_america as $south_america_destination) : ?>
+						<p><a href="<?= $south_america_destination->link; ?>"><?= $south_america_destination->name ;?></a></p>
 					<?php endforeach; ?>
 				</div>
 			</div>
