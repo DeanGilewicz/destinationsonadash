@@ -30,90 +30,71 @@
 		<?php elseif ( is_search() ) : ?>
 
 			<!-- <p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'twentysixteen' ); ?></p> -->
-			<p>Sorry, but nothing matched your search for: <span class="term"><?php echo esc_html( get_search_query() ); ?></span></p>
+			<p>Oh no, we couldn't find anything that matched your search for: <span class="term"><?php echo esc_html( get_search_query() ); ?></span></p>
 			
-			<p>Please try again with some different keywords or check out my latest posts below.</p>
+			<p>Try searching again or explore my latest posts...</p>
 			
 			<?php get_search_form(); ?>
 
+
+			<!-- begin slider -->
+
 			<?php if ( $the_query_latest_posts->have_posts() ) : ?>
 
-				<?php $counter = 0; ?>
+				<?php $postNum = 0; ?>
 
-				<?php while ( $the_query_latest_posts->have_posts() ) : $the_query_latest_posts->the_post(); ?>
-					
-					<?php 
-						// echo '<pre>';
-						$postType = get_post_type_object(get_post_type());
-						// print_r($postType);
-						// echo '</pre>';
-						// $postCats = get_the_category();
-						// $postTags = get_the_tags();
-						// echo '<pre>'; print_r($postCats);
-						// echo '<pre>'; print_r($postTags);
-					?>
+				<div class="row">
+					<div class="medium-12 columns">
 
-					<?php if ($counter % 2 === 0) : ?>
+						<div class="slider">
 
-						<article class="row home-post ltr">
-							<div class="medium-7 medium-push-5 columns">
-								<div class="post-meta">
-									<span class="post-meta-category">
-										<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
-									</span>
-									<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
-									<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
-								</div>
-								<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
-								<div class="post-excerpt">
-									<?php the_excerpt(); ?>
-								</div>
-								<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+							<div class="slides">
+
+								<?php while ( $the_query_latest_posts->have_posts() ) : $the_query_latest_posts->the_post(); ?>
+
+									<?php 
+										$postNum++;
+										$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
+										$url = $thumb['0'];
+										$postType = get_post_type_object(get_post_type());
+									?>
+
+									<div class="search-slide-<?= $postNum; ?> <?= ($postNum == 1) ? 'active' : ''; ?>">
+
+										<div class="content-of-slide">
+
+											<div class="col-left">
+												<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
+												<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+												<h2><?php the_title(); ?></h2>
+												<?php the_excerpt(); ?>
+												<a class="button mobile-slider" href="<?php the_permalink(); ?>">read more</a>
+												<div class="container-nav">
+													<button class="button nav" data-nav-direction="back">Back</button>
+													<button class="button nav" data-nav-direction="forward">Forward</button>
+												</div>
+											</div>
+											<div class="col-right">
+												<img src="<?= $url; ?>"/>
+											</div>
+										</div>
+
+									</div>
+
+								<?php endwhile; ?>
+
 							</div>
-							<div class="medium-5 medium-pull-7 columns">
-								<a href="<?php the_permalink(); ?>">
-									<?php the_post_thumbnail('large'); ?>
-								</a>
-							</div>
-						</article>
 
-					<?php else: ?>
+						</div>
 
-						<article class="row home-post rtl">
-							<div class="medium-7 columns">
-								<div class="post-meta">
-									<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
-									<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
-									<span class="post-meta-category">
-										<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
-									</span>
-								</div>
-								<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
-								<div class="post-excerpt">
-									<?php the_excerpt(); ?>
-								</div>
-								<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
-							</div>
-							<div class="medium-5 columns">
-								<a href="<?php the_permalink(); ?>">
-									<?php the_post_thumbnail('large'); ?>
-								</a>
-							</div>
-						</article>
+					</div>
+				</div>
 
-					<?php endif; ?>
-
-					<?php $counter++; ?>
-
-				<?php endwhile; ?>
-				
-			<?php else: ?>
-
-				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+				<?php wp_reset_postdata(); ?>
 
 			<?php endif; ?>
 
-			<?php wp_reset_postdata(); ?>
+			<!-- end slider -->
 
 		<?php else : ?>
 
@@ -122,5 +103,6 @@
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>
+
 	</div><!-- .page-content -->
 </section><!-- .no-results -->

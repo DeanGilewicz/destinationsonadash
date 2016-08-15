@@ -22,6 +22,10 @@ body.page-map {
 
 	// end map plugin overrides
 
+	.the-map {
+		min-height: 400px;
+	}
+
 	.visited {
 		padding-top: $base_size*2;
 	}
@@ -31,19 +35,25 @@ body.page-map {
 		h4 {
 			position: relative;
 			margin: 0;
+			padding-left: .9375rem;
+		    padding-right: .9375rem;
 			cursor: pointer;
 			color: $purple_dark;
 			cursor: pointer;
 
 			span {
 				position: absolute;
+				top: $base_size*0.8;
 				right: 0;
 			}
 		}
 
 		.accordion-content {
 			max-height: 0;
+			padding-left: .9375rem;
+		    padding-right: .9375rem;
 			overflow: hidden;
+			background-color: $grey_lightest;
 			transition: 
 				max-height 0.8s ease-out;
 
@@ -63,7 +73,6 @@ body.page-map {
 	}
 
 	.total {
-		padding-top: $base_size*3;
 		padding-bottom: $base_size*3;
 	}
 

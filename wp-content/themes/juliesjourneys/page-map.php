@@ -395,13 +395,14 @@ TOTAL // 194
 		<div class="medium-12 columns total">
 
 			<!-- <h4>So far I have been to <?= $totalCountriesVisited; ?> out of <?= $totalCountriesToVisit; ?> countries <span>Total <?= round(($totalCountriesVisited / $totalCountriesToVisit ) * 100) . '%';?></span></h4> -->
-			<h4>So far I have been to <?= $totalCountriesVisited; ?> countries</h4>
-		
+			<!-- <h4>So far I have been to <?= $totalCountriesVisited; ?> countries</h4> -->
+			<h4>Countries I have visited</h4>
+
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="medium-12 columns">
+		<div class="medium-12 columns the-map">
 
 			<?php build_i_world_map(1); ?>
 
@@ -409,7 +410,7 @@ TOTAL // 194
 	</div>
 
 	<div class="row">
-		<div class="medium-12 columns visited">
+		<div class="visited">
 	
 			<div class="accordion">
 				<h4>Africa <span><?= round((count($array_africa) / 52 ) * 100) . '%';?></span></h4>  

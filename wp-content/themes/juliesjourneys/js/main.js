@@ -41,7 +41,7 @@ jQuery(document).ready(function($) {
 
 	// HOME PAGE
 
-	if ($('body').hasClass('home')) {
+	if ($('body').hasClass('home') || $('body').hasClass('search')) {
 
 		// hero slider
 
@@ -49,34 +49,34 @@ jQuery(document).ready(function($) {
 
 		var currentSlide = $('.slide-1');
 
-		var transitionHero = function () {
+		// var transitionHero = function () {
 
-			currentSlide.removeClass('active');
+		// 	currentSlide.removeClass('active');
 			
-			var index = 1;
+		// 	var index = 1;
 
-			if (currentSlide.next().length) {
+		// 	if (currentSlide.next().length) {
 
-				currentSlide.next().addClass('active');
+		// 		currentSlide.next().addClass('active');
 
-				index = currentSlide.next().index();
+		// 		index = currentSlide.next().index();
 
-				currentSlide = currentSlide.next();
+		// 		currentSlide = currentSlide.next();
 
-			} else {
+		// 	} else {
 
-				$('.slide-1').addClass('active');
+		// 		$('.slide-1').addClass('active');
 
-				index = 0;
+		// 		index = 0;
 
-				currentSlide = $('.slide-1');
-			}
+		// 		currentSlide = $('.slide-1');
+		// 	}
 
-			$('.progress-of-slides .progress-btn').removeClass('active');
+		// 	$('.progress-of-slides .progress-btn').removeClass('active');
 
-			$('.progress-of-slides .progress-btn').eq(index).addClass('active');
+		// 	$('.progress-of-slides .progress-btn').eq(index).addClass('active');
 
-		};
+		// };
 
 		// progress buttons on slider
 
@@ -100,7 +100,37 @@ jQuery(document).ready(function($) {
 
 		});
 
+		// slide navigation buttons to go back and forward
 
+		var currentSearchSlide = $('.search-slide-1');
+		var indexSearchSlide = 0;
+
+		$('.container-nav .nav').on('click', function() {
+			var slideDirection = $(this).attr('data-nav-direction');
+			var totalNumOfSlides = $('[class^="search-slide"]').length-1;
+			
+			// console.log('prev index', indexSearchSlide);
+
+			if(slideDirection === 'back' && indexSearchSlide === 0) {
+				indexSearchSlide = totalNumOfSlides; // go to last slide
+			
+			} else if (slideDirection === 'forward' && indexSearchSlide === totalNumOfSlides) {
+				indexSearchSlide = 0; // go to first slide
+			
+			} else if (slideDirection === 'back') {
+				indexSearchSlide = indexSearchSlide - 1;
+			
+			} else if (slideDirection === 'forward') {
+				indexSearchSlide = indexSearchSlide + 1;
+			}
+
+			// console.log('current index', indexSearchSlide);
+			
+			currentSearchSlide.removeClass('active');
+			currentSearchSlide = $('.slides > div').eq(indexSearchSlide);
+			currentSearchSlide.addClass('active');
+
+		});
 		// mobile handling of block categories
 		
 		if( $(window).width() <= 640 ) {
