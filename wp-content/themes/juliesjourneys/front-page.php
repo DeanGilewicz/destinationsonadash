@@ -387,10 +387,9 @@
 
 						<div class="bg" style="background-image: url('<?= $src[0]; ?>')"></div>
 						<div class="quote-description">
-							<img src="http://placehold.it/60x60?text=ll">
+							<p>&quot;</p>
 							<p><?php the_date('M j, Y'); ?></p>
 							<span><?= get_the_content(); ?></span>
-							<p>Author</p>
 						</div>
 						<span class="overlay-border"></span>
 

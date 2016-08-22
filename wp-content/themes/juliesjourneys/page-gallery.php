@@ -44,15 +44,15 @@
 
 				<?php if ($totalPostNum % 4 === 0) : ?>
 				
-					<div class="medium-3 columns bottom-margin">
+					<div class="medium-3 columns end bottom-margin four">
 
 				<?php elseif ($totalPostNum % 3 === 0) : ?>
 
-					<div class="medium-4 columns bottom-margin">
+					<div class="medium-4 columns end bottom-margin three">
 
 				<?php elseif ($totalPostNum % 1 === 0) : ?>
 				
-					<div class="medium-6 columns end bottom-margin">
+					<div class="medium-6 columns end bottom-margin two">
 
 				<?php else : ?>
 				
@@ -60,19 +60,22 @@
 
 				<?php endif; ?>
 
-						<?php // $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
+						<?php 
+						// print_r($post);
+						// print_r(get_post_meta($post->ID));
+						$src = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); 
+						// print_r($src);
+						?>
 
 						<a href="<?php the_permalink(); ?>">
+							<img src="<?= $src; ?>" class="flag"/>
 
-							<img src="http://placehold.it/500x300?text=flag"/>
+							<?php // the_post_thumbnail(); ?>
 
 						</a>
 
-						<?php // the_post_thumbnail('medium'); ?>
-
 					</div>
 
-	
 		<?php endwhile; ?>
 
 		<?php wp_reset_postdata(); ?>

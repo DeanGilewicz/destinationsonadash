@@ -80,19 +80,19 @@ $totalPostNum = count($postArray);
 
 				<?php if ($totalPostNum % 4 === 0) : ?>
 				
-					<div class="medium-3 columns bottom-margin">
+					<div class="medium-3 columns end bottom-margin four">
 
 				<?php elseif ($totalPostNum % 3 === 0) : ?>
 
-					<div class="medium-4 columns bottom-margin">
+					<div class="medium-4 columns end bottom-margin three">
 
 				<?php elseif ($totalPostNum % 1 === 0) : ?>
 				
-					<div class="medium-6 columns end bottom-margin">
+					<div class="medium-6 columns end bottom-margin two">
 
 				<?php else : ?>
 				
-					<div class="medium-6 columns">
+					<div class="medium-6 columns end">
 
 				<?php endif; ?>
 
@@ -100,20 +100,22 @@ $totalPostNum = count($postArray);
 
 						<?php 
 							// advanced custom fields 
+							$flag = null;
 							$customFields = get_fields($modifiedPost->ID);
 							if( isset($customFields['trip_flag']) ) { $flag = $customFields['trip_flag']; }							
+							$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($modifiedPost->ID), 'large');
 						?>
 
 						<?php if( isset($flag) ) : ?>
 
 							<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
-								<img src="<?php echo $flag['url']; ?>" alt="<?php echo $flag['alt']; ?>" />
+								<img src="<?php echo $flag['url']; ?>" alt="<?php echo $flag['alt']; ?>" class="flag" />
 							</a>
 
 						<?php else: ?>
 
 							<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
-								<?php the_post_thumbnail('medium'); ?>
+								<img src="<?php echo $thumb[0]; ?>" />
 							</a>
 
 						<?php endif; ?>

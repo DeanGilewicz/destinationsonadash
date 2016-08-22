@@ -4,6 +4,19 @@
 		margin-bottom: $base_size*3;
 	}
 
+	.three:nth-of-type(3n+4) {
+		clear: both;
+	}
+
+	.four:nth-of-type(4n+5) {
+		clear: both;
+	}
+
+	.flag {
+		height: 220px;
+		// border: 1px solid $grey_light;
+	}
+
 	// img {
 	// 	height: 280px;
 	// }

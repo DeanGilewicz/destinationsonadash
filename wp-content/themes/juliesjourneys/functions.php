@@ -95,6 +95,26 @@ endif; // juliesjourneys_setup
 add_action( 'after_setup_theme', 'juliesjourneys_setup' );
 
 
+// Enable SVG upload
+function cc_mime_types($mimes) {
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+}
+
+add_filter('upload_mimes', 'cc_mime_types');
+
+
+
+function my_custom_admin_styles() {
+  echo '<style>
+    table.media .column-title .media-icon img {
+      width: 100%;
+    } 
+  </style>';
+}
+add_action('admin_head', 'my_custom_admin_styles');
+
+
 function juliesjourneys_excerpt_length( $length ) {
 	return 25;
 }
