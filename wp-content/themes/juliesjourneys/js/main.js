@@ -14,11 +14,10 @@ jQuery(document).ready(function($) {
 	// search input field functionality
 
 	$('#header-search-icon').on('click', function() {
-		var searchForm = $('#header-search-form');
-		$(this).toggleClass('active');
-		$(searchForm).toggleClass('active');
-		if( searchForm.hasClass('active') ) {
-			$('#header-search-field').focus();
+		var searchInput = $('#header-search-field');
+		$(searchInput).toggleClass('active');
+		if( searchInput.hasClass('active') ) {
+			$(searchInput).focus();
 		}
 	});
 

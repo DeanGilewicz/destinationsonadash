@@ -30,30 +30,66 @@
 
 			<div class="row header-top">
 
-				<div class="medium-6 columns">
+				<div class="medium-4 columns">
 
-					<a href="/">Julies Journeys</a>
+					<div class="container-header-left">
+
+						<a href="/">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-facebook.svg" alt="facebook icon"/>
+						</a>
+
+						<a href="/">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-twitter.svg" alt="twitter icon"/>
+						</a>
+
+						<a href="/">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-instagram.svg" alt="instagram icon"/>
+						</a>
+
+						<a href="/">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-pinterest.svg" alt="pinterest icon"/>
+						</a>
+
+					</div>
 
 				</div>
 
-				<div class="medium-6 columns">
+				<div class="medium-4 columns">
 
-					<a href="/about">About</a> 
+					<div class="container-header-middle">
 
-					<a href="/gallery">Gallery</a>
+						<a href="/">
+							Julies Journeys
+						</a>
 
-					<a href="/map">Map</a>
+					</div>
 
-					<a href="">F</a>
+				</div>
 
-					<form role="search" method="GET" id="header-search-form" action="<?= esc_url( home_url( '/' ) ); ?>">
+				<div class="medium-4 columns">
+
+					<div class="container-header-right">
+
+						<a href="/about">About</a> 
+
+						<a href="/gallery">Gallery</a>
+
+						<a href="/map">Map</a>
+
+						<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-search.svg" alt="search icon" id="header-search-icon" />
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="row header-middle">
+
+				<div class="medium-12 columns">
+					
+					<form role="search" method="GET" action="<?= esc_url( home_url( '/' ) ); ?>">
 						<input id="header-search-field" type="search" placeholder="Search" value="<?= get_search_query(); ?>" name="s" title="Search For" />
-						<!-- <button type="submit" id="header-search-submit">
-							<img src="http://placehold.it/15x15?text=i" />
-						</button> -->
-						<span id="header-search-icon">
-							<img src="http://placehold.it/12x12?text=i" />
-						</span>
 					</form>
 
 				</div>

@@ -45,6 +45,7 @@ foreach ($the_query_destinations->posts as $post) {
 	// add post obj so can use to display
 	if(!in_array($destinationName, $destinationsArray)) {
 		$post->destinationLink = $destinationSlug;
+		$post->destinationName = $destinationName;
 		array_push($destinationsArray, $destinationName);
 		array_push($postArray, $post);
 	}
@@ -96,29 +97,35 @@ $totalPostNum = count($postArray);
 
 				<?php endif; ?>
 
-						<?php // $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
+						<div class="container-flag">
+						
+							<?php // $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
 
-						<?php 
-							// advanced custom fields 
-							$flag = null;
-							$customFields = get_fields($modifiedPost->ID);
-							if( isset($customFields['trip_flag']) ) { $flag = $customFields['trip_flag']; }							
-							$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($modifiedPost->ID), 'large');
-						?>
+							<?php 
+								// advanced custom fields 
+								$flag = null;
+								$customFields = get_fields($modifiedPost->ID);
+								if( isset($customFields['trip_flag']) ) { $flag = $customFields['trip_flag']; }							
+								$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($modifiedPost->ID), 'large');
+							?>
 
-						<?php if( isset($flag) ) : ?>
+							<?php if( isset($flag) ) : ?>
 
-							<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
-								<img src="<?php echo $flag['url']; ?>" alt="<?php echo $flag['alt']; ?>" class="flag" />
-							</a>
+								<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
+									<img src="<?php echo $flag['url']; ?>" alt="<?php echo $flag['alt']; ?>" class="flag" />
+									<p><?= $modifiedPost->destinationName; ?></p>
+								</a>
 
-						<?php else: ?>
+							<?php else: ?>
 
-							<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
-								<img src="<?php echo $thumb[0]; ?>" />
-							</a>
+								<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
+									<img src="<?php echo $thumb[0]; ?>" />
+									<p><?= $modifiedPost->destinationName; ?></p>
+								</a>
 
-						<?php endif; ?>
+							<?php endif; ?>
+
+						</div>
 
 					</div>
 

@@ -60,19 +60,21 @@
 
 				<?php endif; ?>
 
-						<?php 
-						// print_r($post);
-						// print_r(get_post_meta($post->ID));
-						$src = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); 
-						// print_r($src);
-						?>
+						<div class="container-flag">
 
-						<a href="<?php the_permalink(); ?>">
-							<img src="<?= $src; ?>" class="flag"/>
+							<?php 
+								// print_r($post);
+								// print_r(get_post_meta($post->ID));
+								$src = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); 
+								// print_r($src);
+							?>
 
-							<?php // the_post_thumbnail(); ?>
+							<a href="<?php the_permalink(); ?>">
+								<img src="<?= $src; ?>" class="flag"/>
+								<?php // the_post_thumbnail(); ?>
+							</a>
 
-						</a>
+						</div>
 
 					</div>
 

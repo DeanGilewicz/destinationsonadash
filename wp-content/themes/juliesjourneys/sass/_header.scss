@@ -8,69 +8,74 @@ header {
 		padding-bottom: $base_size*3;
 	}
 
+	a, img {
+		cursor: pointer;
+	}
+
 	.header-top {
 
-		form {
-			float: right;
-			position: relative;
+		a {
 			display: inline-block;
-			width: 81%;
-			height: 22px;
-
-			&.active {
-				
-				input {
-					width: 100%;
-					padding: 1px 25px 1px 5px;
-				}
-
-			}
+			vertical-align: middle;
 		}
+
+		.container-header-left {
+
+			a:first-child img {
+				width: 11px;
+			}
+
+			a:nth-child(2) img {
+				width: 22px;
+			}
+
+			img {
+				width: 20px;
+				margin-right: $base_size;
+			}
+
+		}
+
+		.container-header-middle {
+			text-align: center;
+		}
+
+		.container-header-right {
+			text-align: right;
+
+			img {
+				width: 18px;
+			}
+
+			img, a {
+				margin-left: $base_size;
+			}
+
+		}
+
+	}
+
+	.header-middle {
 
 		input {
-			position: absolute;
-			top: 0;
-			right: 0;
-			margin: 0;
-			width: 0;
-			height: 22px;
-			padding: 0;
-			transition: width 0.4s ease-in-out, padding 0.4s ease-in-out;
+			max-height: 0;
+			overflow: hidden;
+			margin-top: $base_size*2;
+			margin-bottom: $base_size*2;
+			padding: 0 $base_size;
+			border: none;
+			transition: all 0.4s ease;
 
-			&:focus {
-				width: 100%;
-				padding-right: 50px;
+			&.active {
+				max-height: $base_size*4;
+				padding: $base_size $base_size;
+				border: 1px solid $grey_light;
 			}
-		}
-
-		span {
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 22px;
-			height: 22px;
-			margin: 0;
-			padding: 0;
-			text-align: center;
-			background-color: $purple_dark;
-			cursor: pointer;
-
-			&.active,
-			&:hover {
-				background-color: green;
-			}
-		}
-
-		a:not([href="/"]) {
-			float: right;
-			margin-left: 2%;
-			text-transform: uppercase;
 		}
 
 	}
 
 	.header-bottom {
-		padding-top: $base_size*3;
 
 		ul.header-continents {
 			list-style-type: none;
