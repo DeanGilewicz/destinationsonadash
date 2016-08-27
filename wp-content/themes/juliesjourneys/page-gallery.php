@@ -71,6 +71,7 @@
 
 							<a href="<?php the_permalink(); ?>">
 								<img src="<?= $src; ?>" class="flag"/>
+								<p><?= the_title(); ?></p>
 								<?php // the_post_thumbnail(); ?>
 							</a>
 

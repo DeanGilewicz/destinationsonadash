@@ -396,7 +396,7 @@ TOTAL // 194
 
 			<!-- <h4>So far I have been to <?= $totalCountriesVisited; ?> out of <?= $totalCountriesToVisit; ?> countries <span>Total <?= round(($totalCountriesVisited / $totalCountriesToVisit ) * 100) . '%';?></span></h4> -->
 			<!-- <h4>So far I have been to <?= $totalCountriesVisited; ?> countries</h4> -->
-			<h4>Countries I have visited</h4>
+			<h1>Places I Have Been</h1>
 
 		</div>
 	</div>

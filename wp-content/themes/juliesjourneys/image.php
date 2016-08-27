@@ -32,6 +32,11 @@ get_header(); ?>
 									<div>
 										<?php 
 											// Parent post navigation.
+											// print_r($post);
+											// $parentPageId = get_post($post->post_parent);
+											// $parentSlug = $parentPageId->post_name;
+											// print_r($parentSlug);
+											// exit;
 											the_post_navigation( array(
 											'prev_text' => '<span class="meta-nav">see all photos from</span>
 															<span class="post-title">%title</span>',
