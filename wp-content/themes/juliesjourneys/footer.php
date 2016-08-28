@@ -64,10 +64,6 @@
 					<a href="/favorites">favs</a>
 				</div>
 
-			</div>
-
-			<div class="row">
-
 				<div class="small-6 medium-3 columns footer-area">
 					<?php if ( $the_query_popular_posts->have_posts() ) : ?>
 
@@ -92,6 +88,7 @@
 				</div>
 
 			</div>
+
 
 			<?php // if ( has_nav_menu( 'primary' ) ) : ?>
 				<!-- <nav class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Primary Menu', 'twentysixteen' ); ?>"> -->

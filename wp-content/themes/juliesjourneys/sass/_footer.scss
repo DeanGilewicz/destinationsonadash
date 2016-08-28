@@ -7,6 +7,14 @@ footer {
 	.footer-area {
 		padding-top: $base_size;
 		padding-bottom: $base_size;
+
+		&:nth-child(3) {
+			clear: both;
+
+			@media (min-width: $medium) {
+				clear: none;
+			}
+		}
 	}
 
 	h6 {

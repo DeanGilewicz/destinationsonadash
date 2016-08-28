@@ -33,8 +33,8 @@ get_header(); ?>
 										<?php 
 											// Parent post navigation.
 											// print_r($post);
-											// $parentPageId = get_post($post->post_parent);
-											// $parentSlug = $parentPageId->post_name;
+											// $parentPage = get_post($post->post_parent);
+											// $parentSlug = $parentPage->post_name;
 											// print_r($parentSlug);
 											// exit;
 											the_post_navigation( array(
