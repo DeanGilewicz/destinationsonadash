@@ -151,8 +151,6 @@ jQuery(document).ready(function($) {
 	}
 
 	// if using lightbox then uncomment
-
-	/*
 	
 		// START LIGHTBOX
 
@@ -177,67 +175,33 @@ jQuery(document).ready(function($) {
 		// set empty array to collect all images inside of container-lightbox-content
 		var lightboxImages = [];
 
-		// small / medium device - when gallery image clicked
+		// when a gallery img clicked
+		$('.gallery-image').on('click', function(e) {
+			e.preventDefault();
+			// store src for clicked image
+			var source = $(this).children('img').attr('src');
+			// store alt for clicked image
+			var alt = $(this).children('img').attr('alt');
 
-		if( $(window).width() < 1024 ) {
-
-			// when a gallery img clicked
-			$('.container-gallery img').on('click', function() {
-				// store src for clicked image
-				var source = $(this).attr('src');
-				// store alt for clicked image
-				var alt = $(this).attr('alt');
-				// iterate through each img in gallery
-				$(this).parents('.container-gallery').find('img').each(function(index) {
-					// if the clicked image src is equal to the image source then set the data index value to be that number
-					if ($(this).attr('src') == source) {
-						$('.lightbox-content img').data('index', index);
-					}
-					// push all image srcs into lightboxImages array
-					lightboxImages.push({imageSrc: $(this).attr('src'), imageAlt: $(this).attr('alt')});
-				});
-
-				// update button nav UI
-				updateButtonNav();
-				// set lightbox img src
-				$('.lightbox-content img').attr("src",source);
-				// set image comment
-				$('.lightbox-content .image-comment').text(alt);
-				// animate lightbox box open
-				$('.lightbox').addClass('lightbox-open').removeClass('lightbox-close');
-			});
-		}
-
-		// large device - when gallery image hovered on
-
-		if( $(window).width() >= 1024 ) {
-
-			$('.container-gallery img').on('mouseenter', function() {
-				// store src for clicked image
-				var source = $(this).attr('src');
-				// store alt for clicked image
-				var alt = $(this).attr('alt');
-				// iterate through each img in gallery
-				$(this).parents('.container-gallery').find('img').each(function(index) {
-					// if the clicked image src is equal to the image source then set the data index value to be that number
-					if ($(this).attr('src') == source) {
-						$('.lightbox-content img').data('index', index);
-					}
-					// push all image srcs into lightboxImages array
-					lightboxImages.push({imageSrc: $(this).attr('src'), imageAlt: $(this).attr('alt')});
-				});
-
-				// update button nav UI
-				updateButtonNav();
-				// set lightbox img src
-				$('.lightbox-content img').attr("src",source);
-				// set image comment
-				$('.lightbox-content .image-comment').text(alt);
-				// animate lightbox box open
-				$('.lightbox').addClass('lightbox-open').removeClass('lightbox-close');
+			// iterate through each img in gallery
+			$(this).parents('.gallery-images').find('.gallery-image img').each(function(index, el) {
+				// if the clicked image src is equal to the image source then set the data index value to be that number
+				if ($(this).attr('src') === source) {
+					$('.lightbox-content img').data('index', index);
+				}
+				// push all image srcs into lightboxImages array
+				lightboxImages.push({imageSrc: $(this).attr('src'), imageAlt: $(this).attr('alt')});
 			});
 
-		}
+			// update button nav UI
+			updateButtonNav();
+			// // set lightbox img src
+			$('.lightbox-content img').attr("src",source);
+			// // set image comment
+			$('.lightbox-content .image-comment').text(alt);
+			// // animate lightbox box open
+			$('.lightbox').addClass('lightbox-open').removeClass('lightbox-close');
+		});
 
 		// when click next button nav
 		$('.lightbox-content .next').on('click', function() {
@@ -263,22 +227,12 @@ jQuery(document).ready(function($) {
 			updateButtonNav();
 		});
 
-		// when click anywhere in the overlay
-		// $('.lightbox-overlay').on('click', function() {
-		// 	// reset lightboxImages array
-		// 	lightboxImages = []; 
-		// 	// animate lightbox box close
-		// 	$('.lightbox-open').removeClass('lightbox-open').addClass('lightbox-close');
-		// });
-
 		$('.lightbox-x-close').on('click', function() {
 			// reset lightboxImages array
 			lightboxImages = []; 
 			// animate lightbox box close
 			$(this).parents('.lightbox').removeClass('lightbox-open').addClass('lightbox-close');
 		});
-
-	*/
 
 
 

@@ -700,14 +700,22 @@ function filter_gallery( $output, $attr ) {
 				$largetitle = get_the_title($attachment->ID);
 				$largeimg = wp_get_attachment_image_src($id, 'large');
 				$img = wp_get_attachment_image_src($id, array(150,150));
-				$link = get_permalink($id);
-				// echo '<pre>';
-				// print_r($attr);
-				// print_r($attachment);
 				// print_r($largeimg);
-				// print_r($link);
 				// exit;
-				$output .= '<a href='.$link.' title='.$largetitle.'><img src='.$img[0].' width='.$img[1].' height='.$img[2].'/></a>';
+				$link = get_permalink($id);
+				$alt = get_post_meta( $id, '_wp_attachment_image_alt', true );
+				$caption = $attachment->post_excerpt;
+				$description = $attachment->post_content;
+				// $src = $attachment->guid;
+				// $title = $attachment->post_title;
+				// echo '<pre>';
+				// print_r($attachment);			
+				// exit;
+				$output .= '<a class="gallery-image" href='.$link.' title='.$largetitle.' data-lb-img='.$largeimg[0].' data-lb-width='.$largeimg[1].' data-lb-height='.$largeimg[2].'>
+								<img src='.$img[0].' width='.$img[1].' height='.$img[2].' alt='.$alt.'/>
+								<p class="caption">'.$caption.'</p>
+								<p class="description">'.$description.'</p>
+							</a>';
 			}
 	    }
 

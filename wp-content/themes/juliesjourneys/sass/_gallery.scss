@@ -103,9 +103,22 @@
 	padding-top: $base_size*2;
 	text-align: center;
 
-	img {
+	.gallery-image {
+		display: inline-block;
 		margin: 0.5%;
+		vertical-align: top;
+
+		p {
+			max-width: 150px;
+			text-align: center;
+		}
+
+		p.description {
+			display: none;
+		}
+
 	}
+
 
 	.gallery-pagination-top,
 	.gallery-pagination-bottom {

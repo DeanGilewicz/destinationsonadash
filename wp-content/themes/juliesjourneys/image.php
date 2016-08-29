@@ -23,28 +23,32 @@ get_header(); ?>
 
 							<header class="entry-header">
 
-								<nav id="image-navigation" class="navigation image-navigation">
-									<div class="nav-links">
-										<span class="nav-previous"><?php previous_image_link( false, 'Previous Image' ); ?></span>
-										<?php the_title( '<span><h1 class="entry-title">', '</h1></span>' ); ?>
-										<span class="nav-next"><?php next_image_link( false, 'Next Image' ); ?></span>
-									</div><!-- .nav-links -->
-									<div>
-										<?php 
-											// Parent post navigation.
-											// print_r($post);
-											// $parentPage = get_post($post->post_parent);
-											// $parentSlug = $parentPage->post_name;
-											// print_r($parentSlug);
-											// exit;
-											the_post_navigation( array(
-											'prev_text' => '<span class="meta-nav">see all photos from</span>
-															<span class="post-title">%title</span>',
-											'screen_reader_text' => ' '
-											) );
-										?>
+								<div>
+									<?php 
+										// Parent post navigation.
+										// print_r($post);
+										// $parentPage = get_post($post->post_parent);
+										// $parentSlug = $parentPage->post_name;
+										// print_r($parentSlug);
+										// exit;
+										the_post_navigation( array(
+										'prev_text' => '<span class="meta-nav">see all photos from</span>
+														<span class="post-title">%title</span>',
+										'screen_reader_text' => ' '
+										) );
+									?>
 
-									</div>
+								</div>
+
+								<nav id="image-navigation" class="navigation image-navigation">
+
+									<div class="nav-links">
+										<?php $prevIcon = '<img src="'.get_stylesheet_directory_uri().'/dist/icons/icon-facebook.svg" alt="facebook icon"/>'; ?>
+										<span class="nav-previous"><?php previous_image_link( false, $prevIcon ); ?></span>
+										<?php the_title( '<span><h1 class="entry-title">', '</h1></span>' ); ?>
+										<span class="nav-next"><?php next_image_link( false, 'Next' ); ?></span>
+									</div><!-- .nav-links -->
+									
 								</nav><!-- .image-navigation -->
 
 							</header><!-- .entry-header -->
@@ -53,11 +57,11 @@ get_header(); ?>
 
 								<div class="entry-attachment">
 									<?php
-										
 										// $image_size = apply_filters( 'twentysixteen_attachment_size', 'large' );
-
 										echo wp_get_attachment_image( get_the_ID(), 'large' );
 									?>
+
+									<p class="excerpt"><?= $post->post_excerpt; ?></p>
 
 									<?php //twentysixteen_excerpt( 'entry-caption' ); ?>
 

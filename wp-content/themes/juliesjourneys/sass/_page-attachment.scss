@@ -15,10 +15,37 @@ body.attachment {
 	.entry-attachment {
 		margin-bottom: $base_size*6;
 
-		img {
-			max-width: 500px;
+		// img {
+			// max-width: 500px;
+		// }
+	}
+
+	.excerpt {
+		margin-top: $base_size*2;
+		margin-bottom: $base_size*2;
+		text-transform: uppercase;
+		font-size: $base_size*2;
+	}
+
+	#image-navigation .nav-links {
+		@extend .clearfix;
+
+		span:first-child {
+			float: left;
 		}
 
+		span:last-child {
+			float: right;
+		}
+
+		span img {
+			width: 16px; 
+		}
+
+		// span, h1 {
+		// 	display: inline-block;
+		// 	vertical-align: middle;
+		// }
 	}
 
 }
