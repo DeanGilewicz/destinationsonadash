@@ -190,15 +190,18 @@ jQuery(document).ready(function($) {
 					$('.lightbox-content img').data('index', index);
 				}
 				// push all image srcs into lightboxImages array
-				lightboxImages.push({imageSrc: $(this).attr('src'), imageAlt: $(this).attr('alt')});
+				// lightboxImages.push({imageSrc: $(this).parents('.gallery-image').attr('data-lb-img'), imageAlt: $(this).attr('alt')});
+				lightboxImages.push({imageSrc: $(this).parents('.gallery-image').attr('data-lb-img'), imageCaption: $(this).siblings('.caption').text()});
 			});
 
 			// update button nav UI
 			updateButtonNav();
 			// // set lightbox img src
-			$('.lightbox-content img').attr("src",source);
+			// $('.lightbox-content img').attr("src",source);
+			$('.lightbox-content img').attr("src",$(this).attr('data-lb-img'));
 			// // set image comment
-			$('.lightbox-content .image-comment').text(alt);
+			// $('.lightbox-content .image-comment').text(alt);
+			$('.lightbox-content .image-comment').text($(this).children('.caption').text());
 			// // animate lightbox box open
 			$('.lightbox').addClass('lightbox-open').removeClass('lightbox-close');
 		});
@@ -208,7 +211,7 @@ jQuery(document).ready(function($) {
 			// get the current data index value of the lightbox image
 			var index = $('.lightbox-content img').data('index');
 			// set image comment to be next alt source value in array
-			$('.lightbox-content .image-comment').text(lightboxImages[index+1].imageAlt);
+			$('.lightbox-content .image-comment').text(lightboxImages[index+1].imageCaption);
 			// set img source and data index to be next value in array
 			$('.lightbox-content img').attr('src', lightboxImages[index+1].imageSrc).data('index', index+1);
 			// update button nav UI
@@ -220,7 +223,7 @@ jQuery(document).ready(function($) {
 			// get the current data index value of the lightbox image
 			var index = $('.lightbox-content img').data('index');
 			// set image comment to be previous alt source value in array
-			$('.lightbox-content .image-comment').text(lightboxImages[index-1].imageAlt);
+			$('.lightbox-content .image-comment').text(lightboxImages[index-1].imageCaption);
 			// set img source and data index to be previous value in array
 			$('.lightbox-content img').attr('src', lightboxImages[index-1].imageSrc).data('index', index-1);
 			// update button nav UI

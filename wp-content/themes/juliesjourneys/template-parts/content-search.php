@@ -34,26 +34,30 @@
 
 			<?php $postType = get_post_type_object(get_post_type()); ?>
 
-			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail(); ?>
-			</a>
+			<article class="found-search-item">
 
-			<div class="post-meta">
-				<span class="post-meta-category">
-					<a href="/<?= strtolower($postType->labels->name); ?>"><?= $postType->labels->name; ?></a>
-				</span>
-			</div>
+				<a href="<?php the_permalink(); ?>">
+					<?php the_post_thumbnail(); ?>
+				</a>
 
-			<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
+				<div class="post-meta">
+					<span class="post-meta-category">
+						<a href="/<?= strtolower($postType->labels->name); ?>"><?= $postType->labels->name; ?></a>
+					</span>
+				</div>
 
-			<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
-			<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
+				<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
 
-			<div class="post-excerpt">
-				<?php the_excerpt(); ?>
-			</div>
-			
-			<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+				<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+				<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
+
+				<div class="post-excerpt">
+					<?php the_excerpt(); ?>
+				</div>
+				
+				<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+
+			</article>
 
 			<div class="entry-footer">
 				<?php // twentysixteen_entry_meta(); ?>

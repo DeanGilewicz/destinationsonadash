@@ -1,5 +1,18 @@
 body.search {
 
+	.site-content {
+		padding-bottom: $base_size*6;
+		text-align: center;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+	.found-search-item img {
+		max-width: 600px;
+	}
+
 	.search-form {
 
 		label {
