@@ -44,7 +44,7 @@
 
 	// create eating ethnic custom post type
 
-	function juliesjourneys_create_eating_ethnic_custom_post_type() {
+	function destinationsonadash_create_eating_ethnic_custom_post_type() {
 		register_post_type('eating_ethnic', array(
 		        'labels' => array(
 		            'name' => 'Eating Ethnic',
@@ -77,12 +77,12 @@
 		);
 	}
 
-	add_action('init', 'juliesjourneys_create_eating_ethnic_custom_post_type');
+	add_action('init', 'destinationsonadash_create_eating_ethnic_custom_post_type');
 
 
 	// create insights custom post type
 
-	function juliesjourneys_create_insights_custom_post_type() {
+	function destinationsonadash_create_insights_custom_post_type() {
 		register_post_type('insights', array(
 		        'labels' => array(
 		            'name' => 'Insights',
@@ -115,12 +115,12 @@
 		);
 	}
 
-	add_action('init', 'juliesjourneys_create_insights_custom_post_type');
+	add_action('init', 'destinationsonadash_create_insights_custom_post_type');
 
 
 	// create quotes custom post type
 
-	function juliesjourneys_create_quotes_custom_post_type() {
+	function destinationsonadash_create_quotes_custom_post_type() {
 		register_post_type('quotes', array(
 		        'labels' => array(
 		            'name' => 'Quotes',
@@ -153,6 +153,6 @@
 		);
 	}
 
-	add_action('init', 'juliesjourneys_create_quotes_custom_post_type');
+	add_action('init', 'destinationsonadash_create_quotes_custom_post_type');
 
 ?>

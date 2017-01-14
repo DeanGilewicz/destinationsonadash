@@ -10,8 +10,8 @@
 	* category.php (Category archives), author.php (Author archives), etc.
 	*
 	* @package WordPress
-	* @subpackage JuliesJourneys
-	* @since JuliesJourneys 1.0
+	* @subpackage DestinationsOnADash
+	* @since DestinationsOnADash 1.0
 */
 
 get_header(); ?>
@@ -44,9 +44,9 @@ get_header(); ?>
 
 			// Previous/next page navigation.
 			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'juliesjourneys' ),
-				'next_text'          => __( 'Next page', 'juliesjourneys' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'juliesjourneys' ) . ' </span>',
+				'prev_text'          => __( 'Previous page', 'destinationsonadash' ),
+				'next_text'          => __( 'Next page', 'destinationsonadash' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'destinationsonadash' ) . ' </span>',
 			) );
 
 		// If no content, include the "No posts found" template.

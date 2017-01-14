@@ -1,8 +1,8 @@
 <?php
 
-if ( ! function_exists( 'juliesjourneys_setup' ) ) :
+if ( ! function_exists( 'destinationsonadash_setup' ) ) :
 
-	function juliesjourneys_setup() {
+	function destinationsonadash_setup() {
 
 		/*
 			* Make theme available for translation.
@@ -11,7 +11,7 @@ if ( ! function_exists( 'juliesjourneys_setup' ) ) :
 			* to change 'twentyfifteen' to the name of your theme in all the template files
 		*/
 
-		load_theme_textdomain( 'juliesjourneys', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'destinationsonadash', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -48,8 +48,8 @@ if ( ! function_exists( 'juliesjourneys_setup' ) ) :
 		// key - needs to be passed into wp_nav_menu for 'theme_location'
 		// value - is what shows up in admin panel on front end under menu
 		register_nav_menus( array(
-			'primary' => __( 'Primary Menu', 'juliesjourneys' ),
-			'social'  => __( 'Social Links Menu', 'juliesjourneys' )
+			'primary' => __( 'Primary Menu', 'destinationsonadash' ),
+			'social'  => __( 'Social Links Menu', 'destinationsonadash' )
 		) );
 
 		/*
@@ -90,9 +90,9 @@ if ( ! function_exists( 'juliesjourneys_setup' ) ) :
 	}
 
 
-endif; // juliesjourneys_setup
+endif; // destinationsonadash_setup
 
-add_action( 'after_setup_theme', 'juliesjourneys_setup' );
+add_action( 'after_setup_theme', 'destinationsonadash_setup' );
 
 
 // Enable SVG upload
@@ -115,23 +115,23 @@ function my_custom_admin_styles() {
 add_action('admin_head', 'my_custom_admin_styles');
 
 
-function juliesjourneys_excerpt_length( $length ) {
+function destinationsonadash_excerpt_length( $length ) {
 	return 25;
 }
-add_filter( 'excerpt_length', 'juliesjourneys_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'destinationsonadash_excerpt_length', 999 );
 // default length is 55 words
 // the 999 above tells wp what position to run the function
 
 
-function juliesjourneys_excerpt_more( $more ) {
+function destinationsonadash_excerpt_more( $more ) {
 	return '...';
 }
-add_filter('excerpt_more', 'juliesjourneys_excerpt_more');
+add_filter('excerpt_more', 'destinationsonadash_excerpt_more');
 
-// function juliesjourneys_excerpt_more( $more ) {
+// function destinationsonadash_excerpt_more( $more ) {
 // 	return ' <a class="read-more" href="' . get_permalink( get_the_ID() ) . '">' . 'Read More...' . '</a>';
 // }
-// add_filter('excerpt_more', 'juliesjourneys_excerpt_more');
+// add_filter('excerpt_more', 'destinationsonadash_excerpt_more');
 
 /**
  * Sets the content width in pixels, based on the theme's design and stylesheet.
@@ -149,9 +149,9 @@ add_filter('excerpt_more', 'juliesjourneys_excerpt_more');
 
 
 // Returns theme's url for use in templates
-// if ( ! function_exists( 'juliesjourneys_get_theme_uri' ) ):
+// if ( ! function_exists( 'destinationsonadash_get_theme_uri' ) ):
 
-// 	function juliesjourneys_get_theme_uri() {
+// 	function destinationsonadash_get_theme_uri() {
 // 		$theme_url = get_stylesheet_uri();
 // 		$theme_url = str_replace("/style.css", "", $theme_url);
 		
@@ -159,17 +159,17 @@ add_filter('excerpt_more', 'juliesjourneys_excerpt_more');
 // 	}
 
 // endif;
-// add_shortcode( 'theme_uri', 'juliesjourneys_get_theme_uri' );
+// add_shortcode( 'theme_uri', 'destinationsonadash_get_theme_uri' );
 
 
 
 // Registers a widget area
 
-function juliesjourneys_widgets_init() {
+function destinationsonadash_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'juliesjourneys' ),
+		'name'          => __( 'Sidebar', 'destinationsonadash' ),
 		'id'            => 'sidebar-1',
-		'description'   => __( 'Add widgets here to appear in your sidebar.', 'juliesjourneys' ),
+		'description'   => __( 'Add widgets here to appear in your sidebar.', 'destinationsonadash' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -177,9 +177,9 @@ function juliesjourneys_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Content Bottom 1', 'juliesjourneys' ),
+		'name'          => __( 'Content Bottom 1', 'destinationsonadash' ),
 		'id'            => 'sidebar-2',
-		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'juliesjourneys' ),
+		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'destinationsonadash' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -187,16 +187,16 @@ function juliesjourneys_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Content Bottom 2', 'juliesjourneys' ),
+		'name'          => __( 'Content Bottom 2', 'destinationsonadash' ),
 		'id'            => 'sidebar-3',
-		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'juliesjourneys' ),
+		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'destinationsonadash' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'juliesjourneys_widgets_init' );
+add_action( 'widgets_init', 'destinationsonadash_widgets_init' );
 
 // if ( ! function_exists( 'twentysixteen_fonts_url' ) ) :
 // /**
@@ -304,9 +304,9 @@ add_action( 'widgets_init', 'juliesjourneys_widgets_init' );
 
 
 // Add classes / page name to body element
-// if ( ! function_exists( 'juliesjourneys_add_body_class' ) ):
+// if ( ! function_exists( 'destinationsonadash_add_body_class' ) ):
 
-// 	function juliesjourneys_add_body_class($wp_classes) {
+// 	function destinationsonadash_add_body_class($wp_classes) {
 // 		global $post;
 		
 // 		// List of the only WP generated classes allowed
@@ -331,7 +331,7 @@ add_action( 'widgets_init', 'juliesjourneys_widgets_init' );
 // 	}
 
 // endif;
-// add_filter( 'body_class', 'juliesjourneys_add_body_class' );
+// add_filter( 'body_class', 'destinationsonadash_add_body_class' );
 
 
 // // Add template name to content element
@@ -393,14 +393,14 @@ add_action( 'widgets_init', 'juliesjourneys_widgets_init' );
 // 	return $classes;
 // }
 
-function juliesjourneys_add_slug_body_class( $classes ) {
+function destinationsonadash_add_slug_body_class( $classes ) {
 	global $post;
 	if ( isset( $post ) ) {
 		$classes[] = $post->post_type . '-' . $post->post_name;
 	}
 	return $classes;
 }
-add_filter( 'body_class', 'juliesjourneys_add_slug_body_class' );
+add_filter( 'body_class', 'destinationsonadash_add_slug_body_class' );
 
 
 /**
@@ -478,14 +478,14 @@ add_filter( 'body_class', 'juliesjourneys_add_slug_body_class' );
  * @param array $size Registered image size or flat array of height and width dimensions.
  * @return string A source size value for use in a post thumbnail 'sizes' attribute.
  */
-function juliesjourneys_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+function destinationsonadash_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 	if ( 'post-thumbnail' === $size ) {
 		is_active_sidebar( 'sidebar-1' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px';
 		! is_active_sidebar( 'sidebar-1' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, 1200px';
 	}
 	return $attr;
 }
-add_filter( 'wp_get_attachment_image_attributes', 'juliesjourneys_post_thumbnail_sizes_attr', 10 , 3 );
+add_filter( 'wp_get_attachment_image_attributes', 'destinationsonadash_post_thumbnail_sizes_attr', 10 , 3 );
 
 /**
  * Modifies tag cloud widget arguments to have all tags in the widget same font size.
@@ -507,7 +507,7 @@ add_filter( 'wp_get_attachment_image_attributes', 'juliesjourneys_post_thumbnail
 
 // custom global comment section 
 
-function julies_journeys_custom_comments( $comment, $args, $depth ) {
+function destinationsonadash_custom_comments( $comment, $args, $depth ) {
     $GLOBALS['comment'] = $comment;
     switch( $comment->comment_type ) :
         case 'pingback' :

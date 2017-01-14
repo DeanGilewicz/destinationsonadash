@@ -5,8 +5,8 @@
 	* Contains the closing of the #content div and all content after
 	*
 	* @package WordPress
-	* @subpackage Julies_Journeys
-	* @since JuliesJourneys 1.0
+	* @subpackage DestinationsOnADash
+	* @since DestinationsOnADash 1.0
 */
 
 	// get 5 most popular posts (based on comments)

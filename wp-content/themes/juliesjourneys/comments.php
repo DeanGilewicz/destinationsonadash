@@ -6,8 +6,8 @@
 	* and the comment form.
 	*
 	* @package WordPress
-	* @subpackage JuliesJourneys
-	* @since JuliesJourneys 1.0
+	* @subpackage DestinationsOnADash
+	* @since DestinationsOnADash 1.0
 */
 
 /*
@@ -36,9 +36,9 @@ if ( post_password_required() ) {
 						<h2 class="comments-title">
 							<?php
 								if ( 1 === $comments_number ) {
-									printf( _x( 'Comment on %s', 'comments title', 'juliesjourneys' ), get_the_title() );
+									printf( _x( 'Comment on %s', 'comments title', 'destinationsonadash' ), get_the_title() );
 								} else {
-									printf( _x( 'Comments on %s', 'comments title', 'juliesjourneys' ), get_the_title() );	
+									printf( _x( 'Comments on %s', 'comments title', 'destinationsonadash' ), get_the_title() );	
 								}
 							?>
 						</h2>
@@ -54,7 +54,7 @@ if ( post_password_required() ) {
 											'%1$s comments',
 											$comments_number,
 											'comments title',
-											'juliesjourneys'
+											'destinationsonadash'
 										),
 										number_format_i18n( $comments_number ),
 										get_the_title()
@@ -70,7 +70,7 @@ if ( post_password_required() ) {
 					<ul class="container-comment-list">
 						<?php
 							wp_list_comments( array(
-								'callback'	  => 'julies_journeys_custom_comments',
+								'callback'	  => 'destinationsonadash_custom_comments',
 								'style'       => 'ul',
 								'short_ping'  => true,
 								'avatar_size' => 42
@@ -88,7 +88,7 @@ if ( post_password_required() ) {
 				// If comments are closed and there are comments, let's leave a little note, shall we?
 				if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 			?>
-				<p class="no-comments"><?php _e( 'Comments are closed.', 'juliesjourneys' ); ?></p>
+				<p class="no-comments"><?php _e( 'Comments are closed.', 'destinationsonadash' ); ?></p>
 			<?php endif; ?>
 
 			<?php
