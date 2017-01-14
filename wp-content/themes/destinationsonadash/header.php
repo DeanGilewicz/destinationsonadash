@@ -46,9 +46,9 @@
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-instagram.svg" alt="instagram icon"/>
 						</a>
 
-						<a href="/">
+						<!-- <a href="/">
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-pinterest.svg" alt="pinterest icon"/>
-						</a>
+						</a> -->
 
 					</div>
 
@@ -59,7 +59,7 @@
 					<div class="container-header-middle">
 
 						<a href="/">
-							Julies Journeys
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-long.png" alt="destinations on a dash logo" />
 						</a>
 
 					</div>
