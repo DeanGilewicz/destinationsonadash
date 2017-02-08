@@ -18,10 +18,17 @@ body {
 ol,
 ul,
 li,
-p,
 a,
 span {
 	font-size: $base_font_size;
+
+	@media (min-width: $medium) {
+		font-size: $base_font_size*1.4;
+	}
+}
+
+p {
+	font-size: $base_font_size*1.2;
 
 	@media (min-width: $medium) {
 		font-size: $base_font_size*1.4;

@@ -98,10 +98,23 @@ add_action( 'after_setup_theme', 'destinationsonadash_setup' );
 // Enable SVG upload
 function cc_mime_types($mimes) {
 	$mimes['svg'] = 'image/svg+xml';
+	$mimes['svgz'] = 'image/svg+xml';
 	return $mimes;
 }
-
 add_filter('upload_mimes', 'cc_mime_types');
+
+
+function disable_real_mime_check( $data, $file, $filename, $mimes ) {
+    $wp_filetype = wp_check_filetype( $filename, $mimes );
+
+    $ext = $wp_filetype['ext'];
+    $type = $wp_filetype['type'];
+    $proper_filename = $data['proper_filename'];
+
+    return compact( 'ext', 'type', 'proper_filename' );
+}
+add_filter( 'wp_check_filetype_and_ext', 'disable_real_mime_check', 10, 4 );
+
 
 
 

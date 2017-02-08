@@ -150,7 +150,32 @@
 
 	<?php wp_reset_postdata(); ?>
 
-<?php endif; ?>
+<?php else : ?>
+
+	<div class="slider">
+
+		<div class="slides">
+
+			<div class="slide- active" style="background-color: rgba(0,0,0,0.7);">
+				<div class="mask"></div>
+				<div class="row">
+					<div class="small-12 columns">
+						<div class="content-of-slide">
+
+							<h2>no posts to display</h2>
+							<p>this is the excerpt text</p>
+							<a class="button mobile-slider" href="/">go</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+<? endif; ?>
 
 <!-- end slider -->
 
@@ -182,7 +207,17 @@
 		
 			<?php else: ?>
 
-				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
+
+				<a href="/trips">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<div class="item-description">
+						<p class="mobile-go">Go</p>
+						<span>Trips</span>
+						<p>All Posts</p>
+					</div>
+					<span class="overlay-border"></span>
+				</a>
 
 			<?php endif; ?>
 		
@@ -212,7 +247,17 @@
 		
 			<?php else: ?>
 
-				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
+
+				<a href="/insights">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<div class="item-description">
+						<p class="mobile-go">Go</p>
+						<span>Insights</span>
+						<p>All Posts</p>
+					</div>
+					<span class="overlay-border"></span>
+				</a>
 
 			<?php endif; ?>
 		
@@ -242,7 +287,17 @@
 		
 			<?php else: ?>
 
-				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
+
+				<a href="/eating-ethnic">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<div class="item-description">
+						<p class="mobile-go">Go</p>
+						<span>Eating Ethnic</span>
+						<p>All Posts</p>
+					</div>
+					<span class="overlay-border"></span>
+				</a>
 
 			<?php endif; ?>
 		
@@ -272,7 +327,17 @@
 		
 			<?php else: ?>
 
-				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
+
+				<a href="/favorites">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<div class="item-description">
+						<p class="mobile-go">Go</p>
+						<span>Favs</span>
+						<p>All Posts</p>
+					</div>
+					<span class="overlay-border"></span>
+				</a>
 
 			<?php endif; ?>
 		
@@ -359,7 +424,70 @@
 		
 	<?php else: ?>
 
-		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+		<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
+
+		<article class="row home-post ltr">
+			<div class="medium-7 medium-push-5 columns">
+				<div class="post-meta">
+					<span class="post-meta-category">
+						<a href="/">category name</a>
+					</span>
+					<span class="post-meta-date"><?= date('M j, Y'); ?></span>
+				</div>
+				<a href="/" class="post-title"><h2>post title</h2></a>
+				<div class="post-excerpt">
+					<p>The post excerpt goes here</p>
+				</div>
+				<a href="/" class="read-more">Read More</a>
+			</div>
+			<div class="medium-5 medium-pull-7 columns">
+				<a href="<?php the_permalink(); ?>">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+				</a>
+			</div>
+		</article>
+
+		<article class="row home-post rtl">
+			<div class="medium-7 columns">
+				<div class="post-meta">
+					<span class="post-meta-date"><?= date('M j, Y'); ?></span>
+					<span class="post-meta-category">
+						<a href="/">category name</a>
+					</span>
+				</div>
+				<a href="/" class="post-title"><h2>post title</h2></a>
+				<div class="post-excerpt">
+					<p>The post excerpt goes here</p>
+				</div>
+				<a href="/" class="read-more">Read More</a>
+			</div>
+			<div class="medium-5 columns">
+				<a href="<?php the_permalink(); ?>">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+				</a>
+			</div>
+		</article>
+
+		<article class="row home-post ltr">
+			<div class="medium-7 medium-push-5 columns">
+				<div class="post-meta">
+					<span class="post-meta-category">
+						<a href="/">category name</a>
+					</span>
+					<span class="post-meta-date"><?= date('M j, Y'); ?></span>
+				</div>
+				<a href="/" class="post-title"><h2>post title</h2></a>
+				<div class="post-excerpt">
+					<p>The post excerpt goes here</p>
+				</div>
+				<a href="/" class="read-more">Read More</a>
+			</div>
+			<div class="medium-5 medium-pull-7 columns">
+				<a href="<?php the_permalink(); ?>">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+				</a>
+			</div>
+		</article>
 
 	<?php endif; ?>
 
@@ -399,7 +527,19 @@
 		
 			<?php else: ?>
 
-				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
+
+				<a href="/quotes">
+
+					<div class="bg" style="background-color: rgba(0,0,0,0.7);"></div>
+					<div class="quote-description">
+						<p>&quot;</p>
+						<p><?= date('M j, Y'); ?></p>
+						<span>The content of the quote goes here</span>
+					</div>
+					<span class="overlay-border"></span>
+
+				</a>
 
 			<?php endif; ?>
 
@@ -490,7 +630,70 @@
 		
 	<?php else: ?>
 
-		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+		<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
+
+		<article class="row home-post ltr">
+			<div class="medium-7 medium-push-5 columns">
+				<div class="post-meta">
+					<span class="post-meta-category">
+						<a href="/">category name</a>
+					</span>
+					<span class="post-meta-date"><?= date('M j, Y'); ?></span>
+				</div>
+				<a href="/" class="post-title"><h2>post title</h2></a>
+				<div class="post-excerpt">
+					<p>The post excerpt goes here</p>
+				</div>
+				<a href="/" class="read-more">Read More</a>
+			</div>
+			<div class="medium-5 medium-pull-7 columns">
+				<a href="/">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+				</a>
+			</div>
+		</article>
+
+		<article class="row home-post rtl">
+			<div class="medium-7 columns">
+				<div class="post-meta">
+					<span class="post-meta-date"><?= date('M j, Y'); ?></span>
+					<span class="post-meta-category">
+						<a href="/">category name</a>
+					</span>
+				</div>
+				<a href="/" class="post-title"><h2>post title</h2></a>
+				<div class="post-excerpt">
+					<p>The post excerpt goes here</p>
+				</div>
+				<a href="/" class="read-more">Read More</a>
+			</div>
+			<div class="medium-5 columns">
+				<a href="/">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+				</a>
+			</div>
+		</article>
+
+		<article class="row home-post ltr">
+			<div class="medium-7 medium-push-5 columns">
+				<div class="post-meta">
+					<span class="post-meta-category">
+						<a href="/">category name</a>
+					</span>
+					<span class="post-meta-date"><?= date('M j, Y'); ?></span>
+				</div>
+				<a href="/" class="post-title"><h2>post title</h2></a>
+				<div class="post-excerpt">
+					<p>The post excerpt goes here</p>
+				</div>
+				<a href="/" class="read-more">Read More</a>
+			</div>
+			<div class="medium-5 medium-pull-7 columns">
+				<a href="/">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+				</a>
+			</div>
+		</article>
 
 	<?php endif; ?>
 

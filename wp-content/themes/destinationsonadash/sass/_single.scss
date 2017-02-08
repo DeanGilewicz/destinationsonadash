@@ -9,10 +9,16 @@
 
 	.alignleft {
 		display: block;
+		margin: $base_size auto;
+		padding-top: 10px;
+		padding-bottom: 10px;
 
 		@media (min-width: $medium) {
 			float: left;
+			margin-left: 0;
 			margin-right: $base_size;
+			padding-top: 0;
+			padding-bottom: 0;
 		}
 
 		img {
@@ -22,10 +28,16 @@
 
 	.alignright {
 		display: block;
+		margin: $base_size auto;
+		padding-top: 10px;
+		padding-bottom: 10px;
 
 		@media (min-width: $medium) {
 			float: right;
+			margin-right: 0;
 			margin-left: $base_size;
+			padding-top: 0;
+			padding-bottom: 0;
 		}
 
 		img {
@@ -34,6 +46,7 @@
 	}
 
 	.post-meta-single-category {
+		padding-top: 30px;
 		font-family: $font_pacifico;
 		text-align: center;
 		text-transform: capitalize;
@@ -48,8 +61,25 @@
 		text-transform: uppercase;
 	}
 
-	.container-content {
-		// font-family: 'Open Sans, Arial, Helvetica, sans-serif';
+	.container_custom_post_meta {
+		text-align: center;
+		font-family: $font_pacifico;
+	}
+
+	.post-meta-trip-date,
+	.post-meta-trip-duration,
+	.post-meta-date {
+		margin-left: 10px;
+		margin-right: 10px;
+
+		span {
+			font-weight: 700;
+		}
+
+	}
+
+	.container_content {
+		padding-top: 30px;
 	}
 
 }
