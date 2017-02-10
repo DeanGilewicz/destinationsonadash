@@ -503,9 +503,9 @@ body.home {
 				margin: 0 auto;
 				transform: translateY(-50%);
 
-				img {
-					margin-bottom: $base_size*3;
-				}
+				// img {
+				// 	margin-bottom: $base_size*3;
+				// }
 
 				span {
 					display: block;
@@ -519,15 +519,32 @@ body.home {
 					}
 				}
 
-				p {
-					margin: 0 0 $base_size*3;
-					font-size: $base_font_size*1.4;
-					text-transform: uppercase;
-					color: rgba(255, 255, 255, 0.5);
+			}
 
-					&:last-child {
-						font-size: $base_font_size*1.8;
+			.quotation_mark {
+				position: absolute;
+				margin: 0 0 $base_size*3;
+				font-size: $base_font_size*6;
+				text-transform: uppercase;
+				color: rgba(255, 255, 255, 0.5);
+
+				@media (min-width: $medium) {
+					font-size: $base_font_size*8;
+				}
+
+				&:first-of-type {
+					top: 0;
+					left: 30px;
+				}
+
+				&:last-of-type {
+					bottom: -60px;
+					right: 30px;
+
+					@media (min-width: $medium) {
+						bottom: -70px;
 					}
+
 				}
 
 			}

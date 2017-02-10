@@ -514,11 +514,12 @@
 					<a href="/quotes">
 
 						<div class="bg" style="background-image: url('<?= $src[0]; ?>')"></div>
+						<p class="quotation_mark">&ldquo;</p>
 						<div class="quote-description">
-							<p>&quot;</p>
-							<p><?php the_date('M j, Y'); ?></p>
+							<!-- <p><?php the_date('M j, Y'); ?></p> -->
 							<span><?= get_the_content(); ?></span>
 						</div>
+						<p class="quotation_mark">&rdquo;</p>
 						<span class="overlay-border"></span>
 
 					</a>
