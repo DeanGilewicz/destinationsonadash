@@ -34,15 +34,15 @@
 
 					<div class="container-header-left">
 
-						<a href="/">
+						<a href="https://www.facebook.com/destinationsonadash" target="_blank" rel="noopener noreferrer">
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-facebook.svg" alt="facebook icon"/>
 						</a>
 
-						<a href="/">
+						<!-- <a href="/">
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-twitter.svg" alt="twitter icon"/>
-						</a>
+						</a> -->
 
-						<a href="/">
+						<a href="https://www.instagram.com/destinationsonadash/" target="_blank" rel="noopener noreferrer">
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-instagram.svg" alt="instagram icon"/>
 						</a>
 
@@ -72,7 +72,7 @@
 
 						<a href="/about">About</a> 
 
-						<a href="/gallery">Gallery</a>
+						<!-- <a href="/gallery">Gallery</a> -->
 
 						<a href="/map">Map</a>
 
