@@ -42,9 +42,9 @@
 		</div><!-- .site-content -->
 
 		<footer id="colophon" role="contentinfo">
-			
-			<div class="row">
 
+			<div class="row container_footer_logo">
+				<div class="footer_logo" style="background-image: url('<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png')"></div>
 				<div class="small-6 medium-3 columns footer-area">
 					<h6>Continents</h6>
 					<a href="/continent/africa" class="active">Africa</a>
@@ -58,10 +58,10 @@
 
 				<div class="small-6 medium-3 columns footer-area">
 					<h6>Categories</h6>
-					<a href="/trips">trips</a>
-					<a href="/insights">insights</a>
-					<a href="/eating_ethnic">eating ethnic</a>
-					<a href="/favorites">favs</a>
+					<a href="/trips">Trips</a>
+					<a href="/insights">Insights</a>
+					<a href="/eating_ethnic">Eating Ethnic</a>
+					<a href="/favorites">Favs</a>
 				</div>
 
 				<div class="small-6 medium-3 columns footer-area">

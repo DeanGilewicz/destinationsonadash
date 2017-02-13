@@ -13,29 +13,36 @@ jQuery(document).ready(function($) {
 
 	// search input field functionality
 
-	$('#header-search-icon').on('click', function() {
+	$('#js-header-search-icon').on('click', function() {
+		var headerMiddle = $('.header_search');
 		var searchInput = $('#header-search-field');
-		$(searchInput).toggleClass('active');
-		if( searchInput.hasClass('active') ) {
+		$(headerMiddle).toggleClass('active');
+		if( headerMiddle.hasClass('active') ) {
 			$(searchInput).focus();
 		}
 	});
 
+	// search input field functionality
+
+	$('#js-hamburger').on('click', function() {
+		var headerBottom = $('.header_bottom');
+		$(headerBottom).toggleClass('active');
+	});
 
 	// GLOBAL NAV
 	// small device
-	if( $(window).width() <= 640 ) {
-		$('.header-continents li').on('click', function(e) {
-			if( $(this).find('span').hasClass('active') ) {
-				return true;
-			} else {
-				e.preventDefault();
-				$('.header-continents li span').removeClass('active');
-				$(this).find('span').addClass('active');
-			}
+	// if( $(window).width() <= 640 ) {
+	// 	$('.header-continents li').on('click', function(e) {
+	// 		if( $(this).find('span').hasClass('active') ) {
+	// 			return true;
+	// 		} else {
+	// 			e.preventDefault();
+	// 			$('.header-continents li span').removeClass('active');
+	// 			$(this).find('span').addClass('active');
+	// 		}
 
-		});
-	}
+	// 	});
+	// }
 	
 
 	// HOME PAGE

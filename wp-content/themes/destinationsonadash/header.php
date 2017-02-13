@@ -28,55 +28,57 @@
 		<!-- <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a> -->
 		<header>
 
-			<div class="row header-top">
+			<div class="row container_header_top">
 
-				<div class="medium-4 columns">
+				<div class="columns">
 
-					<div class="container-header-left">
+					<a href="/" class="logo_stacked">
+						<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-stacked.png" alt="destinations on a dash logo" />
+					</a>
 
-						<a href="https://www.facebook.com/destinationsonadash" target="_blank" rel="noopener noreferrer">
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-facebook.svg" alt="facebook icon"/>
-						</a>
+					<a href="/" class="logo_long">
+						<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-long.png" alt="destinations on a dash logo" />
+					</a>
+
+				</div>
+
+				<div class="columns">
+
+					<div class="container_icons">
 
 						<!-- <a href="/">
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-twitter.svg" alt="twitter icon"/>
 						</a> -->
 
-						<a href="https://www.instagram.com/destinationsonadash/" target="_blank" rel="noopener noreferrer">
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-instagram.svg" alt="instagram icon"/>
-						</a>
-
 						<!-- <a href="/">
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-pinterest.svg" alt="pinterest icon"/>
 						</a> -->
 
-					</div>
+						<a href="https://www.facebook.com/destinationsonadash" target="_blank" rel="noopener noreferrer" title="facebook" class="icon_facebook">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-facebook.svg" alt="facebook icon" />
+						</a><!--
 
-				</div>
+					 --><a href="https://www.instagram.com/destinationsonadash/" target="_blank" rel="noopener noreferrer" title="instagram" class="icon_instagram">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-instagram.svg" alt="instagram icon" />
+						</a><!--
 
-				<div class="medium-4 columns">
+					 --><span class="icon_search" title="search">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-search.svg" alt="search icon" id="js-header-search-icon" />
+						</span><!--
+						
+					 --><span id="js-hamburger" class="icon_hamburger">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span><!--
 
-					<div class="container-header-middle">
-
-						<a href="/">
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-long.png" alt="destinations on a dash logo" />
+					 --><a href="/about" class="icon_plane_nav" title="about">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_plane.svg" class="icon_plane" />
+						</a><!--
+						
+					 --><a href="/map" class="icon_globe_nav" title="map">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_globe.svg" class="icon_globe" />
 						</a>
-
-					</div>
-
-				</div>
-
-				<div class="medium-4 columns">
-
-					<div class="container-header-right">
-
-						<a href="/about">About</a> 
-
-						<!-- <a href="/gallery">Gallery</a> -->
-
-						<a href="/map">Map</a>
-
-						<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-search.svg" alt="search icon" id="header-search-icon" />
 
 					</div>
 
@@ -84,9 +86,9 @@
 
 			</div>
 
-			<div class="row header-middle">
+			<div class="row header_search">
 
-				<div class="medium-12 columns">
+				<div class="columns">
 					
 					<form role="search" method="GET" action="<?= esc_url( home_url( '/' ) ); ?>">
 						<input id="header-search-field" type="search" placeholder="Search" value="<?= get_search_query(); ?>" name="s" title="Search For" />
@@ -96,67 +98,115 @@
 
 			</div>
 
-			<div class="row header-bottom">
+			<div class="row header_bottom">
 
-				<ul class="small-12 columns header-continents">
+				<ul class="small-12 columns container_mobile_menu">
 
 					<?php 
 					// print_r(get_bloginfo());
 					// exit;
 					?>
+
+					<li>
+						<a href="/about">
+							<div class="container_img">
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_plane.svg" class="icon_plane" />
+							</div><!--
+							--><div class="container_title">
+								<span>About</span>
+							</div>
+						</a>
+					</li>
+
+					<li>
+						<a href="/map">
+							<div class="container_img">
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_globe.svg" class="icon_globe" />
+							</div><!--
+							--><div class="container_title">
+								<span>Map</span>
+							</div>
+						</a>
+					</li>
+
+					<!-- <li>
+						<a href="/gallery">Gallery</a>
+					</li> -->
+
 					<li class="active <?php // if match page then give active class ?>">
 						<a href="/continent/africa">
-							<span>Africa</span>
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/africa.png" class="icon_africa" />
-							<span>Go</span>
+							<div class="container_img">
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/africa.png" class="icon_africa" />
+							</div><!--
+							--><div class="container_title">
+								<span>Africa</span>
+							</div>
 						</a>
 					</li>
 
 					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/antarctica">
-							<span>Antarctica</span>
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/antarctica.png" class="icon_antarctica" />
-							<span>Go</span>
+							<div class="container_img">
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/antarctica.png" class="icon_antarctica" />
+							</div><!--
+							--><div class="container_title">
+								<span>Antarctica</span>
+							</div>
 						</a>
 					</li>
 
 					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/asia">
-							<span>Asia</span>
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/asia.png" class="icon_asia" />
-							<span>Go</span>
+							<div class="container_img">
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/asia.png" class="icon_asia" />
+							</div><!--
+						 --><div class="container_title">
+								<span>Asia</span>
+							</div>
 						</a>
 					</li>
 
 					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/australia">
-							<span>Australia</span>
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/australia.png" class="icon_australia" />
-							<span>Go</span>
+							<div class="container_img">
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/australia.png" class="icon_australia" />
+							</div><!--
+						 --><div class="container_title">
+								<span>Australia</span>
+							</div>
 						</a>
 					</li>
 
 					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/europe">
-							<span>Europe</span>
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/europe.png" class="icon_europe" />
-							<span>Go</span>
+							<div class="container_img">
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/europe.png" class="icon_europe" />
+							</div><!--
+						 --><div class="container_title">
+								<span>Europe</span>
+							</div>
 						</a>
 					</li>
 
 					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/north-america">
-							<span class="text_long">N. America</span>
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/north_america.png" class="icon_north_america" />
-							<span>Go</span>
+							<div class="container_img">
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/north_america.png" class="icon_north_america" />
+							</div><!--
+						 --><div class="container_title">
+								<span class="text_long">N. America</span>
+							</div>
 						</a>
 					</li>
 
 					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/south-america">
-							<span class="text_long">S. America</span>
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/south_america.png" class="icon_south_america" />
-							<span>Go</span>
+							<div class="container_img">
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/south_america.png" class="icon_south_america" />
+							</div><!--
+						 --><div class="container_title">
+								<span class="text_long">S. America</span>
+							</div>
 						</a>
 					</li>
 
