@@ -28,7 +28,12 @@ body.page-map {
 	// end map plugin overrides
 
 	.the-map {
-		min-height: 400px;
+		min-height: 200px;
+
+		@media(min-width: $medium) {
+			min-height: 400px;
+		}
+
 	}
 
 	.visited {
@@ -49,7 +54,7 @@ body.page-map {
 			span {
 				position: absolute;
 				top: $base_size*0.8;
-				right: 0;
+				right: .9375rem;
 			}
 		}
 

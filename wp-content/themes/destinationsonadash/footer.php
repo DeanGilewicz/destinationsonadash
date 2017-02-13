@@ -47,7 +47,7 @@
 				<div class="footer_logo" style="background-image: url('<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png')"></div>
 				<div class="small-6 medium-3 columns footer-area">
 					<h6>Continents</h6>
-					<a href="/continent/africa" class="active">Africa</a>
+					<a href="/continent/africa">Africa</a>
 					<a href="/continent/antarctica">Antarctica</a>
 					<a href="/continent/asia">Asia</a>
 					<a href="/continent/australia">Australia</a>

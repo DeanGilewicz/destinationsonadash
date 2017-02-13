@@ -81,7 +81,8 @@
 	.destination {
 
 		.continent-title {
-			font-family: $font_pacifico;
+			padding-top: $base_size;
+			padding-bottom: $base_size;
 			text-align: center;
 		}
 
@@ -174,6 +175,7 @@
 
 			.post-meta-category {
 				display: block;
+			    margin-bottom: $base_size;
 				font-family: $font_pacifico;
 				text-transform: capitalize;
 
@@ -201,6 +203,7 @@
 
 				p {
 					margin-bottom: $base_size;
+					font-size: $base_font_size*1.4;
 				}
 			}
 

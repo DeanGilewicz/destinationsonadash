@@ -13,11 +13,13 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
+<div id="primary" class="content-area container_default_page">
 	<main id="main" class="site-main" role="main">
 
 		<div class="row">
 			<div class="medium-12 columns">
+
+				<h1 class="page-title"><?php the_title(); ?></h1>
 
 				<?php
 				// Start the loop.

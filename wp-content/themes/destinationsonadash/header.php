@@ -22,6 +22,20 @@
 
 <body <?php body_class(); ?>>
 
+<?php
+
+	$related_continent = '';
+
+	$related_africa 		= has_term('africa', 'continents');
+	$related_antarctica 	= has_term('antarctica', 'continents');
+	$related_asia 			= has_term('asia', 'continents');
+	$related_australia 		= has_term('australia', 'continents');
+	$related_europe 		= has_term('europe', 'continents');
+	$related_north_america 	= has_term('north-america', 'continents');
+	$related_south_america 	= has_term('south-america', 'continents');
+
+?>
+
 <div id="page" class="site">
 	<div class="site-inner">
 
@@ -137,7 +151,7 @@
 						<a href="/gallery">Gallery</a>
 					</li> -->
 
-					<li class="<?php // if match page then give active class ?>">
+					<li class="<?php if( $related_africa ) { echo 'active'; } ?>">
 						<a href="/continent/africa">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/africa.png" class="icon_africa" />
@@ -148,7 +162,7 @@
 						</a>
 					</li><!--
 
-				 --><li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php if( $related_antarctica ) { echo 'active'; } ?>">
 						<a href="/continent/antarctica">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/antarctica.png" class="icon_antarctica" />
@@ -159,7 +173,7 @@
 						</a>
 					</li><!--
 
-				 --><li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php if( $related_asia ) { echo 'active'; } ?>">
 						<a href="/continent/asia">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/asia.png" class="icon_asia" />
@@ -170,7 +184,7 @@
 						</a>
 					</li><!--
 
-				 --><li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php if( $related_australia ) { echo 'active'; } ?>">
 						<a href="/continent/australia">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/australia.png" class="icon_australia" />
@@ -181,7 +195,7 @@
 						</a>
 					</li><!--
 
-				 --><li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php if( $related_europe ) { echo 'active'; } ?>">
 						<a href="/continent/europe">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/europe.png" class="icon_europe" />
@@ -192,7 +206,7 @@
 						</a>
 					</li><!--
 
-				 --><li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php if( $related_north_america ) { echo 'active'; } ?>">
 						<a href="/continent/north-america">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/north_america.png" class="icon_north_america" />
@@ -203,7 +217,7 @@
 						</a>
 					</li><!--
 
-				 --><li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php if( $related_south_america ) { echo 'active'; } ?>">
 						<a href="/continent/south-america">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/south_america.png" class="icon_south_america" />

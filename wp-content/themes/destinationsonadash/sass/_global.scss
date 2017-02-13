@@ -104,8 +104,9 @@ img {
 .read-more {
 	position: relative;
 	display: inline-block;
-	margin-bottom: 10px;
+	margin-bottom: $base_size*2;
 	text-transform: uppercase;
+	font-size: $base_font_size*1.2;
 
 	&:after {
 		content: "";

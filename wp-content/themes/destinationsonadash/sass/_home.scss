@@ -65,7 +65,7 @@ body.home {
 
 				p {
 					margin: 5px 0;
-					font-size: 1.2em;
+					font-size: 1.3em;
 					font-weight: 300;
 					color: $white;
 				}
@@ -220,7 +220,7 @@ body.home {
 				transform: translateY(-45%);
 
 				span {
-					font-size: $base_size*1.6;
+					font-size: $base_size*1.8;
 					display: block;
 					color: $white;
 					text-transform: uppercase;
@@ -233,7 +233,7 @@ body.home {
 
 				p {
 					margin: 0;
-					font-size: $base_font_size*1.2;
+					font-size: $base_font_size*1.6;
 					color: rgba(255, 255, 255, 0.5);
 					opacity: 0;
 					transform: translate3d(-30px, 0px, 0px);
@@ -420,6 +420,7 @@ body.home {
 
 				p {
 					margin-bottom: $base_size;
+					font-size: $base_font_size*1.4;
 				}
 			}
 

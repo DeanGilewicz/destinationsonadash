@@ -1,5 +1,11 @@
 .page {
 
+	.container_default_page .page-title {
+		padding-top: $base_size;
+		padding-bottom: $base_size;
+		text-align: center;
+	}
+
 	.lightbox {
 		position: fixed;
 		top: 0;
