@@ -30,14 +30,10 @@
 
 			<div class="row container_header_top">
 
-				<div class="columns">
+				<div class="columns logo_stacked">
 
-					<a href="/" class="logo_stacked">
+					<a href="/">
 						<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-stacked.png" alt="destinations on a dash logo" />
-					</a>
-
-					<a href="/" class="logo_long">
-						<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-long.png" alt="destinations on a dash logo" />
 					</a>
 
 				</div>
@@ -82,6 +78,14 @@
 
 					</div>
 
+					<div class="columns logo_long">
+
+						<a href="/">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-long.png" alt="destinations on a dash logo" />
+						</a>
+
+					</div>
+
 				</div>
 
 			</div>
@@ -100,14 +104,14 @@
 
 			<div class="row header_bottom">
 
-				<ul class="small-12 columns container_mobile_menu">
+				<ul class="small-12 columns container_sub_menu">
 
 					<?php 
 					// print_r(get_bloginfo());
 					// exit;
 					?>
 
-					<li>
+					<li class="sub_menu_about">
 						<a href="/about">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_plane.svg" class="icon_plane" />
@@ -118,7 +122,7 @@
 						</a>
 					</li>
 
-					<li>
+					<li class="sub_menu_map">
 						<a href="/map">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_globe.svg" class="icon_globe" />
@@ -133,7 +137,7 @@
 						<a href="/gallery">Gallery</a>
 					</li> -->
 
-					<li class="active <?php // if match page then give active class ?>">
+					<li class="<?php // if match page then give active class ?>">
 						<a href="/continent/africa">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/africa.png" class="icon_africa" />
@@ -142,9 +146,9 @@
 								<span>Africa</span>
 							</div>
 						</a>
-					</li>
+					</li><!--
 
-					<li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php // if match page then give active class ?>">
 						<a href="/continent/antarctica">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/antarctica.png" class="icon_antarctica" />
@@ -153,9 +157,9 @@
 								<span>Antarctica</span>
 							</div>
 						</a>
-					</li>
+					</li><!--
 
-					<li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php // if match page then give active class ?>">
 						<a href="/continent/asia">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/asia.png" class="icon_asia" />
@@ -164,9 +168,9 @@
 								<span>Asia</span>
 							</div>
 						</a>
-					</li>
+					</li><!--
 
-					<li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php // if match page then give active class ?>">
 						<a href="/continent/australia">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/australia.png" class="icon_australia" />
@@ -175,9 +179,9 @@
 								<span>Australia</span>
 							</div>
 						</a>
-					</li>
+					</li><!--
 
-					<li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php // if match page then give active class ?>">
 						<a href="/continent/europe">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/europe.png" class="icon_europe" />
@@ -186,26 +190,26 @@
 								<span>Europe</span>
 							</div>
 						</a>
-					</li>
+					</li><!--
 
-					<li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php // if match page then give active class ?>">
 						<a href="/continent/north-america">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/north_america.png" class="icon_north_america" />
 							</div><!--
 						 --><div class="container_title">
-								<span class="text_long">N. America</span>
+								<span>N. America</span>
 							</div>
 						</a>
-					</li>
+					</li><!--
 
-					<li class="<?php // if match page then give active class ?>">
+				 --><li class="<?php // if match page then give active class ?>">
 						<a href="/continent/south-america">
 							<div class="container_img">
 								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/south_america.png" class="icon_south_america" />
 							</div><!--
 						 --><div class="container_title">
-								<span class="text_long">S. America</span>
+								<span>S. America</span>
 							</div>
 						</a>
 					</li>
