@@ -6,28 +6,26 @@
 	* @since DestinationsOnADash 1.0
 */
 
-get_header(); ?>
+?>
 
-	<div id="primary" class="content-area">
+<?php get_header(); ?>
+
+	<div id="primary" class="content-area error-404 not-found">
 		<main id="main" class="site-main" role="main">
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'destinationsonadash' ); ?></h1>
-				</header><!-- .page-header -->
+			<div class="row">
+				<div class="columns">
 
-				<div class="page-content">
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'destinationsonadash' ); ?></p>
+					<h1 class="page-title">Nothing to see here!</h1>
+
+					<p><?php _e( 'Oh no, there isn\'t anything at this location. Maybe try a search?', 'destinationsonadash' ); ?></p>
 
 					<?php get_search_form(); ?>
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
 
-		</main><!-- .site-main -->
+				</div>
+			</div>
 
-		<?php get_sidebar( 'content-bottom' ); ?>
+		</main>
+	</div>
 
-	</div><!-- .content-area -->
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -1,11 +1,17 @@
 body.search {
 
 	.site-content {
-		padding-bottom: $base_size*6;
+		padding-bottom: $base_size*3;
 		text-align: center;
+
+		@media (min-width: $medium) {
+			padding-bottom: $base_size*6;
+		}
 	}
 
 	h1 {
+		padding-top: $base_size;
+		padding-bottom: $base_size;
 		text-align: center;
 	}
 
@@ -32,26 +38,109 @@ body.search {
 		font-weight: 700;
 	}
 
-	.slider {
+}
+
+body.search-results .found-search-item {
+	
+	a {
+		display: inline-block;
+	}
+
+	.post-meta {
+		text-align: center;
+
+		span:first-child {
+			margin-right: $base_size;
+		}
+	}
+
+	.post-meta-category {
+		display: block;
+		margin-top: $base_size*2;
+		font-family: $font_pacifico;
+		text-transform: capitalize;
+
+		a {
+			font-size: $base_font_size*2.4;
+		}
+	}
+
+	a.post-title {
+		display: block;
+		text-align: center;
+
+		@media (min-width: $medium) {
+			display: inline-block;
+			text-align: initial;
+		}
+	}
+
+	.post-excerpt {
+		padding: $base_size 0;
+
+		p {
+			margin-bottom: $base_size;
+			font-size: $base_font_size*1.4;
+		}
+	}
+
+	.post-meta-date {
+		text-transform: uppercase;
+	}
+
+}
+
+body.search-no-results {
+
+	.no-results-message,
+	.no-results-message span {
+		font-size: $base_font_size*2;
+ 	}
+
+ 	.slider {
 		position: relative;
 		width: 100%;
 		max-width: 62.5rem;
-		height: 250px;
+		min-height: 510px;
 		margin-top: $base_size*2;
 		margin-left: auto;
 		margin-right: auto;
 
-		@media (min-width: 420px) {
-			height: 330px;
+		@media (min-width: 340px) {
+			min-height: 540px;
 		}
 
-		@media (min-width: 520px) {
-			height: 420px;
+		@media (min-width: 380px) {
+			min-height: 560px;
+		}
+
+		@media (min-width: 420px) {
+			min-height: 600px;
+		}
+
+		@media (min-width: 460px) {
+			min-height: 620px;
+		}
+
+		@media (min-width: 500px) {
+			min-height: 640px;
+		}
+
+		@media (min-width: 540px) {
+			min-height: 660px;
+		}
+
+		@media (min-width: 580px) {
+			min-height: 680px;
+		}
+
+		@media (min-width: 620px) {
+			min-height: 700px;
 		}
 
 		@media (min-width: $medium) {
-			height: 500px;
-			margin-top: $base_size*6;
+			min-height: 380px;
+			margin-top: $base_size*4;
 		}
 
 		[class*='slide-'] {
@@ -80,9 +169,12 @@ body.search {
 
 				.col-left,
 				.col-right {
-					float: left;
-					width: 50%;
 					padding: $base_size;
+
+					@media (min-width: $medium) {
+						float: left;
+						width: 50%;
+					}
 				}
 
 				h2 {
@@ -106,9 +198,24 @@ body.search {
 					}
 				}
 			}
+
+			.post-meta-category {
+				display: inline-block;
+				margin-bottom: $base_size*0.6;
+				font-family: $font_pacifico;
+				font-size: $base_font_size*2;
+			}
+
+			.post-meta-date {
+				display: block;
+			}
+
 		}
 
 	}
 
-
 }
+
+
+
+

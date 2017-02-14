@@ -19,7 +19,7 @@
 
 <section class="row no-results not-found">
 	<div class="medium-12 columns page-header">
-		<h1 class="page-title"><?php _e( 'Nothing Found', 'twentysixteen' ); ?></h1>
+		<h1 class="page-title"><?php _e( 'Nothing Found Here', 'destinationsonadash' ); ?></h1>
 	</div><!-- .page-header -->
 
 	<div class="medium-12 columns page-content">
@@ -30,7 +30,7 @@
 		<?php elseif ( is_search() ) : ?>
 
 			<!-- <p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'twentysixteen' ); ?></p> -->
-			<p>Oh no, we couldn't find anything that matched your search for: <span class="term"><?php echo esc_html( get_search_query() ); ?></span></p>
+			<p class="no-results-message">Oh no, we couldn't find anything that matched your search for: <span class="term"><?php echo esc_html( get_search_query() ); ?></span></p>
 			
 			<p>Try searching again or explore my latest posts...</p>
 			
@@ -64,8 +64,8 @@
 										<div class="content-of-slide">
 
 											<div class="col-left">
-												<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
-												<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+												<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>" class="post-meta-category"><?= $postType->labels->name; ?></a>
+												<span class="post-meta-date"><?php echo get_the_date('M j, Y'); ?></span>
 												<h2><?php the_title(); ?></h2>
 												<?php the_excerpt(); ?>
 												<a class="button mobile-slider" href="<?php the_permalink(); ?>">read more</a>

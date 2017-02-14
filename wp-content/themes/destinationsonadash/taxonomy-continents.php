@@ -75,65 +75,81 @@ $totalPostNum = count($postArray);
 		
 		<div class="row">
 
-			<?php //while ( $the_query_destinations->have_posts() ) : $the_query_destinations->the_post(); ?>
+			<?php 
 
-			<?php foreach ($postArray as $modifiedPost) : ?>
+				//while ( $the_query_destinations->have_posts() ) : $the_query_destinations->the_post();
 
-				<?php if ($totalPostNum % 4 === 0) : ?>
-				
-					<div class="medium-3 columns end bottom-margin four">
+				if( $postArray ) : 
 
-				<?php elseif ($totalPostNum % 3 === 0) : ?>
+			?>
 
-					<div class="medium-4 columns end bottom-margin three">
+				<?php foreach ($postArray as $modifiedPost) : ?>
 
-				<?php elseif ($totalPostNum % 1 === 0) : ?>
-				
-					<div class="medium-6 columns end bottom-margin two">
+					<?php if ($totalPostNum % 4 === 0) : ?>
+					
+						<div class="medium-3 columns end bottom-margin four">
 
-				<?php else : ?>
-				
-					<div class="medium-6 columns end">
+					<?php elseif ($totalPostNum % 3 === 0) : ?>
 
-				<?php endif; ?>
+						<div class="medium-4 columns end bottom-margin three">
 
-						<div class="container-flag">
-						
-							<?php // $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
+					<?php elseif ($totalPostNum % 1 === 0) : ?>
+					
+						<div class="medium-6 columns end bottom-margin two">
 
-							<?php 
-								// advanced custom fields 
-								$flag = null;
-								$customFields = get_fields($modifiedPost->ID);
-								if( isset($customFields['trip_flag']) ) { $flag = $customFields['trip_flag']; }							
-								$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($modifiedPost->ID), 'large');
-							?>
+					<?php else : ?>
+					
+						<div class="medium-6 columns end">
 
-							<?php if( isset($flag) ) : ?>
+					<?php endif; ?>
 
-								<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
-									<img src="<?php echo $flag['url']; ?>" alt="<?php echo $flag['alt']; ?>" class="flag" />
-									<p><?= $modifiedPost->destinationName; ?></p>
-								</a>
+							<div class="container-flag">
+							
+								<?php // $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
 
-							<?php else: ?>
+								<?php 
+									// advanced custom fields 
+									$flag = null;
+									$customFields = get_fields($modifiedPost->ID);
+									if( isset($customFields['trip_flag']) ) { $flag = $customFields['trip_flag']; }							
+									$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($modifiedPost->ID), 'large');
+								?>
 
-								<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
-									<img src="<?php echo $thumb[0]; ?>" />
-									<p><?= $modifiedPost->destinationName; ?></p>
-								</a>
+								<?php if( isset($flag) ) : ?>
 
-							<?php endif; ?>
+									<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
+										<img src="<?php echo $flag['url']; ?>" alt="<?php echo $flag['alt']; ?>" class="flag" />
+										<p><?= $modifiedPost->destinationName; ?></p>
+									</a>
+
+								<?php else: ?>
+
+									<a href="/destination/<?php echo $modifiedPost->destinationLink; ?>">
+										<img src="<?php echo $thumb[0]; ?>" />
+										<p><?= $modifiedPost->destinationName; ?></p>
+									</a>
+
+								<?php endif; ?>
+
+							</div>
 
 						</div>
 
-					</div>
+				<?php //endwhile; ?>
 
-			<?php //endwhile; ?>
+				<?php endforeach; ?>
 
-			<?php endforeach; ?>
+				<?php wp_reset_postdata(); ?>
 
-			<?php wp_reset_postdata(); ?>
+			<?php else : ?>
+
+				<div class="columns">
+
+					<p>Coming soon...</p>
+
+				</div>
+
+			<?php endif; ?>
 
 		</div>
 

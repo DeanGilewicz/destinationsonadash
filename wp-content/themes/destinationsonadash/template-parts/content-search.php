@@ -40,16 +40,16 @@
 					<?php the_post_thumbnail(); ?>
 				</a>
 
-				<div class="post-meta">
-					<span class="post-meta-category">
-						<a href="/<?= strtolower($postType->labels->name); ?>"><?= $postType->labels->name; ?></a>
-					</span>
-				</div>
+				<span class="post-meta-category">
+					<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
+				</span>
 
 				<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
 
-				<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
-				<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
+				<div class="post-meta">
+					<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+					<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
+				</div>
 
 				<div class="post-excerpt">
 					<?php the_excerpt(); ?>

@@ -1,0 +1,14 @@
+.error-404 {
+	padding-bottom: $base_size*3;
+
+	@media (min-width: $medium) {
+		padding-bottom: $base_size*6;
+	}
+
+	h1 {
+		padding-top: $base_size;
+		padding-bottom: $base_size;
+		text-align: center;
+	}
+
+}
