@@ -1,5 +1,11 @@
 .archive {
 
+	h1 {
+		padding-top: $base_size;
+		padding-bottom: $base_size;
+		text-align: center;
+	}
+
 	.content {
 		padding-bottom: $base_size*6;
 	}

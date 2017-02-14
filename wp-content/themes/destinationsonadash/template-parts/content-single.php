@@ -83,7 +83,7 @@ $trip_duration = get_field('trip_duration');
 
 	</div><!-- .entry-content -->
 
-	<footer class="row entry-footer">
+	<div class="row entry-footer">
 		<div class="medium-12 columns">
 		<?php // twentysixteen_entry_meta(); ?>
 		<?php
@@ -97,7 +97,7 @@ $trip_duration = get_field('trip_duration');
 				'</span>'
 			);
 		?>
-	</div>
-	</footer><!-- .entry-footer -->
+		</div>
+	</div><!-- .entry-footer -->
 
 </article><!-- #post-## -->

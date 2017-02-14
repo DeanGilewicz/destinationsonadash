@@ -1,5 +1,70 @@
 .page {
 
+	&.page-about .site-content,
+	&.page-map .site-content {
+		padding-bottom: $base_size*3;
+
+		@media (min-width: $medium) {
+			padding-bottom: $base_size*4;
+		}
+		
+	}
+
+	.alignleft {
+		display: block;
+		margin: $base_size auto;
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		@media (min-width: $medium) {
+			float: left;
+			margin-left: 0;
+			margin-right: $base_size;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+
+		img {
+			width: 100%;
+		}	
+	}
+
+	.alignright {
+		display: block;
+		margin: $base_size auto;
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		@media (min-width: $medium) {
+			float: right;
+			margin-right: 0;
+			margin-left: $base_size;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.aligncenter {
+		display: block;
+		margin: $base_size auto;
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	h1 {
+		padding-top: $base_size;
+		padding-bottom: $base_size;
+		text-align: center;
+	}
+
 	.container_default_page .page-title {
 		padding-top: $base_size;
 		padding-bottom: $base_size;

@@ -1,5 +1,11 @@
 .trips {
 
+	h1 {
+		padding-top: $base_size;
+		padding-bottom: $base_size;
+		text-align: center;
+	}
+
 	.page-title {
 		font-family: $font_pacifico;
 		text-align: center;

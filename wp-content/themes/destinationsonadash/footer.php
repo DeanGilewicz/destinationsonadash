@@ -60,7 +60,7 @@
 					<h6>Categories</h6>
 					<a href="/trips">Trips</a>
 					<a href="/insights">Insights</a>
-					<a href="/eating_ethnic">Eating Ethnic</a>
+					<a href="/eating-ethnic">Eating Ethnic</a>
 					<a href="/favorites">Favs</a>
 				</div>
 
