@@ -540,22 +540,22 @@ function destinationsonadash_custom_comments( $comment, $args, $depth ) {
 	            		</div><!-- .vcard -->
 					</div>
 
-					<div class="medium-3 columns">
+					<div class="medium-3 columns comment_meta">
 						<span>posted by</span>
 						<h6 class="author-name"><?php comment_author(); ?></h6>
-            			<p class="date">
+            			<span class="date">
             				<?php comment_date('M j, Y'); ?>
-            			</p>
-            			<p class="time">
+            			</span>
+            			<span class="time">
             				<?php comment_time('g:i a'); ?>
-            			</p>
+            			</span>
 					</div>
 
-					<div class="medium-5 columns">
-						<?php comment_text(); ?>
+					<div class="medium-5 large-6 columns comment_text">
+						<?php echo esc_html(comment_text()); ?>
 					</div>
 	 
-	            	<div class="medium-2 columns">
+	            	<div class="medium-2 large-1 columns">
             			<?php 
             				comment_reply_link( array_merge( $args, array(
             					'before' => '<span class="reply-link">',
