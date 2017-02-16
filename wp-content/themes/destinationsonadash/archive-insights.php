@@ -77,14 +77,18 @@
 		<?php endwhile; ?>
 
 		<?php if ( $wp_query->max_num_pages > 1 ) : // check if the max number of pages is greater than 1 ?>
-			<nav class="prev-next-posts">
-				<div class="prev-posts-link">
-					<?php echo get_next_posts_link( 'Older Entries', $wp_query->max_num_pages ); // display older posts link ?>
-				</div>
-				<div class="next-posts-link">
-					<?php echo get_previous_posts_link( 'Newer Entries' ); // display newer posts link ?>
-				</div>
-			</nav>
+		<div class="row">
+			<div class="medium-12 columns">
+				<nav class="prev-next-posts">
+					<div class="prev-posts-link">
+						<?php echo get_next_posts_link( 'Older Insights', $wp_query->max_num_pages ); // display older posts link ?>
+					</div>
+					<div class="next-posts-link">
+						<?php echo get_previous_posts_link( 'Newer Insights' ); // display newer posts link ?>
+					</div>
+				</nav>
+			</div>
+		</div>
 		<?php endif; ?>
 
 		<?php wp_reset_postdata(); ?>

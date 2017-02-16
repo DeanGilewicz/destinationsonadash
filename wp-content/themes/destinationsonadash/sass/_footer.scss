@@ -44,7 +44,7 @@ footer {
 		display: block;
 		margin-top: $base_size;
 		margin-bottom: $base_size;
-		font-size: $base_font_size;
+		font-size: $base_font_size*1.2;
 		color: $white;
 
 		&:hover {

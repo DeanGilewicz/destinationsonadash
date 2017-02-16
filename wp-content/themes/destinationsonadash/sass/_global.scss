@@ -145,5 +145,17 @@ img {
 	}
 }
 
+.prev-next-posts {
+	padding-top: $base_size*4;
+	padding-bottom: $base_size*4;
+	text-transform: uppercase;
+	text-align: center;
+
+	a {
+		font-size: $base_font_size*1.8;
+	}
+	
+}
+
 
 
