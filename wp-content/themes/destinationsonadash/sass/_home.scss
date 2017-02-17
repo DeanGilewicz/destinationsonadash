@@ -91,15 +91,15 @@ body.home {
 			padding-right: .9375rem;
 
 			.progress-btn {
-				font-size: 13px;
-				text-transform: uppercase;
+				float: left;
 				width: 18px;
 				height: 18px;
+				margin: 0 8px;
+				border-radius: 50%;
+				font-size: 0;
+				text-transform: uppercase;
 				background: $white;
 				color: $white;
-				float: left;
-				border-radius: 50%;
-				margin: 0 8px;
 				overflow: hidden;
 				cursor: pointer;
 
@@ -119,8 +119,9 @@ body.home {
 					margin: 0;
 					padding: 10px 0;
 					border-top: 1px solid $white;
-					background: transparent;
 					border-radius: 0;
+					font-size: $base_font_size*1.4;
+					background: transparent;
 					transition: border-color .4s linear, color .4s linear;
 
 					&.active,
@@ -129,6 +130,10 @@ body.home {
 						border: none;
 						border-top: 1px solid $purple_dark;
 					}
+				}
+
+				@media (min-width: $large) { 
+					font-size: $base_font_size*1.8;
 				}
 			}
 		}
@@ -214,10 +219,15 @@ body.home {
 
 			.item-description {
 				position: absolute;
-				top: 55%;
+				top: 50%;
 				left: 0;
+				transform: translateY(-50%);
 				width: 100%;
-				transform: translateY(-45%);
+
+				@media (min-width: $medium) {
+					top: 55%;
+					transform: translateY(-45%);
+				}
 
 				span {
 					font-size: $base_size*1.8;
@@ -227,8 +237,13 @@ body.home {
 					transition: color 0.2s ease-in-out;
 
 					@media (min-width: $medium) {
-						font-size: $base_size;
+						font-size: $base_font_size*1.4;
 					}
+
+					@media (min-width: $large) {
+						font-size: $base_font_size*1.8;
+					}
+
 				}
 
 				p {
@@ -238,6 +253,15 @@ body.home {
 					opacity: 0;
 					transform: translate3d(-30px, 0px, 0px);
 					transition: opacity 0.35s ease 0s, transform 0.35s ease 0s;
+
+					@media (min-width: $medium) {
+						font-size: $base_font_size*1.2;
+					}
+
+					@media (min-width: $large) {
+						font-size: $base_font_size*1.6;
+					}
+
 				}
 
 				.mobile-go {
