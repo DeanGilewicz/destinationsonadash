@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying /eating-ethnic page
+ * The template for displaying /quotes page
  *
  * @package WordPress
  * @subpackage DestinationsOnADash
@@ -10,13 +10,13 @@
 
 <?php get_header(); ?>
 
-<div class="content-area eating-ethnic">
+<div class="content-area quotes">
 
 	<div class="row">
 		
 		<div class="medium-12 columns">
 			
-			<h1 class="page-title">Eating Ethnic</h1>
+			<h1 class="page-title">Quotes</h1>
 
 		</div>
 
@@ -30,9 +30,9 @@
 				$postType = get_post_type_object(get_post_type());
 			?>
 
-			<article class="post-eating-ethnic">
+			<article class="post-quote">
 
-				<div class="row">
+				<!-- <div class="row">
 
 					<div class="medium-12 columns">
 						<a href="<?php the_permalink(); ?>">
@@ -40,13 +40,14 @@
 						</a>
 					</div>
 
-				</div>
+				</div> -->
 
 				<div class="row">
 
 					<div class="medium-12 columns">
 
-						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
+						<!-- <a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a> -->
+						<a href="<?php the_permalink(); ?>" class="post-title"><h2>...</h2></a>
 
 						<span class="post-meta-date"><?php echo get_the_date('M j, Y'); ?></span>
 						<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
@@ -57,15 +58,28 @@
 
 						<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
 
-					</div>
+	 				</div>
 
-				</div>
+	 			</div>
 
 			</article>
 
 		<?php endwhile; ?>
 
-		<?php echo paginate_links(); ?>
+		<?php if ( $wp_query->max_num_pages > 1 ) : // check if the max number of pages is greater than 1 ?>
+		<div class="row">
+			<div class="medium-12 columns">
+				<nav class="prev-next-posts">
+					<div class="prev-posts-link">
+						<?php echo get_next_posts_link( 'Older Quotes', $wp_query->max_num_pages ); // display older posts link ?>
+					</div>
+					<div class="next-posts-link">
+						<?php echo get_previous_posts_link( 'Newer Quotes' ); // display newer posts link ?>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<?php endif; ?>
 
 		<?php wp_reset_postdata(); ?>
 

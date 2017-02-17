@@ -48,7 +48,7 @@
 
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
 
-						<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+						<span class="post-meta-date"><?php echo get_the_date('M j, Y'); ?></span>
 						<span class="post-meta-comments"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></span>
 
 						<div class="post-excerpt">

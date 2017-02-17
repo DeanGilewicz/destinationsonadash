@@ -69,8 +69,8 @@
 	.post-meta-trip-date,
 	.post-meta-trip-duration,
 	.post-meta-date {
-		margin-left: 10px;
-		margin-right: 10px;
+		margin-left: $base_size;
+		margin-right: $base_size;
 
 		span {
 			font-weight: 700;
@@ -78,8 +78,22 @@
 
 	}
 
+	.post-meta-date {
+		display: block;
+		margin-top: $base_size;
+
+		@media (min-width: $medium) {
+			display: inline;
+			margin-top: 0;
+		}
+	}
+
 	.container_content {
-		padding-top: 30px;
+		padding-top: $base_size*3;
+	}
+
+	&.post-single-quote .container_content {
+		text-align: center;
 	}
 
 }

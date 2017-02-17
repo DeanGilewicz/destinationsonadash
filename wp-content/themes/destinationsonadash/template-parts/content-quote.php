@@ -6,11 +6,6 @@
  * @subpackage DestinationsOnADash
  * @since DestinationsOnADash 1.0
  */
-
-// Advanced Custom Fields
-$trip_date = get_field('trip_date');
-$trip_duration = get_field('trip_duration');
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -23,7 +18,7 @@ $trip_duration = get_field('trip_duration');
 		$postType = get_post_type_object(get_post_type());
 	?>
 
-	<div class="content-area post-single">
+	<div class="content-area post-single post-single-quote">
 		
 		<div class="row">
 
@@ -34,7 +29,8 @@ $trip_duration = get_field('trip_duration');
 				</div>
 				<div class="post-meta-single-title">
 					<a href="<?php the_permalink(); ?>" class="post-title">
-						<h2><?php the_title(); ?></h2>
+						<!-- <h2><?php the_title(); ?></h2> -->
+						<h2>...</h2>
 					</a>
 				</div>
 			
@@ -45,12 +41,6 @@ $trip_duration = get_field('trip_duration');
 		<div class="row">
 			<div class="small-12 columns">
 				<div class="container_custom_post_meta">
-					<?php if( $trip_date ): ?>
-						<span class="post-meta-trip-date"><span>Trip Date:</span> <?php echo $trip_date; ?></span>
-					<?php endif; ?>
-					<?php if( $trip_duration ): ?>
-						<span class="post-meta-trip-duration"><span>Trip Duration:</span> <?php echo $trip_duration; ?> days</span>
-					<?php endif; ?>
 					<span class="post-meta-date"><span>Posted On:</span> <?php the_date('M j, Y'); ?></span>
 				</div>
 			</div>
