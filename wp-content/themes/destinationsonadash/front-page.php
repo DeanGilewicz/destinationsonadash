@@ -83,8 +83,6 @@
 
 	$the_query_all_posts = new WP_Query( $argsAllPosts );
 
-	// exit;
-
 	// end all latest posts section
 
 ?>
@@ -191,7 +189,6 @@
 
 				<?php while ( $the_query_trip->have_posts() ) : $the_query_trip->the_post(); ?>
 
-					<!-- <a href="<?php the_permalink(); ?>"> -->
 					<a href="/trips">
 
 						<?php the_post_thumbnail(); ?>
@@ -231,7 +228,6 @@
 
 				<?php while ( $the_query_insights->have_posts() ) : $the_query_insights->the_post(); ?>
 
-					<!-- <a href="<?php the_permalink(); ?>"> -->
 					<a href="/insights">
 
 						<?php the_post_thumbnail(); ?>
@@ -271,7 +267,6 @@
 
 				<?php while ( $the_query_food->have_posts() ) : $the_query_food->the_post(); ?>
 
-					<!-- <a href="<?php the_permalink(); ?>"> -->
 					<a href="/eating-ethnic">
 
 						<?php the_post_thumbnail(); ?>
@@ -311,7 +306,6 @@
 
 				<?php while ( $the_query_favs->have_posts() ) : $the_query_favs->the_post(); ?>
 
-					<!-- <a href="<?php the_permalink(); ?>"> -->
 					<a href="/favorites">
 
 						<?php the_post_thumbnail(); ?>
@@ -362,10 +356,7 @@
 		<?php while ( $the_query_home_posts->have_posts() ) : $the_query_home_posts->the_post(); ?>
 			
 			<?php
-				// echo '<pre>';
 				$postType = get_post_type_object(get_post_type());
-				// print_r($postType);
-				// echo '</pre>'; 
 			?>
 
 			<?php if ($counter % 2 === 0) : ?>
@@ -376,7 +367,7 @@
 							<span class="post-meta-category">
 								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>
-							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+							<span class="post-meta-date"><?php echo get_the_date('M j, Y'); ?></span>
 							<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
 						</div>
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
@@ -398,7 +389,7 @@
 					<div class="medium-7 columns">
 						<div class="post-meta">
 							<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
-							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+							<span class="post-meta-date"><?php echo get_the_date('M j, Y'); ?></span>
 							<span class="post-meta-category">
 								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>
@@ -516,7 +507,6 @@
 						<div class="bg" style="background-image: url('<?= $src[0]; ?>')"></div>
 						<p class="quotation_mark">&ldquo;</p>
 						<div class="quote-description">
-							<!-- <p><?php the_date('M j, Y'); ?></p> -->
 							<span><?= get_the_content(); ?></span>
 						</div>
 						<p class="quotation_mark">&rdquo;</p>
@@ -565,14 +555,7 @@
 		<?php while ( $the_query_all_posts->have_posts() ) : $the_query_all_posts->the_post(); ?>
 			
 			<?php 
-				// echo '<pre>';
 				$postType = get_post_type_object(get_post_type());
-				// print_r($postType);
-				// echo '</pre>';
-				// $postCats = get_the_category();
-				// $postTags = get_the_tags();
-				// echo '<pre>'; print_r($postCats);
-				// echo '<pre>'; print_r($postTags);
 			?>
 
 			<?php if ($counter % 2 === 0) : ?>
@@ -583,7 +566,7 @@
 							<span class="post-meta-category">
 								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>
-							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+							<span class="post-meta-date"><?php echo get_the_date('M j, Y'); ?></span>
 							<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
 						</div>
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
@@ -605,7 +588,7 @@
 					<div class="medium-7 columns">
 						<div class="post-meta">
 							<!-- <span class="post-meta-comments"><?php comments_number( '0', '1', '%' ); ?></span> -->
-							<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>
+							<span class="post-meta-date"><?php echo get_the_date('M j, Y'); ?></span>
 							<span class="post-meta-category">
 								<a href="/<?= strtolower(str_replace(" ", "-", $postType->labels->name)); ?>"><?= $postType->labels->name; ?></a>
 							</span>

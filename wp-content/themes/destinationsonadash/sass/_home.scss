@@ -369,6 +369,14 @@ body.home {
 					}
 				}
 
+				.post-meta-category {
+					margin-bottom: 10px;
+
+					@media (min-width: $medium) {
+						margin-bottom: 0;
+					}
+				}
+
 			}
 
 			&.rtl {
@@ -410,6 +418,14 @@ body.home {
 						@media (min-width: $medium) {
 							margin-right: $base_size*2;
 						}
+					}
+				}
+
+				.post-meta-category {
+					margin-top: 10px;
+
+					@media (min-width: $medium) {
+						margin-top: 0;
 					}
 				}
 

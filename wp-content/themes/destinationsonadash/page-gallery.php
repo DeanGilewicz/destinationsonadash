@@ -13,9 +13,7 @@
 	$the_query_gallery = new WP_Query( $argsGallery );
 	
 	$totalPostNum = $the_query_gallery->post_count;
-	// echo '<pre>';
-	// print_r($the_query_gallery);
-	// exit;
+
 ?>
 
 <?php get_header(); ?>
@@ -63,10 +61,7 @@
 						<div class="container-flag">
 
 							<?php 
-								// print_r($post);
-								// print_r(get_post_meta($post->ID));
 								$src = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); 
-								// print_r($src);
 							?>
 
 							<a href="<?php the_permalink(); ?>">

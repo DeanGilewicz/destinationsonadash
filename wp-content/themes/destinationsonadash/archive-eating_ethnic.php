@@ -3,8 +3,8 @@
  * The template for displaying /eating-ethnic page
  *
  * @package WordPress
- * @subpackage Julies_Journeys
- * @since Julies Journeys 1.0
+ * @subpackage DestinationsOnADash
+ * @since DestinationsOnADash 1.0
  */
 ?>
 
@@ -27,13 +27,7 @@
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php 
-				// echo '<pre>';
-				// print_r($post);
-				// print_r(get_post_meta(get_the_id()));
 				$postType = get_post_type_object(get_post_type());
-				// print_r($postType);
-				// print_r($postType->rewrite['slug']);
-				// echo '</pre>'; 
 			?>
 
 			<article class="post-eating-ethnic">
@@ -51,12 +45,6 @@
 				<div class="row">
 
 					<div class="medium-12 columns">
-
-					<!-- <div class="post-meta">
-						<span class="post-meta-category">
-							<a href="/<?= strtolower($postType->rewrite['slug']); ?>"><?= $postType->labels->name; ?></a>
-						</span>
-					</div> -->
 
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
 

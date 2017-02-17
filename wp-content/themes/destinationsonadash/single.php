@@ -3,8 +3,8 @@
  * The template for displaying all single posts and attachments
  *
  * @package WordPress
- * @subpackage Julies_Journeys
- * @since Julies Journeys 1.0
+ * @subpackage DestinationsOnADash
+ * @since DestinationsOnADash 1.0
  */
 
 get_header(); ?>

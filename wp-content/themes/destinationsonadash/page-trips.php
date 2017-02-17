@@ -49,12 +49,6 @@
 					
 					<div class="medium-12 columns">
 
-					<!-- <div class="post-meta">
-						<span class="post-meta-category">
-							<a href="/<?= strtolower($postType->labels->name); ?>"><?= $postType->labels->name; ?></a>
-						</span>
-					</div> -->
-
 						<a href="<?php the_permalink(); ?>" class="post-title"><h2><?php the_title(); ?></h2></a>
 						
 						<span class="post-meta-date"><?php the_date('M j, Y'); ?></span>

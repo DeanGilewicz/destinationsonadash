@@ -394,8 +394,6 @@ TOTAL // 194
 	<div class="row">
 		<div class="medium-12 columns total">
 
-			<!-- <h4>So far I have been to <?= $totalCountriesVisited; ?> out of <?= $totalCountriesToVisit; ?> countries <span>Total <?= round(($totalCountriesVisited / $totalCountriesToVisit ) * 100) . '%';?></span></h4> -->
-			<!-- <h4>So far I have been to <?= $totalCountriesVisited; ?> countries</h4> -->
 			<h1>Places I Have Been</h1>
 
 		</div>
