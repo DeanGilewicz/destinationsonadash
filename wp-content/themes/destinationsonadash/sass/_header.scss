@@ -175,7 +175,7 @@ header {
 	.header_bottom {
 		max-height: 0;
 		overflow: hidden;
-		transition: max-height 0.8s ease;
+		// transition: max-height 0.8s ease; // responsive issue
 
 		@media (min-width: $medium) {
 			max-height: 100%;
