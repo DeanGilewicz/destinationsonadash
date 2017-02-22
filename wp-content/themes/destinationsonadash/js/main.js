@@ -1,6 +1,8 @@
 // need to wrap jQuery in a no conflict wrapper - wp can work with many js libraries and $ signs
 jQuery(document).ready(function($) {
 
+	"use strict";
+
 	// console.log('ready to go');
 
 	// uncomment if using foundation js

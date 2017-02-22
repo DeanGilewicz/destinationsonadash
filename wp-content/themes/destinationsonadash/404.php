@@ -18,7 +18,7 @@
 
 					<h1 class="page-title">Nothing to see here!</h1>
 
-					<p><?php _e( 'Oh no, there isn\'t anything at this location. Maybe try a search?', 'destinationsonadash' ); ?></p>
+					<p class="no-results-message"><?php _e( 'Oh no, there isn\'t anything at this location. Maybe try a search?', 'destinationsonadash' ); ?></p>
 
 					<?php get_search_form(); ?>
 

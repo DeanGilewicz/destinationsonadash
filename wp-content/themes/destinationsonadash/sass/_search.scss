@@ -24,12 +24,24 @@ body.search {
 		label {
 			display: inline-block;
 			width: calc(100% - 70px);
+
+			@media (min-width: $large) {
+				width: calc(100% - 90px);
+			}
 		}
 
 		.search-submit {
 			display: inline-block;
 			height: 40px;
-			vertical-align: middle;
+
+			@media (min-width: $large) {
+				padding: $base_size $base_size*2;
+				background-color: $purple;
+			}
+		}
+
+		.screen-reader-text {
+			font-size: $base_font_size*1.4;
 		}
 
 	}
