@@ -7,10 +7,10 @@ header {
 		padding-bottom: 0;
 	}
 
-	a, img {
+	a,
+	img {
 		cursor: pointer;
 	}
-
 
 	.container_header_top {
 
@@ -26,6 +26,10 @@ header {
 				display: none;
 			}
 
+			a {
+				max-width: 100%;
+			}
+
 		}
 
 		.logo_long {
@@ -33,6 +37,10 @@ header {
 
 			@media (min-width: $medium) {
 				display: block;
+			}
+
+			a {
+				max-width: 100%;
 			}
 
 		}
