@@ -189,9 +189,14 @@
 
 				<?php while ( $the_query_trip->have_posts() ) : $the_query_trip->the_post(); ?>
 
-					<a href="/trips">
+					<?php
+						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small');
+						$url = $thumb['0'];
+					?>
 
-						<?php the_post_thumbnail(); ?>
+					<a href="/trips">
+						<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
+						<div class="overlay_image"></div>
 						<div class="item-description">
 							<p class="mobile-go">Go</p>
 							<span>Trips</span>
@@ -207,7 +212,8 @@
 				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
 
 				<a href="/trips">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<div class="category_bg" style="background-image: url('<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png');"></div>
+					<div class="overlay_image"></div>
 					<div class="item-description">
 						<p class="mobile-go">Go</p>
 						<span>Trips</span>
@@ -228,9 +234,14 @@
 
 				<?php while ( $the_query_insights->have_posts() ) : $the_query_insights->the_post(); ?>
 
-					<a href="/insights">
+					<?php
+						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small');
+						$url = $thumb['0'];
+					?>
 
-						<?php the_post_thumbnail(); ?>
+					<a href="/insights">
+						<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
+						<div class="overlay_image"></div>
 						<div class="item-description">
 							<p class="mobile-go">Go</p>
 							<span>Insights</span>
@@ -246,7 +257,8 @@
 				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
 
 				<a href="/insights">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
+					<div class="overlay_image"></div>
 					<div class="item-description">
 						<p class="mobile-go">Go</p>
 						<span>Insights</span>
@@ -267,9 +279,14 @@
 
 				<?php while ( $the_query_food->have_posts() ) : $the_query_food->the_post(); ?>
 
-					<a href="/eating-ethnic">
+					<?php
+						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small');
+						$url = $thumb['0'];
+					?>
 
-						<?php the_post_thumbnail(); ?>
+					<a href="/eating-ethnic">
+						<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
+						<div class="overlay_image"></div>
 						<div class="item-description">
 							<p class="mobile-go">Go</p>
 							<span>Eating Ethnic</span>
@@ -285,7 +302,8 @@
 				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
 
 				<a href="/eating-ethnic">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
+					<div class="overlay_image"></div>					
 					<div class="item-description">
 						<p class="mobile-go">Go</p>
 						<span>Eating Ethnic</span>
@@ -306,9 +324,14 @@
 
 				<?php while ( $the_query_favs->have_posts() ) : $the_query_favs->the_post(); ?>
 
-					<a href="/favorites">
+					<?php
+						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small');
+						$url = $thumb['0'];
+					?>
 
-						<?php the_post_thumbnail(); ?>
+					<a href="/favorites">
+						<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
+						<div class="overlay_image"></div>
 						<div class="item-description">
 							<p class="mobile-go">Go</p>
 							<span>Favs</span>
@@ -324,7 +347,8 @@
 				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
 
 				<a href="/favorites">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
+					<div class="overlay_image"></div>
 					<div class="item-description">
 						<p class="mobile-go">Go</p>
 						<span>Favs</span>
@@ -503,7 +527,6 @@
 					<?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
 
 					<a href="/quotes">
-
 						<div class="bg" style="background-image: url('<?= $src[0]; ?>')"></div>
 						<p class="quotation_mark">&ldquo;</p>
 						<div class="quote-description">
