@@ -81,6 +81,30 @@ $trip_duration = get_field('trip_duration');
 
 	<div class="row entry-footer">
 		<div class="medium-12 columns">
+		<?php 
+			
+			// Get current page URL 
+			$doadURL = urlencode( get_permalink() );
+	 
+			// Get current page title
+			$doadTitle = str_replace( ' ', '%20', get_the_title() );
+					 
+			// Construct sharing URL without using any script
+			$twitterURL  = 'https://twitter.com/intent/tweet?text='.$doadTitle.'&amp;url='.$doadURL.'&amp;via=doad';
+			$facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$doadURL;
+	 		 
+			// Create sharing buttons
+			$socialLinks  = '';
+			$socialLinks .= '<div class="container_social_share">';
+			$socialLinks .= '<h4>share on</h4> <a class="social_link social_twitter" href="'. $twitterURL .'" target="_blank">Twitter</a>';
+			$socialLinks .= '<a class="social_link social_facebook" href="'.$facebookURL.'" target="_blank">Facebook</a>';
+			$socialLinks .= '</div>';
+			
+			// Display in template
+			echo $socialLinks; 
+		?>
+		</div>
+		<div class="medium-12 columns">
 		<?php // twentysixteen_entry_meta(); ?>
 		<?php
 			edit_post_link(
