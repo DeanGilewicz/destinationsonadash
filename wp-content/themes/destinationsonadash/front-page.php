@@ -457,7 +457,7 @@
 			</div>
 			<div class="medium-5 medium-pull-7 columns">
 				<a href="<?php the_permalink(); ?>">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>
@@ -478,7 +478,7 @@
 			</div>
 			<div class="medium-5 columns">
 				<a href="<?php the_permalink(); ?>">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>
@@ -499,7 +499,7 @@
 			</div>
 			<div class="medium-5 medium-pull-7 columns">
 				<a href="<?php the_permalink(); ?>">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>
@@ -655,7 +655,7 @@
 			</div>
 			<div class="medium-5 medium-pull-7 columns">
 				<a href="/">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>
@@ -676,7 +676,7 @@
 			</div>
 			<div class="medium-5 columns">
 				<a href="/">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>
@@ -697,7 +697,7 @@
 			</div>
 			<div class="medium-5 medium-pull-7 columns">
 				<a href="/">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>

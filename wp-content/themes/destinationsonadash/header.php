@@ -94,11 +94,11 @@
 						</span><!--
 
 					 --><a href="/about" class="icon_plane_nav" title="about">
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_plane.svg" class="icon_plane" />
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_plane.svg" class="icon_plane" alt="plane icon" />
 						</a><!--
 						
 					 --><a href="/map" class="icon_globe_nav" title="map">
-							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_globe.svg" class="icon_globe" />
+							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_globe.svg" class="icon_globe" alt="globe icon" />
 						</a>
 
 					</div>
@@ -139,7 +139,7 @@
 					<li class="sub_menu_about">
 						<a href="/about">
 							<div class="container_img">
-								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_plane.svg" class="icon_plane" />
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_plane.svg" class="icon_plane" alt="plane icon" />
 							</div><!--
 							--><div class="container_title">
 								<span>About</span>
@@ -150,7 +150,7 @@
 					<li class="sub_menu_map">
 						<a href="/map">
 							<div class="container_img">
-								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_globe.svg" class="icon_globe" />
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_globe.svg" class="icon_globe" alt="globe icon" />
 							</div><!--
 							--><div class="container_title">
 								<span>Map</span>
@@ -165,7 +165,7 @@
 					<li class="<?php if( $related_africa ) { echo 'active'; } ?>">
 						<a href="/continent/africa">
 							<div class="container_img">
-								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/africa.png" class="icon_africa" />
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/africa.png" class="icon_africa" alt="african continent icon" />
 							</div><!--
 							--><div class="container_title">
 								<span>Africa</span>
@@ -176,7 +176,7 @@
 				 --><li class="<?php if( $related_antarctica ) { echo 'active'; } ?>">
 						<a href="/continent/antarctica">
 							<div class="container_img">
-								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/antarctica.png" class="icon_antarctica" />
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/antarctica.png" class="icon_antarctica" alt="antarctica continent icon" />
 							</div><!--
 							--><div class="container_title">
 								<span>Antarctica</span>
@@ -187,7 +187,7 @@
 				 --><li class="<?php if( $related_asia ) { echo 'active'; } ?>">
 						<a href="/continent/asia">
 							<div class="container_img">
-								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/asia.png" class="icon_asia" />
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/asia.png" class="icon_asia" alt="asia continent icon" />
 							</div><!--
 						 --><div class="container_title">
 								<span>Asia</span>
@@ -198,7 +198,7 @@
 				 --><li class="<?php if( $related_australia ) { echo 'active'; } ?>">
 						<a href="/continent/australia">
 							<div class="container_img">
-								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/australia.png" class="icon_australia" />
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/australia.png" class="icon_australia" alt="australia continent icon" />
 							</div><!--
 						 --><div class="container_title">
 								<span>Australia</span>
@@ -209,7 +209,7 @@
 				 --><li class="<?php if( $related_europe ) { echo 'active'; } ?>">
 						<a href="/continent/europe">
 							<div class="container_img">
-								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/europe.png" class="icon_europe" />
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/europe.png" class="icon_europe" alt="europe continent icon" />
 							</div><!--
 						 --><div class="container_title">
 								<span>Europe</span>
@@ -220,7 +220,7 @@
 				 --><li class="<?php if( $related_north_america ) { echo 'active'; } ?>">
 						<a href="/continent/north-america">
 							<div class="container_img">
-								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/north_america.png" class="icon_north_america" />
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/north_america.png" class="icon_north_america" alt="north american continent icon" />
 							</div><!--
 						 --><div class="container_title">
 								<span>N. America</span>
@@ -231,7 +231,7 @@
 				 --><li class="<?php if( $related_south_america ) { echo 'active'; } ?>">
 						<a href="/continent/south-america">
 							<div class="container_img">
-								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/south_america.png" class="icon_south_america" />
+								<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/continents/south_america.png" class="icon_south_america" alt="south american continent icon" />
 							</div><!--
 						 --><div class="container_title">
 								<span>S. America</span>
