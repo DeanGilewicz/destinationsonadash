@@ -120,4 +120,26 @@ $trip_duration = get_field('trip_duration');
 		</div>
 	</div><!-- .entry-footer -->
 
+	<!-- lightbox -->
+	<div class="lightbox">
+		<div class="lightbox_overlay"></div>
+			<div class="lightbox_content">
+				<div class="container_lightbox_content">
+					<div class="lightbox_interaction">
+
+						<div class="wrapper">
+							<img src="" />
+							<span class="previous"></span>
+							<span class="image_comment"></span>
+							<span class="next"></span>
+						</div>
+
+						<div class="lightbox_x_close">Close</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end lightbox -->
+
 </article><!-- #post-## -->
