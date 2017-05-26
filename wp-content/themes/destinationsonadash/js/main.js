@@ -148,8 +148,9 @@ jQuery(document).ready(function($) {
 
 	// set empty array to collect all images inside of container-lightbox-content
 	var lightboxImages = [];
+	
 
-	var updateButtonNav = function () {
+	function updateButtonNav() {
 		// hide button nav buttons
 		$('.lightbox_content .previous, .lightbox_content .next').addClass('button_hidden');
 		// if there are images in the array
@@ -165,40 +166,65 @@ jQuery(document).ready(function($) {
 				$('.lightbox_content .next').removeClass('button_hidden');
 			}
 		}
-	};
+	}
 
 	$('.post-single .container_content img').on('click', function(e) {
 		e.preventDefault();
-		
-		// store src for clicked image
+
+		// store src for clicked image - medium-large size
 		var clickedImgSource = $(this).attr('src');
 
 		// store alt for clicked image
 		var clickedImgAlt = $(this).attr('alt') || '';
 
-		// iterate through each img in gallery
-		$(this).parents('.container_content').find('img').each(function(index) {
+		// store reference to initial image to be displayed in lightbox
+		var firstLightboxImg;
 
-			// get image src of each el
-			var currentImgSource = $(this).attr('src');
+		// iterate through each img loaded through content AND in ACF gallery
+		$(this).parents('.content-area').find('[class^="wp-image"]').each(function(index) {
 
-			// if the clicked image src is equal to the current image source then set the data index value to be that number
-			if (clickedImgSource == currentImgSource) {
-				$('.lightbox_content img').data('index', index);
+			var currentImgSource = '';
+			var currentImgAtl = '';
+
+			// get image src of each el - medium size
+			if( $(this).attr('src') ) {
+				currentImgSource = $(this).attr('src');
+			} else {
+				currentImgSource = $(this).data('src');
 			}
+
+			if( $(this).attr('alt') ) {
+				currentImgAtl = $(this).attr('alt');
+			} else {
+				currentImgAtl = $(this).data('alt');
+			}
+ 
+			// if the clicked image src is equal to the current image source then set the data index value to be that number
+			if (clickedImgSource === currentImgSource) {
+				$('.lightbox_content img').data('index', index);
+				// set initial image to be displayed in lightbox
+				currentImgSource = $(this).attr('srcset').split(',')[1].replace(' 768w', '');
+				firstLightboxImg = currentImgSource;
+			}
+
+			// format to use medium-large size
+			if( $(this).attr('srcset') ) {
+				currentImgSource = $(this).attr('srcset').split(',')[1].replace(' 768w', '');
+			}
+
 			// push all image srcs into lightboxImages array
-			lightboxImages.push({imageSrc: currentImgSource, imageAlt: clickedImgAlt});
+			lightboxImages.push({imageSrc: currentImgSource, imageAlt: currentImgAtl});
 		});
 
 		// update button nav UI
 		updateButtonNav();
 
 		// set lightbox img src
-		$('.lightbox_content img').attr("src",clickedImgSource);
+		$('.lightbox_content img').attr("src",firstLightboxImg);
 		// set image comment
 		$('.lightbox_content .image_comment').text(clickedImgAlt);
 		// animate lightbox box open
-		$('.lightbox').addClass('lightbox_open').removeClass('lightbox_close');
+		$('.lightbox').removeClass('lightbox_close').addClass('lightbox_open');
 	});
 
 	// when click next button nav

@@ -10,7 +10,10 @@
 // Advanced Custom Fields
 $trip_date = get_field('trip_date');
 $trip_duration = get_field('trip_duration');
-
+$galleryImgs = get_field('images');
+// echo '<pre>';
+// print_r($galleryImgs);
+// exit;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -121,6 +124,15 @@ $trip_duration = get_field('trip_duration');
 	</div><!-- .entry-footer -->
 
 	<!-- lightbox -->
+
+	<span class="lightbox_additional_images">
+		<?php if( $galleryImgs ) : ?>
+			<?php foreach($galleryImgs as $galleryImg) : ?>
+				<div class="wp-image" data-src="<?php echo $galleryImg['sizes']['medium_large']; ?>" data-alt="<?php echo $galleryImg['alt']; ?>"></div>
+			<?php endforeach; ?>
+		<?php endif; ?>
+	</span>
+
 	<div class="lightbox">
 		<div class="lightbox_overlay"></div>
 			<div class="lightbox_content">
@@ -128,13 +140,13 @@ $trip_duration = get_field('trip_duration');
 					<div class="lightbox_interaction">
 
 						<div class="wrapper">
+							<span class="previous">Prev</span>
+							<span class="lightbox_x_close">Close</span>
+							<span class="next">Next</span>
 							<img src="" />
-							<span class="previous"></span>
 							<span class="image_comment"></span>
-							<span class="next"></span>
 						</div>
-
-						<div class="lightbox_x_close">Close</div>
+						
 					</div>
 				</div>
 			</div>
