@@ -70,7 +70,8 @@
 		            'excerpt',
 		            'custom-fields',
 		            'revisions',
-		            'thumbnail'
+		            'thumbnail',
+		            'comments'
 		        ),
 		        'has_archive' => true
 		    )
@@ -108,7 +109,8 @@
 		            'excerpt',
 		            'custom-fields',
 		            'revisions',
-		            'thumbnail'
+		            'thumbnail',
+		            'comments'
 		        ),
 		        'has_archive' => true
 		    )
