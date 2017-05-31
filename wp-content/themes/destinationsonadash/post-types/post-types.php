@@ -157,4 +157,43 @@
 
 	add_action('init', 'destinationsonadash_create_quotes_custom_post_type');
 
+
+
+	// create itineraries custom post type
+
+	function destinationsonadash_create_itineraries_custom_post_type() {
+		register_post_type('itineraries', array(
+		        'labels' => array(
+		            'name' => 'Itineraries',
+		            'singular_name' => 'Itinerary',
+		            'add_new' => 'Add Itinerary',
+		            'edit_item' => 'Edit Itinerary',
+		            'new_item' => 'New Itinerary',
+		            'view_item' => 'View Itinerary',
+		            'search_items' => 'Search Itineraries',
+		            'not_found' => 'No Itineraries found',
+		            'not_found_in_trash' => 'No Itineraries found in Trash',
+		            'all_items' => 'All Itineraries',
+					'menu_name' => 'Itineraries',
+					'name_admin_bar' => 'Itineraries'
+		        ),
+		        'taxonomies' => array('category', 'post_tag', 'continents', 'destinations'),
+		        'public' => true,
+		        'menu_position' => 9,
+		        'supports' => array(
+		            'title',
+		            'editor',
+		            'excerpt',
+		            'custom-fields',
+		            'revisions',
+		            'thumbnail',
+		            'comments'
+		        ),
+		        'has_archive' => true
+		    )
+		);
+	}
+
+	add_action('init', 'destinationsonadash_create_itineraries_custom_post_type');
+
 ?>
