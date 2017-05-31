@@ -148,6 +148,26 @@ jQuery(document).ready(function($) {
 
 	// set empty array to collect all images inside of container-lightbox-content
 	var lightboxImages = [];
+
+	function formatLightboxImageSize(imgSizes) {
+		
+		var imgArr = imgSizes.split(', ');
+
+		// reverse array so largest sizes first
+		imgArr.reverse();
+
+		// match image size we are after
+		var mdLgSize = imgArr.find(function(item, index, array) {
+			return item.indexOf('768w') > -1 || item.indexOf('710w') > -1 || item.indexOf('640w') > -1;
+		});
+
+		// split array at the space
+		mdLgSize = mdLgSize.split(' ');
+		
+		// return just the url for image
+		return mdLgSize[0];
+
+	}
 	
 
 	function updateButtonNav() {
@@ -203,13 +223,13 @@ jQuery(document).ready(function($) {
 			if (clickedImgSource === currentImgSource) {
 				$('.lightbox_content img').data('index', index);
 				// set initial image to be displayed in lightbox
-				currentImgSource = $(this).attr('srcset').split(',')[1].replace(' 768w', '');
+				currentImgSource = formatLightboxImageSize($(this).attr('srcset'));
 				firstLightboxImg = currentImgSource;
 			}
 
 			// format to use medium-large size
 			if( $(this).attr('srcset') ) {
-				currentImgSource = $(this).attr('srcset').split(',')[1].replace(' 768w', '');
+				currentImgSource = formatLightboxImageSize($(this).attr('srcset'));
 			}
 
 			// push all image srcs into lightboxImages array
