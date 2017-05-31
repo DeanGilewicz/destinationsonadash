@@ -6,6 +6,7 @@
 
 	figure {
 		display: inline-block;
+		display: table;
 		width: 100% !important;
 		max-width: 320px;
 		margin: 0;
@@ -16,14 +17,22 @@
 			max-width: auto;
 		}
 
+		img {
+		    display: block;
+		    width: 100%;
+		}
+
 	}
 
 	figcaption {
 		color: $grey_light;
+	    display: table-caption;
+	    caption-side: bottom;
+	    padding: 0 5px;
 	}
 
 	.alignleft {
-		display: block;
+		// display: block;
 		margin: $base_size auto;
 		padding-top: $base_size;
 		padding-bottom: $base_size;
@@ -42,7 +51,7 @@
 	}
 
 	.alignright {
-		display: block;
+		// display: block;
 		margin: $base_size auto;
 		padding-top: $base_size;
 		padding-bottom: $base_size;
