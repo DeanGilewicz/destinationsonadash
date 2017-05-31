@@ -24,6 +24,14 @@ $galleryImgs = get_field('images');
 
 	<?php 
 		$postType = get_post_type_object(get_post_type());
+		// set slug for post type
+		if( $postType->rewrite['slug'] ) {
+			$postSlug = $postType->rewrite['slug'];
+		} elseif( $postType->name === 'post' ) {
+			$postSlug = strtolower($postType->labels->name);
+		} else {
+			$postSlug = strtolower($postType->name);
+		}
 	?>
 
 	<div class="content-area post-single">
@@ -33,7 +41,7 @@ $galleryImgs = get_field('images');
 			<div class="small-12 columns">
 				
 				<div class="post-meta-single-category">
-					<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+					<a href="/<?= $postSlug; ?>"><?= $postType->labels->name; ?></a>
 				</div>
 				<div class="post-meta-single-title">
 					<a href="<?php the_permalink(); ?>" class="post-title">
