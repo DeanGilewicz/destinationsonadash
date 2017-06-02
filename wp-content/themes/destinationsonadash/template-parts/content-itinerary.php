@@ -44,7 +44,7 @@
 					 	// loop through the rows of data
 					    while ( have_rows('location') ) : the_row();
 
-							if( $counter % 2 === 0 ) : 
+							if( $counter % 2 === 0 ) :
 
 						?>
 
@@ -53,11 +53,31 @@
 								<span class="location_number"><?php echo $counter; ?></span>
 
 								<?php 
+
+								// reset image for post
+								$image = '';
+								// reset name link for post
+								$name_link = '';
+
 								$image = get_sub_field('image');
+
+								if( get_sub_field('name_link') ) {
+									$name_link = get_sub_field('name_link');
+								}
+
 								?>
 
 								<div class="col_left">
+
+
+									<?php if( $name_link ) : ?>
+									<a href="<?php echo $name_link; ?>" class="name_link">
+										<h3><?php the_sub_field('name'); ?></h3>
+									</a>
+									<?php else: ?>
 									<h3><?php the_sub_field('name'); ?></h3>
+									<?php endif; ?>
+									
 									<?php        
 									if( have_rows('activities') ):
 									?>
@@ -65,7 +85,22 @@
 										<?php 
 										while ( have_rows('activities') ) : the_row();
 										?>
-											<li><?php the_sub_field('activity'); ?></li>
+
+											<?php
+												// reset activity link
+												$activity_link = '';
+
+												if( get_sub_field('activity_link') ) {
+													$activity_link = get_sub_field('activity_link');
+												}
+											?>
+
+											<?php if( $activity_link ) : ?>
+												<li><a href="<?php echo $activity_link; ?>" class="activity_link"><?php the_sub_field('activity'); ?></a></li>
+											<?php else : ?>
+												<li><?php the_sub_field('activity'); ?></li>
+											<?php endif; ?>
+											
 										<?php 
 										endwhile;
 										?>
@@ -90,8 +125,19 @@
 
 								<span class="location_number"><?php echo $counter; ?></span>
 
-								<?php 
+								<?php
+
+								// reset image for post
+								$image = '';
+								// reset name link for post
+								$name_link = '';
+
 								$image = get_sub_field('image');
+
+								if( get_sub_field('name_link') ) {
+									$name_link = get_sub_field('name_link');
+								}
+
 								?>
 
 								<div class="col_left">
@@ -99,7 +145,13 @@
 								</div>
 
 								<div class="col_right">
+									<?php if( $name_link ) : ?>
+									<a href="<?php echo $name_link; ?>" class="name_link">
+										<h3><?php the_sub_field('name'); ?></h3>
+									</a>
+									<?php else: ?>
 									<h3><?php the_sub_field('name'); ?></h3>
+									<?php endif; ?>
 									<?php        
 									if( have_rows('activities') ):
 									?>
@@ -107,7 +159,22 @@
 										<?php 
 										while ( have_rows('activities') ) : the_row();
 										?>
-											<li><?php the_sub_field('activity'); ?></li>
+
+											<?php
+												// reset activity link
+												$activity_link = '';
+
+												if( get_sub_field('activity_link') ) {
+													$activity_link = get_sub_field('activity_link');
+												}
+											?>
+
+											<?php if( $activity_link ) : ?>
+												<li><a href="<?php echo $activity_link; ?>" class="activity_link"><?php the_sub_field('activity'); ?></a></li>
+											<?php else : ?>
+												<li><?php the_sub_field('activity'); ?></li>
+											<?php endif; ?>
+
 										<?php 
 										endwhile;
 										?>
