@@ -1,0 +1,92 @@
+.itineraries {
+
+	.container_location {
+		position: relative;
+		display: table;
+		width: 50%;
+		min-height: 240px;
+
+		h3 {
+			padding-bottom: $base_size;
+			border-bottom: 2px solid $purple;
+		}
+
+		&.odd {
+			margin-right: auto;
+			padding: $base_size $base_size*5 $base_size 0;
+		}
+
+		&.even {
+			margin-left: auto;
+			padding: $base_size 0 $base_size $base_size*5;
+		}
+
+	}
+
+	.location_number {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		border-radius: 50%;
+		padding: $base_size*0.6 $base_size*1.6;
+		font-size: $base_font_size*2.4;
+		color: $white;
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			width: 2px;
+			height: 60px;
+			background-color: $purple;
+		}
+
+		&:before {
+			top: -60px;
+		}
+
+		&:after {
+			top: 100%;
+		}
+
+	}
+
+	.odd .location_number {
+		right: -22px;
+		background-color: $purple_light;
+	}
+
+	.even .location_number {
+		left: -22px;
+		background-color: $purple_dark;
+	}
+
+	.col_left,
+	.col_right {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.odd .col_left,
+	.even .col_right {
+		width: 40%;
+	}
+
+	.odd .col_right,
+	.even .col_left {
+		width: 60%;
+	}
+
+	.odd .col_right {
+		padding-left: 20px;
+	}
+
+	.even .col_left {
+		padding-right: 20px;
+	}
+
+
+}

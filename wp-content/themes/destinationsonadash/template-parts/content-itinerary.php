@@ -39,38 +39,93 @@
 					//the_content();
 					if( have_rows('location') ):
 
+						$counter = 1;
+
 					 	// loop through the rows of data
 					    while ( have_rows('location') ) : the_row();
-							// display a sub field value
+
+							if( $counter % 2 === 0 ) : 
+
 						?>
 
-							<div class="container_location">
-								
-								<h3><?php the_sub_field('name'); ?></h3>
-								
-								<?php        
-								if( have_rows('activities') ):
-								?>
-									<ul>
-									<?php 
-									while ( have_rows('activities') ) : the_row();
-									?>
-										<li><?php the_sub_field('activity'); ?></li>
-									<?php 
-									endwhile;
-									?>
-									</ul>
-								<?php 			
-								endif;
-								?>
+							<div class="container_location even">
+
+								<span class="location_number"><?php echo $counter; ?></span>
 
 								<?php 
 								$image = get_sub_field('image');
-								?>	
-							
-								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
+								?>
 
+								<div class="col_left">
+									<h3><?php the_sub_field('name'); ?></h3>
+									<?php        
+									if( have_rows('activities') ):
+									?>
+										<ul>
+										<?php 
+										while ( have_rows('activities') ) : the_row();
+										?>
+											<li><?php the_sub_field('activity'); ?></li>
+										<?php 
+										endwhile;
+										?>
+										</ul>
+									<?php 			
+									endif;
+									?>
+								</div>
+
+								<div class="col_right">
+									<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
+								</div>
+								
 							</div>
+
+
+							<?php 
+							else: 
+							?>
+
+							<div class="container_location odd">
+
+								<span class="location_number"><?php echo $counter; ?></span>
+
+								<?php 
+								$image = get_sub_field('image');
+								?>
+
+								<div class="col_left">
+									<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
+								</div>
+
+								<div class="col_right">
+									<h3><?php the_sub_field('name'); ?></h3>
+									<?php        
+									if( have_rows('activities') ):
+									?>
+										<ul>
+										<?php 
+										while ( have_rows('activities') ) : the_row();
+										?>
+											<li><?php the_sub_field('activity'); ?></li>
+										<?php 
+										endwhile;
+										?>
+										</ul>
+									<?php 			
+									endif;
+									?>
+								</div>
+								
+							</div>
+
+							<?php 
+							endif;
+							?>
+
+							<?php
+							$counter++;
+							?>
 
 						<?php			
 						endwhile;
