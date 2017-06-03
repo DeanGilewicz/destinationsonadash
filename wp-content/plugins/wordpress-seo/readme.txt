@@ -6,7 +6,11 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Google Search Console, Content analysis, Readability
 Requires at least: 4.6
 Tested up to: 4.7
+<<<<<<< HEAD
 Stable tag: 4.6
+=======
+Stable tag: 4.8
+>>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
 
@@ -124,6 +128,7 @@ You'll find answers to many of your questions on [kb.yoast.com](https://kb.yoast
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 4.6.0 =
 
 Release Date: April 11th, 2017
@@ -150,6 +155,38 @@ Release Date: March 21st, 2017
 	* Throws a warning in the admin for the RS Head Cleaner plugin, because the plugin cloaks.
 	* Improves copy about Yoast SEO Premium benefits.
 	* Adds link to our knowledge base article about connecting your website to Google Search Console.
+=======
+= 4.8.0 =
+
+Release Date: May 23rd, 2017
+
+* Bugfixes
+	* Fixes a bug where the tabs in the social and advanced metabox section are gone when keyword analysis has been disabled.
+
+* Enhancements
+	* Optimizes the way the cornerstone flag is saved.
+	* Analyzes the content using cornerstone assessors when a post or page is cornerstone content.
+
+= 4.7.1 =
+
+Release Date: May 9th, 2017
+
+* Bugfixes
+	* Fixes a bug where the analysis wouldn't work on Internet Explorer.
+
+= 4.7.0 =
+
+Release Date: May 2nd, 2017
+
+* Enhancements
+	* Adds transition words for Italian.
+	* Adds a new check in the analysis for the presence of at least one internal link.
+
+* Bugfixes
+	* Fixes a bug where the `_yst_is_cornerstone` meta value was not prefixed, causing some themes/plugins to output this meta value.
+	* Fixes a bug where style and script elements were parsed for the prominent words.
+	* Fixes a bug where the cursor pointer was in front of the metabox.
+>>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 
 = Earlier versions =
 
