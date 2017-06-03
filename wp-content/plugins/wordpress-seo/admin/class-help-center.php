@@ -60,15 +60,6 @@ class WPSEO_Help_Center {
 		/* translators: %s: expands to 'Yoast SEO Premium'. */
 		$popup_title = sprintf( __( 'Email support is a %s feature', 'wordpress-seo' ), 'Yoast SEO Premium' );
 
-<<<<<<< HEAD
-		$popup_content = '<p>' . __( 'Go Premium and our experts will be there for you to answer any questions you might have about the set-up and use of the plug-in!  ', 'wordpress-seo' ) . '</p>';
-		/* translators: %1$s: expands to 'Yoast SEO Premium'. */
-		$popup_content .= '<p>' . sprintf( __( 'Other benefits of %1$s for you:', 'wordpress-seo' ), 'Yoast SEO Premium' ) . '</p>';
-		$popup_content .= '<ul>';
-		$popup_content .= '<li>' . __( 'No more dead links: easy redirect manager', 'wordpress-seo' ) . '</li>';
-		$popup_content .= '<li>' . __( 'Superfast internal link suggestions', 'wordpress-seo' ) . '</li>';
-		$popup_content .= '<li>' . __( 'Social media preview: Facebook & Twitter', 'wordpress-seo' ) . '</li>';
-=======
 		$popup_content = '<p>' . __( 'Go Premium and our experts will be there for you to answer any questions you might have about the set-up and use of the plug-in!', 'wordpress-seo' ) . '</p>';
 		/* translators: %1$s: expands to 'Yoast SEO Premium'. */
 		$popup_content .= '<p>' . sprintf( __( 'Other benefits of %1$s for you:', 'wordpress-seo' ), 'Yoast SEO Premium' ) . '</p>';
@@ -85,7 +76,6 @@ class WPSEO_Help_Center {
 			__( '%1$sSocial media preview%2$s: Facebook &amp; Twitter', 'wordpress-seo' ), '', ''
 		) . '</li>';
 		$popup_content .= '<li>' . __( '24/7 support', 'wordpress-seo' ) . '</li>';
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 		$popup_content .= '<li>' . __( 'No ads!', 'wordpress-seo' ) . '</li>';
 		$popup_content .= '</ul>';
 

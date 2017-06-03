@@ -310,11 +310,6 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 		 */
 		function register() {
 
-<<<<<<< HEAD
-			global $WpSmush;
-
-=======
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 			//Main JS
 			wp_register_script( 'wp-smushit-admin-js', WP_SMUSH_URL . 'assets/js/wp-smushit-admin.js', array(
 				'jquery'
@@ -491,15 +486,6 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 		 *
 		 */
 		function setup_global_stats( $force_update = false ) {
-<<<<<<< HEAD
-			global $wpsmush_db;
-			//Setup Attachments and total count
-			$wpsmush_db->total_count( true );
-
-			$this->stats           = $this->global_stats( $force_update );
-			$this->smushed_count   = ! empty( $this->smushed_attachments ) ? count( $this->smushed_attachments ) : 0;
-			//@todo: Rename to unsmushed_count
-=======
 			global $wpsmush_db, $wpsmush_dir;
 
 			// Set directory smush status.
@@ -515,7 +501,6 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 
 			// Set smushed count
 			$this->smushed_count = ! empty( $this->smushed_attachments ) ? count( $this->smushed_attachments ) : 0;
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 			$this->remaining_count = $this->remaining_count();
 		}
 
@@ -525,23 +510,6 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 		 * For non-premium users, show expected avarage savings based
 		 * on the free version savings.
 		 */
-<<<<<<< HEAD
-		function get_exceeding_items_count( $force_update = false ) {
-			$count = wp_cache_get( 'exceeding_items', 'wp_smush' );
-			if ( ! $count || $force_update ) {
-				$count = 0;
-				//Check images bigger than 1Mb, used to display the count of images that can't be smushed
-				foreach ( $this->unsmushed_attachments as $attachment ) {
-					if ( file_exists( get_attached_file( $attachment ) ) ) {
-						$size = filesize( get_attached_file( $attachment ) );
-					}
-					if ( empty( $size ) || ! ( ( $size / WP_SMUSH_MAX_BYTES ) > 1 ) ) {
-						continue;
-					}
-					$count ++;
-				}
-				wp_cache_set( 'exceeding_items', $count, 'wp_smush', 3000 );
-=======
 		function set_pro_savings() {
 
 			global $WpSmush;
@@ -549,7 +517,6 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 			// No need this already premium.
 			if ( $WpSmush->validate_install() ) {
 				return;
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 			}
 
 			//Initialize
@@ -588,11 +555,7 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 		 */
 		function process_smush_request() {
 
-<<<<<<< HEAD
-			global $WpSmush, $wpsmush_db;
-=======
 			global $WpSmush, $wpsmush_db, $wpsmush_helper;
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 
 			// turn off errors for ajax result
 			@error_reporting( 0 );
@@ -639,13 +602,6 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 			}
 
 			//Get the file path for backup
-<<<<<<< HEAD
-			$attachment_file_path = get_attached_file( $attachment_id );
-
-			//Take Backup
-			global $wpsmush_backup;
-			$wpsmush_backup->create_backup( $attachment_file_path );
-=======
 			$attachment_file_path = $wpsmush_helper->get_attached_file( $attachment_id );
 
 			//Download if not exists
@@ -654,7 +610,6 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 			//Take Backup
 			global $wpsmush_backup;
 			$wpsmush_backup->create_backup( $attachment_file_path, '', $attachment_id );
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 
 			if ( ! $send_error ) {
 				//Proceed only if Smushing Transient is not set for the given attachment id
@@ -699,11 +654,7 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 
 			$stats = $this->stats;
 
-<<<<<<< HEAD
-			$stats['total'] = $wpsmush_db->total_count( true );
-=======
 			$stats['total'] = $this->total_count;
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 
 			if ( isset( $smush ) && is_wp_error( $smush ) ) {
 
@@ -825,16 +776,6 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 			$attachment_id = absint( (int) ( $attachment_id ) );
 
 			//Get the file path for backup
-<<<<<<< HEAD
-			$attachment_file_path = get_attached_file( $attachment_id );
-
-			//Take Backup
-			global $wpsmush_backup;
-			$wpsmush_backup->create_backup( $attachment_file_path );
-
-			//Get the image metadata from $_POST
-			$original_meta = !empty( $_POST['metadata'] ) ? $_POST['metadata'] : '';
-=======
 			$attachment_file_path = $wpsmush_helper->get_attached_file( $attachment_id );
 
 			//Download file if not exists
@@ -846,7 +787,6 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 
 			//Get the image metadata from $_POST
 			$original_meta = ! empty( $_POST['metadata'] ) ? $_POST['metadata'] : '';
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 
 			$original_meta = empty( $original_meta ) ? wp_get_attachment_metadata( $attachment_id ) : $original_meta;
 
@@ -956,10 +896,7 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 		 * @return int
 		 */
 		function remaining_count() {
-<<<<<<< HEAD
-=======
 
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 			return ( $this->total_count - $this->smushed_count );
 		}
 
@@ -1549,11 +1486,7 @@ if ( ! class_exists( 'WpSmushitAdmin' ) ) {
 			}
 
 			//If there aren't any images in the library, return the notice
-<<<<<<< HEAD
-			if ( 0 == $wpsmush_db->total_count() ) {
-=======
 			if ( 0 == $wpsmush_db->get_media_attachments( true ) ) {
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 				$notice = esc_html__( "We haven’t found any images in your media library yet so there’s no smushing to be done!", "wp-smushit" );
 				$resp   = '<div class="wp-smush-notice wp-smush-resmush-message" tabindex="0"><i class="dev-icon dev-icon-tick"></i> ' . $notice . '
 				<i class="dev-icon dev-icon-cross"></i>

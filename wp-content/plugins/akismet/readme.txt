@@ -2,13 +2,8 @@
 Contributors: matt, ryan, andy, mdawaffe, tellyworth, josephscott, lessbloat, eoigal, cfinke, automattic, jgs
 Tags: akismet, comments, spam, antispam, anti-spam, anti spam, comment moderation, comment spam, contact form spam, spam comments
 Requires at least: 3.7
-<<<<<<< HEAD
-Tested up to: 4.7.2
-Stable tag: 3.3
-=======
 Tested up to: 4.7.4
 Stable tag: 3.3.2
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 License: GPLv2 or later
 
 Akismet checks your comments and contact form submissions against our global database of spam to protect you and your site from malicious content.
@@ -35,8 +30,6 @@ Upload the Akismet plugin to your blog, Activate it, then enter your [Akismet.co
 
 == Changelog ==
 
-<<<<<<< HEAD
-=======
 = 3.3.2 =
 *Release Date - 10 May 2017*
 
@@ -50,7 +43,6 @@ Upload the Akismet plugin to your blog, Activate it, then enter your [Akismet.co
 * Fixed a bug that was preventing the "Remove author URL" feature from working after a comment was edited using "Quick Edit."
 * Fixed a bug that was preventing the URL preview feature from working after a comment was edited using "Quick Edit."
 
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 = 3.3 =
 *Release Date - 23 February 2017*
 

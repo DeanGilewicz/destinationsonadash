@@ -1,38 +1,23 @@
 === Smush Image Compression and Optimization ===
 Plugin Name: Smush Image Compression and Optimization
-<<<<<<< HEAD
-Version: 2.6.3
-=======
 Version: 2.7.1
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 Author: WPMU DEV
 Author URI: http://premium.wpmudev.org/
 Contributors: WPMUDEV, alexdunae
 Tags: image, resize, optimize, compress, performance, lossless, lossy, photo, pictures, optimize JPG, compress PNG, Smush WordPress Compression, Smush.it
 Requires at least: 3.5
 Tested up to: 4.7.3
-<<<<<<< HEAD
-Stable tag: 2.6.3
-=======
 Stable tag: 2.7.1
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 Compress and optimize image files, improve performance and boost your SEO rank using Smush WordPress image compression and optimization.
 
 == Description ==
 
-<<<<<<< HEAD
-<strong>Resize, optimize and compress all of your images with the, incredibly powerful and 100% free WordPress image smusher, brought to you by the superteam at WPMU DEV!</strong>
-
-= Award Winning Image Optimization =
-Smush has been benchmarked and tested number one for speed and quality and is the <a href="https://torquemag.io/2017/04/wp-smush-defeats-wordfence-wins-plugin-madness-2017/">award winning</a> proven crowd favorite image optimization plugin for WordPress.
-=======
 <strong>Resize, optimize and compress all of your images with the incredibly powerful and 100% free WordPress image smusher, brought to you by the superteam at WPMU DEV!</strong>
 
 = Award Winning Image Optimization =
 Smush has been benchmarked and tested number one for speed and quality and is the <a href="https://torquemag.io/2017/04/wp-smush-defeats-wordfence-wins-plugin-madness-2017/">award-winning</a>, proven crowd favorite image optimization plugin for WordPress.
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 
 Now with image resizing! Set a max width and height and large images will scale down as they are being compressed.
 
@@ -48,9 +33,6 @@ WP Smush meticulously scans every image you upload – or have already added to 
 
 = Compress any Image in any Directory =
 
-<<<<<<< HEAD
-In addition to smushing your media uploads, you may want to compress the images stored in other folders. Smush now lets you compress any image in any directory so that you can optimize all the images on your site – including NextGEN images and the images in EVERY WordPress plugin and theme package!
-=======
 In addition to smushing your media uploads, you may want to compress the images stored in other folders. Smush now lets you compress any image in any directory so that you can optimize all the images on your site – including <a href="https://wordpress.org/plugins/nextgen-gallery/">NextGEN</a> images, images stored on Amazon S3 using <a href="https://wordpress.org/plugins/amazon-s3-and-cloudfront/">WP Offload S3</a> and images in EVERY WordPress plugin and theme package!
 
 = Compatible with Your Favorite Media Library Plugins =
@@ -66,7 +48,6 @@ No matter what plugins you use to better manage your WordPress media library, Sm
 * <a href="https://wpml.org/2011/05/new-plugin-wpml-media-translation/">WPML Media Translation Add-on</a>
 * <a href="https://wordpress.org/plugins/styles/">Styles</a>
 * And many, many, more!
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 
 ★★★★★ <br>
 “I had no idea that my page load time was being dragged down by the images. The plugin nearly halved the time it took.” - <a href="http://profiles.wordpress.org/karlcw">karlcw</a>
@@ -167,8 +148,6 @@ Yahoo's Smush.it API is gone forever. So WPMU DEV built our own free API that is
 
 == Changelog ==
 
-<<<<<<< HEAD
-=======
 = 2.7.1 =
 
     * Fixed: Progress bar not updating
@@ -194,7 +173,6 @@ Yahoo's Smush.it API is gone forever. So WPMU DEV built our own free API that is
     * WP RSS Aggregator compatibility for Auto Smush
     * WordPress mobile app Auto smush compatibility
 
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 = 2.6.3 =
 
 * Fixed:

@@ -583,13 +583,8 @@ if ( ! class_exists( 'WpSmush' ) ) {
 				return $meta;
 			}
 
-<<<<<<< HEAD
-			//Check if we're restoring the image
-			if ( get_transient( "wp-smush-restore-$ID" ) ) {
-=======
 			//Check if we're restoring the image Or already smushing the image
 			if ( get_transient( "wp-smush-restore-$ID" ) || get_transient( "smush-in-progress-$ID" ) || get_transient( "wp-smush-restore-$ID" ) ) {
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 				return $meta;
 			}
 
@@ -2176,11 +2171,6 @@ if ( ! class_exists( 'WpSmush' ) ) {
 
 			//If auto Smush is disabled
 			if ( ! $this->is_auto_smush_enabled() ) {
-				return;
-			}
-
-			//Check if we're restoring the image
-			if ( get_transient( "wp-smush-restore-$id" ) ) {
 				return;
 			}
 

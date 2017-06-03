@@ -64,13 +64,10 @@ class WPSEO_Upgrade {
 			$this->upgrade_44();
 		}
 
-<<<<<<< HEAD
-=======
 		if ( version_compare( $this->options['version'], '4.7', '<' ) ) {
 			$this->upgrade_47();
 		}
 
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 		// Since 3.7.
 		$upsell_notice = new WPSEO_Product_Upsell_Notice();
 		$upsell_notice->set_upgrade_notice();
@@ -267,8 +264,6 @@ class WPSEO_Upgrade {
 			update_option( 'wpseo', $option_wpseo );
 		}
 	}
-<<<<<<< HEAD
-=======
 
 	/**
 	 * Renames the meta name for the cornerstone content. It was a public meta field and it has to be private.
@@ -284,5 +279,4 @@ class WPSEO_Upgrade {
 			)
 		);
 	}
->>>>>>> fb430224bacf5e3f72ebf2f5741e81fdbe8d48d9
 }
