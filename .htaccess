@@ -9,3 +9,9 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+# BEGIN Redirects
+
+Redirect 301 /favorites/ /itineraries/
+
+# END Redirects
