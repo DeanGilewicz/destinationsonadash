@@ -143,93 +143,140 @@ jQuery(document).ready(function($) {
 
 	}
 
-	// if using lightbox then uncomment
 	
-		// START LIGHTBOX
+	// LIGHTBOX
 
-		// var updateButtonNav = function () {
-		// 	// hide button nav buttons
-		// 	$('.lightbox-content .previous, .lightbox-content .next').addClass('button-hidden');
-		// 	// if there are images in the array
-		// 	if (lightboxImages.length > 0) {
-		// 		// set index to be the same as the lightbox data index value
-		// 		var index = $('.lightbox-content img').data('index');
-		// 		// when img data index value above 0 show prev button nav
-		// 		if (index > 0) {
-		// 			$('.lightbox-content .previous').removeClass('button-hidden');
-		// 		}
-		// 		// when img data index value below the last index of array show next button nav
-		// 		if (index < lightboxImages.length-1) {
-		// 			$('.lightbox-content .next').removeClass('button-hidden');
-		// 		}
-		// 	}
-		// };
+	// set empty array to collect all images inside of container-lightbox-content
+	var lightboxImages = [];
 
-		// // set empty array to collect all images inside of container-lightbox-content
-		// var lightboxImages = [];
+	function formatLightboxImageSize(imgSizes) {
+		
+		var imgArr = imgSizes.split(', ');
 
-		// // when a gallery img clicked
-		// $('.gallery-image').on('click', function(e) {
-		// 	e.preventDefault();
-		// 	// store src for clicked image
-		// 	var source = $(this).children('img').attr('src');
-		// 	// store alt for clicked image
-		// 	var alt = $(this).children('img').attr('alt');
+		// reverse array so largest sizes first
+		imgArr.reverse();
 
-		// 	// iterate through each img in gallery
-		// 	$(this).parents('.gallery-images').find('.gallery-image img').each(function(index, el) {
-		// 		// if the clicked image src is equal to the image source then set the data index value to be that number
-		// 		if ($(this).attr('src') === source) {
-		// 			$('.lightbox-content img').data('index', index);
-		// 		}
-		// 		// push all image srcs into lightboxImages array
-		// 		// lightboxImages.push({imageSrc: $(this).parents('.gallery-image').attr('data-lb-img'), imageAlt: $(this).attr('alt')});
-		// 		lightboxImages.push({imageSrc: $(this).parents('.gallery-image').attr('data-lb-img'), imageCaption: $(this).siblings('.caption').text()});
-		// 	});
+		// match image size we are after
+		var mdLgSize = imgArr.find(function(item, index, array) {
+			return item.indexOf('768w') > -1 || item.indexOf('710w') > -1 || item.indexOf('640w') > -1;
+		});
 
-		// 	// update button nav UI
-		// 	updateButtonNav();
-		// 	// // set lightbox img src
-		// 	// $('.lightbox-content img').attr("src",source);
-		// 	$('.lightbox-content img').attr("src",$(this).attr('data-lb-img'));
-		// 	// // set image comment
-		// 	// $('.lightbox-content .image-comment').text(alt);
-		// 	$('.lightbox-content .image-comment').text($(this).children('.caption').text());
-		// 	// // animate lightbox box open
-		// 	$('.lightbox').addClass('lightbox-open').removeClass('lightbox-close');
-		// });
+		// split array at the space
+		mdLgSize = mdLgSize.split(' ');
+		
+		// return just the url for image
+		return mdLgSize[0];
 
-		// // when click next button nav
-		// $('.lightbox-content .next').on('click', function() {
-		// 	// get the current data index value of the lightbox image
-		// 	var index = $('.lightbox-content img').data('index');
-		// 	// set image comment to be next alt source value in array
-		// 	$('.lightbox-content .image-comment').text(lightboxImages[index+1].imageCaption);
-		// 	// set img source and data index to be next value in array
-		// 	$('.lightbox-content img').attr('src', lightboxImages[index+1].imageSrc).data('index', index+1);
-		// 	// update button nav UI
-		// 	updateButtonNav();
-		// });
+	}
+	
 
-		// // when click prev button nav
-		// $('.lightbox-content .previous').on('click', function() {
-		// 	// get the current data index value of the lightbox image
-		// 	var index = $('.lightbox-content img').data('index');
-		// 	// set image comment to be previous alt source value in array
-		// 	$('.lightbox-content .image-comment').text(lightboxImages[index-1].imageCaption);
-		// 	// set img source and data index to be previous value in array
-		// 	$('.lightbox-content img').attr('src', lightboxImages[index-1].imageSrc).data('index', index-1);
-		// 	// update button nav UI
-		// 	updateButtonNav();
-		// });
+	function updateButtonNav() {
+		// hide button nav buttons
+		$('.lightbox_content .previous, .lightbox_content .next').addClass('button_hidden');
+		// if there are images in the array
+		if (lightboxImages.length > 0) {
+			// set index to be the same as the lightbox data index value
+			var index = $('.lightbox_content img').data('index');
+			// when img data index value above 0 show prev button nav
+			if (index > 0) {
+				$('.lightbox_content .previous').removeClass('button_hidden');
+			}
+			// when img data index value below the last index of array show next button nav
+			if (index < lightboxImages.length-1) {
+				$('.lightbox_content .next').removeClass('button_hidden');
+			}
+		}
+	}
 
-		// $('.lightbox-x-close').on('click', function() {
-		// 	// reset lightboxImages array
-		// 	lightboxImages = []; 
-		// 	// animate lightbox box close
-		// 	$(this).parents('.lightbox').removeClass('lightbox-open').addClass('lightbox-close');
-		// });
+	$('.post-single .container_content img').on('click', function(e) {
+		e.preventDefault();
 
+		// store src for clicked image - medium-large size
+		var clickedImgSource = $(this).attr('src');
+
+		// store alt for clicked image
+		var clickedImgAlt = $(this).attr('alt') || '';
+
+		// store reference to initial image to be displayed in lightbox
+		var firstLightboxImg;
+
+		// iterate through each img loaded through content AND in ACF gallery
+		$(this).parents('.content-area').find('[class^="wp-image"]').each(function(index) {
+
+			var currentImgSource = '';
+			var currentImgAtl = '';
+
+			// get image src of each el - medium size
+			if( $(this).attr('src') ) {
+				currentImgSource = $(this).attr('src');
+			} else {
+				currentImgSource = $(this).data('src');
+			}
+
+			if( $(this).attr('alt') ) {
+				currentImgAtl = $(this).attr('alt');
+			} else {
+				currentImgAtl = $(this).data('alt');
+			}
+ 
+			// if the clicked image src is equal to the current image source then set the data index value to be that number
+			if (clickedImgSource === currentImgSource) {
+				$('.lightbox_content img').data('index', index);
+				// set initial image to be displayed in lightbox
+				currentImgSource = formatLightboxImageSize($(this).attr('srcset'));
+				firstLightboxImg = currentImgSource;
+			}
+
+			// format to use medium-large size
+			if( $(this).attr('srcset') ) {
+				currentImgSource = formatLightboxImageSize($(this).attr('srcset'));
+			}
+
+			// push all image srcs into lightboxImages array
+			lightboxImages.push({imageSrc: currentImgSource, imageAlt: currentImgAtl});
+		});
+
+		// update button nav UI
+		updateButtonNav();
+
+		// set lightbox img src
+		$('.lightbox_content img').attr("src",firstLightboxImg);
+		// set image comment
+		$('.lightbox_content .image_comment').text(clickedImgAlt);
+		// animate lightbox box open
+		$('.lightbox').removeClass('lightbox_close').addClass('lightbox_open');
+	});
+
+	// when click next button nav
+	$('.lightbox_content .next').on('click', function() {
+		// get the current data index value of the lightbox image
+		var index = $('.lightbox_content img').data('index');
+		// set image comment to be next alt source value in array
+		$('.lightbox_content .image_comment').text(lightboxImages[index+1].imageAlt);
+		// set img source and data index to be next value in array
+		$('.lightbox_content img').attr('src', lightboxImages[index+1].imageSrc).data('index', index+1);
+		// update button nav UI
+		updateButtonNav();
+	});
+
+	// when click prev button nav
+	$('.lightbox_content .previous').on('click', function() {
+		// get the current data index value of the lightbox image
+		var index = $('.lightbox_content img').data('index');
+		// set image comment to be previous alt source value in array
+		$('.lightbox_content .image_comment').text(lightboxImages[index-1].imageAlt);
+		// set img source and data index to be previous value in array
+		$('.lightbox_content img').attr('src', lightboxImages[index-1].imageSrc).data('index', index-1);
+		// update button nav UI
+		updateButtonNav();
+	});
+
+	$('.lightbox_x_close').on('click', function() {
+		// reset lightboxImages array
+		lightboxImages = []; 
+		// animate lightbox box close
+		$(this).parents('.lightbox').removeClass('lightbox_open').addClass('lightbox_close');
+	});
 
 
 	// MAP PAGE

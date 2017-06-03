@@ -36,13 +36,21 @@
 
 	$the_query_insights = new WP_Query( $argsInsights );
 
-	$argsFavs = array(
-		'category_name' => 'favorite',
+	// $argsFavs = array(
+	// 	'category_name' => 'favorite',
+	// 	'posts_per_page' => '1',
+	// 	'orderby' => 'date'
+	// );
+
+	// $the_query_favs = new WP_Query( $argsFavs );
+
+	$argsItineraries = array(
+		'post_type' => 'itineraries',
 		'posts_per_page' => '1',
 		'orderby' => 'date'
 	);
 
-	$the_query_favs = new WP_Query( $argsFavs );
+	$the_query_itineraries = new WP_Query( $argsItineraries );
 
 	// end set up
 
@@ -320,21 +328,21 @@
 
 		<div class="medium-3 columns item">
 
-			<?php if ( $the_query_favs->have_posts() ) : ?>
+			<?php if ( $the_query_itineraries->have_posts() ) : ?>
 
-				<?php while ( $the_query_favs->have_posts() ) : $the_query_favs->the_post(); ?>
+				<?php while ( $the_query_itineraries->have_posts() ) : $the_query_itineraries->the_post(); ?>
 
 					<?php
 						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small');
 						$url = $thumb['0'];
 					?>
 
-					<a href="/favorites">
+					<a href="/itineraries">
 						<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
 						<div class="overlay_image"></div>
 						<div class="item-description">
 							<p class="mobile-go">Go</p>
-							<span>Favs</span>
+							<span>Itineraries</span>
 							<p>All Posts</p>
 						</div>
 						<span class="overlay-border"></span>
@@ -346,12 +354,12 @@
 
 				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
 
-				<a href="/favorites">
+				<a href="/itineraries">
 					<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
 					<div class="overlay_image"></div>
 					<div class="item-description">
 						<p class="mobile-go">Go</p>
-						<span>Favs</span>
+						<span>Itineraries</span>
 						<p>All Posts</p>
 					</div>
 					<span class="overlay-border"></span>
@@ -457,7 +465,7 @@
 			</div>
 			<div class="medium-5 medium-pull-7 columns">
 				<a href="<?php the_permalink(); ?>">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>
@@ -478,7 +486,7 @@
 			</div>
 			<div class="medium-5 columns">
 				<a href="<?php the_permalink(); ?>">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>
@@ -499,7 +507,7 @@
 			</div>
 			<div class="medium-5 medium-pull-7 columns">
 				<a href="<?php the_permalink(); ?>">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>
@@ -655,7 +663,7 @@
 			</div>
 			<div class="medium-5 medium-pull-7 columns">
 				<a href="/">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>
@@ -676,7 +684,7 @@
 			</div>
 			<div class="medium-5 columns">
 				<a href="/">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>
@@ -697,7 +705,7 @@
 			</div>
 			<div class="medium-5 medium-pull-7 columns">
 				<a href="/">
-					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png">
+					<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png" alt="destinations on a dash logo" />
 				</a>
 			</div>
 		</article>

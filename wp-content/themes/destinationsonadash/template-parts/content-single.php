@@ -10,7 +10,10 @@
 // Advanced Custom Fields
 $trip_date = get_field('trip_date');
 $trip_duration = get_field('trip_duration');
-
+$galleryImgs = get_field('images');
+// echo '<pre>';
+// print_r($galleryImgs);
+// exit;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -21,6 +24,14 @@ $trip_duration = get_field('trip_duration');
 
 	<?php 
 		$postType = get_post_type_object(get_post_type());
+		// set slug for post type
+		if( $postType->rewrite['slug'] ) {
+			$postSlug = $postType->rewrite['slug'];
+		} elseif( $postType->name === 'post' ) {
+			$postSlug = strtolower($postType->labels->name);
+		} else {
+			$postSlug = strtolower($postType->name);
+		}
 	?>
 
 	<div class="content-area post-single">
@@ -30,7 +41,7 @@ $trip_duration = get_field('trip_duration');
 			<div class="small-12 columns">
 				
 				<div class="post-meta-single-category">
-					<a href="/<?= $postType->labels->name; ?>"><?= $postType->labels->name; ?></a>
+					<a href="/<?= $postSlug; ?>"><?= $postType->labels->name; ?></a>
 				</div>
 				<div class="post-meta-single-title">
 					<a href="<?php the_permalink(); ?>" class="post-title">
@@ -81,6 +92,30 @@ $trip_duration = get_field('trip_duration');
 
 	<div class="row entry-footer">
 		<div class="medium-12 columns">
+		<?php 
+			
+			// Get current page URL 
+			$doadURL = urlencode( get_permalink() );
+	 
+			// Get current page title
+			$doadTitle = str_replace( ' ', '%20', get_the_title() );
+					 
+			// Construct sharing URL without using any script
+			$twitterURL  = 'https://twitter.com/intent/tweet?text='.$doadTitle.'&amp;url='.$doadURL.'&amp;via=doad';
+			$facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$doadURL;
+	 		 
+			// Create sharing buttons
+			$socialLinks  = '';
+			$socialLinks .= '<div class="container_social_share">';
+			$socialLinks .= '<h4>share on</h4> <a class="social_link social_twitter" href="'. $twitterURL .'" target="_blank">Twitter</a>';
+			$socialLinks .= '<a class="social_link social_facebook" href="'.$facebookURL.'" target="_blank">Facebook</a>';
+			$socialLinks .= '</div>';
+			
+			// Display in template
+			echo $socialLinks; 
+		?>
+		</div>
+		<div class="medium-12 columns">
 		<?php // twentysixteen_entry_meta(); ?>
 		<?php
 			edit_post_link(
@@ -95,5 +130,36 @@ $trip_duration = get_field('trip_duration');
 		?>
 		</div>
 	</div><!-- .entry-footer -->
+
+	<!-- lightbox -->
+
+	<span class="lightbox_additional_images">
+		<?php if( $galleryImgs ) : ?>
+			<?php foreach($galleryImgs as $galleryImg) : ?>
+				<div class="wp-image" data-src="<?php echo $galleryImg['sizes']['medium_large']; ?>" data-alt="<?php echo $galleryImg['alt']; ?>"></div>
+			<?php endforeach; ?>
+		<?php endif; ?>
+	</span>
+
+	<div class="lightbox">
+		<div class="lightbox_overlay"></div>
+			<div class="lightbox_content">
+				<div class="container_lightbox_content">
+					<div class="lightbox_interaction">
+
+						<div class="wrapper">
+							<span class="previous">Prev</span>
+							<span class="lightbox_x_close">Close</span>
+							<span class="next">Next</span>
+							<img src="" />
+							<span class="image_comment"></span>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end lightbox -->
 
 </article><!-- #post-## -->

@@ -1,0 +1,164 @@
+.itineraries {
+
+	.container_location {
+		position: relative;
+		display: table;
+		width: 100%;
+		min-height: 160px;
+		margin-top: $base_size*8;
+		margin-bottom: $base_size*8;
+
+		@media (min-width: $medium) {
+			width: 50%;
+			min-height: 240px;
+			margin-top: $base_size;
+			margin-bottom: $base_size;
+		}
+		
+		h3 {
+			padding-bottom: $base_size;
+			border-bottom: 2px solid $purple;
+		}
+
+		img {
+			cursor: auto;
+		}
+
+		&.odd {
+			padding: $base_size*3 0 $base_size*5;
+
+			@media (min-width: $medium) {
+				margin-right: auto;
+				padding: $base_size $base_size*5 $base_size 0;
+			}
+
+		}
+
+		&.even {
+			padding: $base_size*3 0 $base_size*5;
+
+			@media (min-width: $medium) {
+				margin-left: auto;
+				padding: $base_size 0 $base_size $base_size*5;
+			}
+
+		}
+
+		.name_link h3 {
+			color: $brand_pink;
+		}
+
+		.activity_link {
+			color: $brand_pink;
+		}
+
+	}
+
+	.location_number {
+		position: absolute;
+		top: -34px;
+		left: 50%;
+		transform: translate(-50%, 0%);
+		width: 34px;
+		border-radius: 50%;
+		padding: $base_size*0.6 $base_size*1.2;
+		font-size: $base_font_size*2;
+		color: $white;
+
+		@media (min-width: $medium) {
+			top: 50%;
+			left: auto;
+			transform: translate(0%, -50%);
+			width: auto;
+			padding: $base_size*0.6 $base_size*1.6;
+			font-size: $base_font_size*2.4;
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 100px;
+			height: 2px;
+			background-color: $purple;
+
+			@media (min-width: $medium) {
+				top: 0;
+				left: 0;
+				right: 0;
+				transform: none;
+				width: 2px;
+				height: 60px;
+				margin: 0 auto;				
+			}
+
+		}
+
+		&:before {
+			left: -100px;
+
+			@media (min-width: $medium) {
+				top: -60px;
+				left: 0;
+			}
+
+		}
+
+		&:after {
+			left: 100%;
+
+			@media (min-width: $medium) {
+				top: 100%;
+				left: 0;
+			}
+			
+		}
+
+	}
+
+	.odd .location_number {
+		background-color: $purple_light;
+
+		@media (min-width: $medium) {
+			right: -22px;
+		}
+
+	}
+
+	.even .location_number {
+		background-color: $purple_dark;
+
+		@media (min-width: $medium) {
+			left: -22px;
+		}
+
+	}
+
+	.col_left,
+	.col_right {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.odd .col_left,
+	.even .col_right {
+		width: 40%;
+	}
+
+	.odd .col_right,
+	.even .col_left {
+		width: 60%;
+	}
+
+	.odd .col_right {
+		padding-left: 20px;
+	}
+
+	.even .col_left {
+		padding-right: 20px;
+	}
+
+
+}

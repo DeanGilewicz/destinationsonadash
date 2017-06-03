@@ -9,6 +9,8 @@
 @import "comment";
 @import "post-nav";
 @import "gallery";
+@import "social-share";
+@import "lightbox";
 
 // general
 @import "archive";
@@ -20,9 +22,12 @@
 // specific pages
 @import "home";
 @import "trips";
-@import "favs";
+// @import "favs";
 @import "page-attachment";
 @import "map";
+
+// custom post types
+@import "itineraries";
 
 // taxonomies
 @import "continent";

@@ -16,8 +16,14 @@ get_header(); ?>
 		<?php
 			while ( have_posts() ) : the_post();
 
-			// Include the single post content template.
-				get_template_part( 'template-parts/content', 'single' );
+				$postType = get_post_type_object(get_post_type());
+
+				if( $postType->name === 'itineraries' ) {
+					get_template_part( 'template-parts/content', 'itinerary' );
+				} else {
+					// Include the single post content template.
+					get_template_part( 'template-parts/content', 'single' );
+				}
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) {

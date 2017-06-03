@@ -61,7 +61,7 @@
 					<a href="/trips">Trips</a>
 					<a href="/insights">Insights</a>
 					<a href="/eating-ethnic">Eating Ethnic</a>
-					<a href="/favorites">Favs</a>
+					<a href="/itineraries">Itineraries</a>
 				</div>
 
 				<div class="small-6 medium-3 columns footer-area">
