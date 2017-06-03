@@ -12,7 +12,8 @@
 
 	.insights,
 	.eating-ethnic,
-	.quotes {
+	.quotes,
+	.itineraries {
 
 		.page-title {
 			font-family: $font_pacifico;
@@ -21,7 +22,8 @@
  
 		.post-insight,
 		.post-eating-ethnic,
-		.post-quote {
+		.post-quote,
+		.post-itinerary {
 			padding-top: $base_size*4;
 			padding-bottom: $base_size*4;
 			text-align: center;

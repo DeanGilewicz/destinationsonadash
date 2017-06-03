@@ -140,7 +140,7 @@
 		        ),
 		        // 'taxonomies' => array('category', 'post_tag', 'continents'),
 		        'public' => true,
-		        'menu_position' => 8,
+		        'menu_position' => 9,
 		        // 		'rewrite' => array('slug' => 'blog'),
 		        'supports' => array(
 		            'title',
@@ -179,7 +179,7 @@
 		        ),
 		        'taxonomies' => array('category', 'post_tag', 'continents', 'destinations'),
 		        'public' => true,
-		        'menu_position' => 9,
+		        'menu_position' => 8,
 		        'supports' => array(
 		            'title',
 		            'editor',
