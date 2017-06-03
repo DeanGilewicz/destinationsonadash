@@ -1,5 +1,4 @@
 # BEGIN WordPress
-
 <IfModule mod_rewrite.c>
 
 RewriteEngine On
@@ -9,19 +8,15 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 
-#RewriteCond %{SERVER_PORT} 80
-#RewriteRule ^(.*)$ https://www.destinationsonadash.com/$1 [R=301,L]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.destinationsonadash.com/$1 [R=301,L]
 
-#RewriteCond %{HTTP_HOST} ^destinationsonadash.com [nocase]
-#RewriteRule ^(.*) https://www.destinationsonadash.com/$1 [last,redirect=301]
+RewriteCond %{HTTP_HOST} ^destinationsonadash.com [nocase]
+RewriteRule ^(.*) https://www.destinationsonadash.com/$1 [last,redirect=301]
 
 </IfModule>
-
 # END WordPress
 
-
 # BEGIN Redirects
-
 Redirect 301 /favorites/ /itineraries/
-
 # END Redirects
