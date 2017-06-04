@@ -1,11 +1,20 @@
+body, html {
+	height: auto !important; // override foundation default style
+}
+
 html,
 body {
 	background-color: rgba(0,0,0,0);
 	background-color: transparent;
 }
 
+html {
+	min-height: 100%;
+}
+
 body {
 	-webkit-font-smoothing: antialiased;
+	height: 100%;
 	font-family: $font_oswald;
 	font-size: $base_font_size;
 	color: $text;

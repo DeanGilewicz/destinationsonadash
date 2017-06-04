@@ -3,11 +3,6 @@ jQuery(document).ready(function($) {
 
 	"use strict";
 
-	// console.log('ready to go');
-
-	// uncomment if using foundation js
-	// $(document).foundation();
-
 	// fastclick - removes 300ms firing of click event when tap on mobile
 	FastClick.attach(document.body);
 
@@ -40,38 +35,7 @@ jQuery(document).ready(function($) {
 
 		// hero slider
 
-		// var timer = setInterval(transitionHero, 4000);
-
 		var currentSlide = $('.slide-1');
-
-		// var transitionHero = function () {
-
-		// 	currentSlide.removeClass('active');
-			
-		// 	var index = 1;
-
-		// 	if (currentSlide.next().length) {
-
-		// 		currentSlide.next().addClass('active');
-
-		// 		index = currentSlide.next().index();
-
-		// 		currentSlide = currentSlide.next();
-
-		// 	} else {
-
-		// 		$('.slide-1').addClass('active');
-
-		// 		index = 0;
-
-		// 		currentSlide = $('.slide-1');
-		// 	}
-
-		// 	$('.progress-of-slides .progress-btn').removeClass('active');
-
-		// 	$('.progress-of-slides .progress-btn').eq(index).addClass('active');
-
-		// };
 
 		// progress buttons on slider
 
