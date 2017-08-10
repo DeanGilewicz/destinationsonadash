@@ -9,8 +9,9 @@
 	<?php // if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 	<!-- <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"> -->
 	<?php // endif; ?>
-
-	<title><?php wp_title('|', true, 'right'); bloginfo( 'name' )?></title>
+	<!-- yeost seo -->
+	<title><?php wp_title(''); ?></title>
+	<!-- <title><?php wp_title('|', true, 'right'); bloginfo( 'name' )?></title> -->
     <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Pacifico|Oswald' />
     <link rel="stylesheet" type='text/css' href="<?= get_stylesheet_directory_uri(); ?>/dist/css/vendor/normalize.min.css" />
     <link rel="stylesheet" type='text/css' href="<?= get_stylesheet_directory_uri(); ?>/dist/css/vendor/foundation.min.css" />
