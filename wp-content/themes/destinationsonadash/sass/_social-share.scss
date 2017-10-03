@@ -4,7 +4,7 @@
 
     h4 {
         margin: 0 0 $base_size*0.6;
-        font-size: $base_font_size;
+        font-size: $base_font_size*1.4;
         text-transform: uppercase;
     }
 
@@ -14,7 +14,7 @@
         margin-right: $base_size;
         padding: $base_size*0.8 $base_size*2;
         border-radius: $base_size*0.4;
-        font-size: $base_font_size*0.8;
+        font-size: $base_font_size*1.4;
         text-transform: uppercase;
         cursor: pointer;
         color: $white;

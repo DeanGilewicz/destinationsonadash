@@ -95,9 +95,20 @@
 	.post-meta-date {
 		margin-left: $base_size;
 		margin-right: $base_size;
+		font-size: $base_font_size*1.2;
+
+		@media (min-width: $medium) {
+			font-size: $base_font_size*1.6;
+		}
 
 		span {
 			font-weight: 700;
+			font-size: $base_font_size*1.4;
+
+			@media (min-width: $medium) {
+				font-size: $base_font_size*1.8;
+			}
+
 		}
 
 	}

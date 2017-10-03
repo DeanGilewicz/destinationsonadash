@@ -21,8 +21,8 @@
 
 	// get the 5 most used tags (using the in built tag cloud)
 	$tagArgs = array(
-	    'smallest'                  => 10,
-	    'largest'                   => 10,
+	    'smallest'                  => 16,
+	    'largest'                   => 16,
 	    'unit'                      => 'px',
 	    'number'                    => 5,
 	    'format'                    => 'flat',

@@ -44,6 +44,12 @@ body.search {
 			font-size: $base_font_size*1.4;
 		}
 
+		.search-field {
+			@media (min-width: $medium) {
+				font-size: $base_font_size*1.8;
+			}
+		}
+
 	}
 
 	.not-found .term {
@@ -191,23 +197,34 @@ body.search-no-results {
 
 				h2 {
 					margin: 0;
-					font-size: 2em;
+					font-size: $base_font_size*2;
 					text-transform: uppercase;
+
+					@media (min-width: $medium) {
+						font-size: $base_font_size*3;
+					}
+
 				}
 
 				p {
 					margin: 5px 0;
-					font-size: 1.2em;
+					font-size: $base_font_size*1.4;
 					font-weight: 300;
+
+					@media (min-width: $medium) {
+						font-size: $base_font_size*2;
+					}
+
 				}
 
 				.button.mobile-slider {
-					font-size: $base_size;
+					font-size: $base_font_size*1.4;
 					text-transform: uppercase;
 
 					@media (min-width: $medium) {
-						font-size: $base_size*1.4;
+						font-size: $base_font_size*1.8;
 					}
+
 				}
 			}
 
@@ -215,7 +232,7 @@ body.search-no-results {
 				display: inline-block;
 				margin-bottom: $base_size*0.6;
 				font-family: $font_pacifico;
-				font-size: $base_font_size*2;
+				font-size: $base_font_size*2.4;
 			}
 
 			.post-meta-date {

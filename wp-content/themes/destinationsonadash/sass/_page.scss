@@ -210,7 +210,7 @@
 		}
 
 		.image-comment {
-			font-size: $base_size * 1.4; 
+			font-size: $base_font_size*1.4; 
 			color: $text;
 			display: inline-block;
 			max-width: 80%;
@@ -236,7 +236,7 @@
 
 		.lightbox-x-close {
 			margin-top: $base_size * 2.5;
-			font-size: $base_size * 1.4;
+			font-size: $base_font_size*1.4;
 			width: 190px;
 		}
 
