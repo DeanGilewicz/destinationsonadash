@@ -176,6 +176,11 @@ header {
 			margin: 0;
 			padding: $base_size $base_size;
 			border: 1px solid $grey_light;
+
+			@media (min-width: $medium) {
+				font-size: $base_font_size*1.8;
+			}
+
 		}
 
 	}
@@ -354,7 +359,7 @@ header {
 			}
 
 			span:first-of-type {
-				font-size: $base_size*1.6;
+				font-size: $base_size*1.8;
 				vertical-align: middle;
 
 				@media (min-width: $medium) {

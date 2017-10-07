@@ -16,7 +16,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	height: 100%;
 	font-family: $font_oswald;
-	font-size: $base_font_size;
+	font-size: $base_font_size*1.8;
 	color: $text;
 
 	@media (min-width: $medium) {
@@ -29,7 +29,7 @@ ul,
 li,
 a,
 span {
-	font-size: $base_font_size;
+	font-size: $base_font_size*1.6;
 
 	@media (min-width: $medium) {
 		font-size: $base_font_size*1.4;
@@ -37,10 +37,10 @@ span {
 }
 
 p {
-	font-size: $base_font_size*1.2;
+	font-size: $base_font_size*1.8;
 
 	@media (min-width: $medium) {
-		font-size: $base_font_size*1.4;
+		font-size: $base_font_size*1.6;
 	}
 }
 
@@ -115,7 +115,7 @@ img {
 	display: inline-block;
 	margin-bottom: $base_size*2;
 	text-transform: uppercase;
-	font-size: $base_font_size*1.2;
+	font-size: $base_font_size*1.8;
 
 	&:after {
 		content: "";
@@ -161,7 +161,7 @@ img {
 	text-align: center;
 
 	a {
-		font-size: $base_font_size*1.8;
+		font-size: $base_font_size*2;
 	}
 	
 }

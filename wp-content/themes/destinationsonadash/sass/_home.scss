@@ -58,24 +58,34 @@ body.home {
 
 				h2 {
 					margin: 0;
-					font-size: 2em;
+					font-size: $base_font_size*2;
 					text-transform: uppercase;
 					color: $white;
+
+					@media (min-width: $medium) {
+						font-size: $base_font_size*3;
+					}
+
 				}
 
 				p {
 					margin: 5px 0;
-					font-size: 1.3em;
+					font-size: $base_font_size*1.4;
 					font-weight: 300;
 					color: $white;
+
+					@media (min-width: $medium) {
+						font-size: $base_font_size*2;
+					}
+
 				}
 
 				.button.mobile-slider {
-					font-size: $base_size;
+					font-size: $base_font_size*1.4;
 					text-transform: uppercase;
 
 					@media (min-width: $medium) {
-						font-size: $base_size*1.4;
+						font-size: $base_font_size*1.8;
 					}
 				}
 			}
@@ -120,7 +130,7 @@ body.home {
 					padding: 10px 0;
 					border-top: 1px solid $white;
 					border-radius: 0;
-					font-size: $base_font_size*1.4;
+					font-size: $base_font_size*1.6;
 					background: transparent;
 					transition: border-color .4s linear, color .4s linear;
 
@@ -251,18 +261,18 @@ body.home {
 				}
 
 				span {
-					font-size: $base_size*1.8;
+					font-size: $base_size*2;
 					display: block;
 					color: $white;
 					text-transform: uppercase;
 					transition: color 0.2s ease-in-out;
 
 					@media (min-width: $medium) {
-						font-size: $base_font_size*1.4;
+						font-size: $base_font_size*1.8;
 					}
 
 					@media (min-width: $large) {
-						font-size: $base_font_size*1.8;
+						font-size: $base_font_size*2;
 					}
 
 				}
@@ -481,7 +491,7 @@ body.home {
 
 				p {
 					margin-bottom: $base_size;
-					font-size: $base_font_size*1.4;
+					font-size: $base_font_size*1.8;
 				}
 			}
 
@@ -572,7 +582,7 @@ body.home {
 				span {
 					display: block;
 					margin-bottom: $base_size*3;
-					font-size: $base_font_size*1.8;
+					font-size: $base_font_size*2;
 					text-transform: uppercase;
 					color: $white;
 
