@@ -5,6 +5,7 @@
 	}
 
 	figure {
+		position: relative;
 		display: inline-block;
 		display: table;
 		width: 100% !important;
@@ -15,6 +16,30 @@
 		@media (min-width: $medium) {
 			width: auto !important;;
 			max-width: auto;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 46px;
+			right: 10px;
+			width: 30px;
+			height: 30px;
+			background: url("/wp-content/themes/destinationsonadash/dist/icons/arrow.svg");
+			background-repeat: no-repeat;
+			background-position: center center;
+			color: $white;
+			text-align: center;
+			cursor: pointer;
+			pointer-events: none;
+
+			@media (min-width: $medium) {
+				bottom: 30px;
+				right: 10px;
+				width: 24px;
+				height: 24px;
+			}
+
 		}
 
 		img {
