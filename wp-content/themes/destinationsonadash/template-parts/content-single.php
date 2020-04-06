@@ -8,8 +8,8 @@
  */
 
 // Advanced Custom Fields
-$trip_date = get_field('trip_date');
-$trip_duration = get_field('trip_duration');
+$stay_date = get_field('stay_date');
+$stay_duration = get_field('stay_duration');
 $galleryImgs = get_field('images');
 // echo '<pre>';
 // print_r($galleryImgs);
@@ -22,7 +22,7 @@ $galleryImgs = get_field('images');
 
 	<?php // twentysixteen_post_thumbnail(); ?>
 
-	<?php 
+	<?php
 		$postType = get_post_type_object(get_post_type());
 		// set slug for post type
 		if( $postType->rewrite['slug'] ) {
@@ -35,11 +35,11 @@ $galleryImgs = get_field('images');
 	?>
 
 	<div class="content-area post-single">
-		
+
 		<div class="row">
 
 			<div class="small-12 columns">
-				
+
 				<div class="post-meta-single-category">
 					<a href="/<?= $postSlug; ?>"><?= $postType->labels->name; ?></a>
 				</div>
@@ -48,7 +48,7 @@ $galleryImgs = get_field('images');
 						<h2><?php the_title(); ?></h2>
 					</a>
 				</div>
-			
+
 			</div>
 
 		</div>
@@ -56,11 +56,11 @@ $galleryImgs = get_field('images');
 		<div class="row">
 			<div class="small-12 columns">
 				<div class="container_custom_post_meta">
-					<?php if( $trip_date ): ?>
-						<span class="post-meta-trip-date"><span>Trip Date:</span> <?php echo $trip_date; ?></span>
+					<?php if( $stay_date ): ?>
+						<span class="post-meta-trip-date"><span>Stay Date:</span> <?php echo $stay_date; ?></span>
 					<?php endif; ?>
-					<?php if( $trip_duration ): ?>
-						<span class="post-meta-trip-duration"><span>Trip Duration:</span> <?php echo $trip_duration; ?> days</span>
+					<?php if( $stay_duration ): ?>
+						<span class="post-meta-trip-duration"><span>Stay Duration:</span> <?php echo $stay_duration; ?> days</span>
 					<?php endif; ?>
 					<span class="post-meta-date"><span>Posted On:</span> <?php the_date('M j, Y'); ?></span>
 				</div>
@@ -71,7 +71,7 @@ $galleryImgs = get_field('images');
 			<div class="small-12 columns">
 				<?php the_content(); ?>
 			</div>
-		</div>	
+		</div>
 
 		<?php
 			// wp_link_pages( array(
@@ -92,27 +92,27 @@ $galleryImgs = get_field('images');
 
 	<div class="row entry-footer">
 		<div class="medium-12 columns">
-		<?php 
-			
-			// Get current page URL 
+		<?php
+
+			// Get current page URL
 			$doadURL = urlencode( get_permalink() );
-	 
+
 			// Get current page title
 			$doadTitle = str_replace( ' ', '%20', get_the_title() );
-					 
+
 			// Construct sharing URL without using any script
 			$twitterURL  = 'https://twitter.com/intent/tweet?text='.$doadTitle.'&amp;url='.$doadURL.'&amp;via=doad';
 			$facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$doadURL;
-	 		 
+
 			// Create sharing buttons
 			$socialLinks  = '';
 			$socialLinks .= '<div class="container_social_share">';
 			$socialLinks .= '<h4>share on</h4> <a class="social_link social_twitter" href="'. $twitterURL .'" target="_blank">Twitter</a>';
 			$socialLinks .= '<a class="social_link social_facebook" href="'.$facebookURL.'" target="_blank">Facebook</a>';
 			$socialLinks .= '</div>';
-			
+
 			// Display in template
-			echo $socialLinks; 
+			echo $socialLinks;
 		?>
 		</div>
 		<div class="medium-12 columns">
@@ -154,7 +154,7 @@ $galleryImgs = get_field('images');
 							<img src="" />
 							<span class="image_comment"></span>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>

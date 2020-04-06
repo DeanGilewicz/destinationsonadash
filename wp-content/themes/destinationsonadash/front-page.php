@@ -13,12 +13,12 @@
 
 	// begin set up taxonomy box sections
 
-	$argsTrips = array(
+	$argsWhereIstayed = array(
 		'posts_per_page' => '1',
 		'orderby' => 'date'
 	);
 
-	$the_query_trip = new WP_Query( $argsTrips );
+	$the_query_where_i_stayed = new WP_Query( $argsWhereIstayed );
 
 	$argsEatingEthnic = array(
 		'post_type' => 'eating_ethnic',
@@ -26,15 +26,15 @@
 		'orderby' => 'date'
 	);
 
-	$the_query_food = new WP_Query( $argsEatingEthnic );
+	$the_query_eating_ethnic = new WP_Query( $argsEatingEthnic );
 
-	$argsInsights = array(
-		'post_type' => 'insights',
-		'posts_per_page' => '1',
-		'orderby' => 'date'
-	);
+	// $argsInsights = array(
+	// 	'post_type' => 'insights',
+	// 	'posts_per_page' => '1',
+	// 	'orderby' => 'date'
+	// );
 
-	$the_query_insights = new WP_Query( $argsInsights );
+	// $the_query_insights = new WP_Query( $argsInsights );
 
 	// $argsFavs = array(
 	// 	'category_name' => 'favorite',
@@ -44,20 +44,21 @@
 
 	// $the_query_favs = new WP_Query( $argsFavs );
 
-	$argsItineraries = array(
-		'post_type' => 'itineraries',
-		'posts_per_page' => '1',
-		'orderby' => 'date'
-	);
+	// $argsItineraries = array(
+	// 	'post_type' => 'itineraries',
+	// 	'posts_per_page' => '1',
+	// 	'orderby' => 'date'
+	// );
 
-	$the_query_itineraries = new WP_Query( $argsItineraries );
+	// $the_query_itineraries = new WP_Query( $argsItineraries );
 
 	// end set up
 
 	// begin home posts section
 
 	$argsHomePosts = array(
-		'post_type' => array('post', 'insights', 'eating_ethnic'),
+		// 'post_type' => array('post', 'insights', 'eating_ethnic'),
+		'post_type' => array('post', 'eating_ethnic'),
 		'category_name' => 'home-post',
 		'posts_per_page' => '4',
 		'orderby' => 'date'
@@ -82,7 +83,8 @@
 	// begin all latest posts section (not in home-post cat, not in featured tag)
 
 	$argsAllPosts = array(
-		'post_type' => array('post', 'insights', 'eating_ethnic'),
+		// 'post_type' => array('post', 'insights', 'eating_ethnic'),
+		'post_type' => array('post', 'eating_ethnic'),
 		'category__not_in' => '344',
 		'tag__not_in' => '10',
 		'posts_per_page' => '3',
@@ -106,10 +108,10 @@
 	<div class="slider">
 
 		<div class="slides">
-		
+
 			<?php while ( $the_query_slider->have_posts() ) : $the_query_slider->the_post(); ?>
-				
-				<?php 
+
+				<?php
 					$postNum++;
 					$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
 					$url = $thumb['0'];
@@ -168,8 +170,8 @@
 					<div class="small-12 columns">
 						<div class="content-of-slide">
 
-							<h2>no posts to display</h2>
-							<p>this is the excerpt text</p>
+							<h2>Stay Tuned</h2>
+							<p>Something new is on its way...</p>
 							<a class="button mobile-slider" href="/">go</a>
 
 						</div>
@@ -181,7 +183,7 @@
 
 	</div>
 
-<? endif; ?>
+<?php endif; ?>
 
 <!-- end slider -->
 
@@ -191,63 +193,63 @@
 
 	<div class="row">
 
-		<div class="medium-3 columns item">
+		<div class="medium-6 columns item">
 
-			<?php if ( $the_query_trip->have_posts() ) : ?>
+			<?php if ( $the_query_where_i_stayed->have_posts() ) : ?>
 
-				<?php while ( $the_query_trip->have_posts() ) : $the_query_trip->the_post(); ?>
+				<?php while ( $the_query_where_i_stayed->have_posts() ) : $the_query_where_i_stayed->the_post(); ?>
 
 					<?php
 						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small');
 						$url = $thumb['0'];
 					?>
 
-					<a href="/trips">
+					<a href="/where-i-stayed">
 						<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
 						<div class="overlay_image"></div>
 						<div class="item-description">
 							<p class="mobile-go">Go</p>
-							<span>Trips</span>
+							<span>Where I Stayed</span>
 							<p>All Posts</p>
 						</div>
 						<span class="overlay-border"></span>
 					</a>
 
 				<?php endwhile; ?>
-		
+
 			<?php else: ?>
 
 				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
 
-				<a href="/trips">
-					<div class="category_bg" style="background-image: url('<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png');"></div>
+				<a href="/where-i-stayed">
+					<div class="category_bg" style="background-image: url('<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png'); background-size: contain;"></div>
 					<div class="overlay_image"></div>
 					<div class="item-description">
 						<p class="mobile-go">Go</p>
-						<span>Trips</span>
+						<span>Where I Stayed</span>
 						<p>All Posts</p>
 					</div>
 					<span class="overlay-border"></span>
 				</a>
 
 			<?php endif; ?>
-		
+
 			<?php wp_reset_postdata(); ?>
 
 		</div>
 
-		<div class="medium-3 columns item">
+		<!-- <div class="medium-3 columns item"> -->
 
-			<?php if ( $the_query_insights->have_posts() ) : ?>
+			<?php // if ( $the_query_insights->have_posts() ) : ?>
 
-				<?php while ( $the_query_insights->have_posts() ) : $the_query_insights->the_post(); ?>
+				<?php // while ( $the_query_insights->have_posts() ) : $the_query_insights->the_post(); ?>
 
 					<?php
-						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small');
-						$url = $thumb['0'];
+						// $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small');
+						// $url = $thumb['0'];
 					?>
 
-					<a href="/insights">
+					<!-- <a href="/insights">
 						<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
 						<div class="overlay_image"></div>
 						<div class="item-description">
@@ -256,16 +258,16 @@
 							<p>All Posts</p>
 						</div>
 						<span class="overlay-border"></span>
-					</a>
+					</a> -->
 
-				<?php endwhile; ?>
-		
-			<?php else: ?>
+				<?php // endwhile; ?>
+
+			<?php // else: ?>
 
 				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
 
-				<a href="/insights">
-					<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
+				<!-- <a href="/insights">
+				<div class="category_bg" style="background-image: url('<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png');"></div>
 					<div class="overlay_image"></div>
 					<div class="item-description">
 						<p class="mobile-go">Go</p>
@@ -273,19 +275,19 @@
 						<p>All Posts</p>
 					</div>
 					<span class="overlay-border"></span>
-				</a>
+				</a> -->
 
-			<?php endif; ?>
-		
-			<?php wp_reset_postdata(); ?>
+			<?php // endif; ?>
 
-		</div>
+			<?php // wp_reset_postdata(); ?>
 
-		<div class="medium-3 columns item">
+		<!-- </div> -->
 
-			<?php if ( $the_query_food->have_posts() ) : ?>
+		<div class="medium-6 columns item">
 
-				<?php while ( $the_query_food->have_posts() ) : $the_query_food->the_post(); ?>
+			<?php if ( $the_query_eating_ethnic->have_posts() ) : ?>
+
+				<?php while ( $the_query_eating_ethnic->have_posts() ) : $the_query_eating_ethnic->the_post(); ?>
 
 					<?php
 						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small');
@@ -304,14 +306,14 @@
 					</a>
 
 				<?php endwhile; ?>
-		
+
 			<?php else: ?>
 
 				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
 
 				<a href="/eating-ethnic">
-					<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
-					<div class="overlay_image"></div>					
+				<div class="category_bg" style="background-image: url('<?= get_stylesheet_directory_uri();?>/dist/icons/logo/DOD-icon.png'); background-size: contain;"></div>
+					<div class="overlay_image"></div>
 					<div class="item-description">
 						<p class="mobile-go">Go</p>
 						<span>Eating Ethnic</span>
@@ -321,23 +323,23 @@
 				</a>
 
 			<?php endif; ?>
-		
+
 			<?php wp_reset_postdata(); ?>
 
 		</div>
 
-		<div class="medium-3 columns item">
+		<!-- <div class="medium-3 columns item"> -->
 
-			<?php if ( $the_query_itineraries->have_posts() ) : ?>
+			<?php // if ( $the_query_itineraries->have_posts() ) : ?>
 
-				<?php while ( $the_query_itineraries->have_posts() ) : $the_query_itineraries->the_post(); ?>
+				<?php // while ( $the_query_itineraries->have_posts() ) : $the_query_itineraries->the_post(); ?>
 
 					<?php
-						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small');
-						$url = $thumb['0'];
+						// $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'small');
+						// $url = $thumb['0'];
 					?>
 
-					<a href="/itineraries">
+					<!-- <a href="/itineraries">
 						<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
 						<div class="overlay_image"></div>
 						<div class="item-description">
@@ -346,16 +348,16 @@
 							<p>All Posts</p>
 						</div>
 						<span class="overlay-border"></span>
-					</a>
+					</a> -->
 
-				<?php endwhile; ?>
-		
-			<?php else: ?>
+				<?php // endwhile; ?>
+
+			<?php // else: ?>
 
 				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
 
-				<a href="/itineraries">
-					<div class="category_bg" style="background-image: url('<?= $url; ?>');"></div>
+				<!-- <a href="/itineraries">
+				<div class="category_bg" style="background-image: url('<?= get_stylesheet_directory_uri(); ?>/dist/icons/logo/DOD-icon.png');"></div>
 					<div class="overlay_image"></div>
 					<div class="item-description">
 						<p class="mobile-go">Go</p>
@@ -363,13 +365,13 @@
 						<p>All Posts</p>
 					</div>
 					<span class="overlay-border"></span>
-				</a>
+				</a> -->
 
-			<?php endif; ?>
-		
-			<?php wp_reset_postdata(); ?>
+			<?php // endif; ?>
 
-		</div>
+			<?php // wp_reset_postdata(); ?>
+
+		<!-- </div> -->
 
 	</div>
 
@@ -386,7 +388,7 @@
 		<?php $counter = 0; ?>
 
 		<?php while ( $the_query_home_posts->have_posts() ) : $the_query_home_posts->the_post(); ?>
-			
+
 			<?php
 				$postType = get_post_type_object(get_post_type());
 			?>
@@ -444,7 +446,7 @@
 			<?php $counter++; ?>
 
 		<?php endwhile; ?>
-		
+
 	<?php else: ?>
 
 		<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
@@ -546,7 +548,7 @@
 					</a>
 
 				<?php endwhile; ?>
-		
+
 			<?php else: ?>
 
 				<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
@@ -584,8 +586,8 @@
 		<?php $counter = 0; ?>
 
 		<?php while ( $the_query_all_posts->have_posts() ) : $the_query_all_posts->the_post(); ?>
-			
-			<?php 
+
+			<?php
 				$postType = get_post_type_object(get_post_type());
 			?>
 
@@ -642,7 +644,7 @@
 			<?php $counter++; ?>
 
 		<?php endwhile; ?>
-		
+
 	<?php else: ?>
 
 		<!-- <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p> -->

@@ -5,10 +5,10 @@
  **/
 ?>
 
-<?php 
+<?php
 
 /**
- * Override default to show only trips associated to specific continent 
+ * Override default to show only Where I Stayed associated to specific continent
 **/
 
 // taxonomy/slug/post-name
@@ -52,7 +52,7 @@ foreach ($the_query_destinations->posts as $post) {
 
 };
 
-// get total number of modified posts 
+// get total number of modified posts
 $totalPostNum = count($postArray);
 
 ?>
@@ -62,9 +62,9 @@ $totalPostNum = count($postArray);
 <div class="content continent">
 
 	<div class="row">
-		
+
 		<div class="medium-12 columns">
-			
+
 			<h1 class="continent-title"><?php single_cat_title(); ?></h1>
 
 		</div>
@@ -72,21 +72,21 @@ $totalPostNum = count($postArray);
 	</div>
 
 	<?php //if ( $the_query_destinations->have_posts() ) : ?>
-		
+
 		<div class="row">
 
-			<?php 
+			<?php
 
 				//while ( $the_query_destinations->have_posts() ) : $the_query_destinations->the_post();
 
-				if( $postArray ) : 
+				if( $postArray ) :
 
 			?>
 
 				<?php foreach ($postArray as $modifiedPost) : ?>
 
 					<?php if ($totalPostNum % 4 === 0) : ?>
-					
+
 						<div class="medium-3 columns end bottom-margin four">
 
 					<?php elseif ($totalPostNum % 3 === 0) : ?>
@@ -94,24 +94,24 @@ $totalPostNum = count($postArray);
 						<div class="medium-4 columns end bottom-margin three">
 
 					<?php elseif ($totalPostNum % 1 === 0) : ?>
-					
+
 						<div class="medium-6 columns end bottom-margin two">
 
 					<?php else : ?>
-					
+
 						<div class="medium-6 columns end">
 
 					<?php endif; ?>
 
 							<div class="container-flag">
-							
+
 								<?php // $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); ?>
 
-								<?php 
-									// advanced custom fields 
+								<?php
+									// advanced custom fields
 									$flag = null;
 									$customFields = get_fields($modifiedPost->ID);
-									if( isset($customFields['trip_flag']) ) { $flag = $customFields['trip_flag']; }							
+									if( isset($customFields['trip_flag']) ) { $flag = $customFields['trip_flag']; }
 									$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($modifiedPost->ID), 'large');
 								?>
 

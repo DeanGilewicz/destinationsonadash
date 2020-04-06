@@ -18,12 +18,12 @@ get_header(); ?>
 
 				$postType = get_post_type_object(get_post_type());
 
-				if( $postType->name === 'itineraries' ) {
-					get_template_part( 'template-parts/content', 'itinerary' );
-				} else {
+				// if( $postType->name === 'itineraries' ) {
+					// get_template_part( 'template-parts/content', 'itinerary' );
+				// } else {
 					// Include the single post content template.
 					get_template_part( 'template-parts/content', 'single' );
-				}
+				// }
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) {
@@ -34,7 +34,7 @@ get_header(); ?>
 
 					<div class="row container-single-attachment-nav">
 						<div class="medium-12 columns">
-						<?php 
+						<?php
 							// Parent post navigation.
 							the_post_navigation( array(
 								'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'twentysixteen' ),
@@ -42,8 +42,8 @@ get_header(); ?>
 						?>
 						</div>
 					</div>
-					
-				<?php elseif ( is_singular( 'post' ) ) : // if trips then show trip navigation ?>
+
+				<?php elseif ( is_singular( 'post' ) ) : // if Where I Stayed then show Where I Stayed navigation ?>
 
 					<div class="row container-single-post-nav">
 						<div class="medium-12 columns">

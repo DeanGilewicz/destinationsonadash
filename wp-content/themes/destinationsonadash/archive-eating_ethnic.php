@@ -13,9 +13,9 @@
 <div class="content-area eating-ethnic">
 
 	<div class="row">
-		
+
 		<div class="medium-12 columns">
-			
+
 			<h1 class="page-title">Eating Ethnic</h1>
 
 		</div>
@@ -26,7 +26,7 @@
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php 
+			<?php
 				$postType = get_post_type_object(get_post_type());
 			?>
 
@@ -84,7 +84,8 @@
 
 	<?php else: ?>
 
-		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+		<!-- <p><?php //_e( 'Sorry, no posts matched your criteria.' ); ?></p> -->
+		<p>Coming soon...</p>
 
 	<?php endif; ?>
 

@@ -31,9 +31,9 @@
 
 			<!-- <p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'twentysixteen' ); ?></p> -->
 			<p class="no-results-message">Oh no, we couldn't find anything that matched your search for: <span class="term"><?php echo esc_html( get_search_query() ); ?></span></p>
-			
+
 			<p>Try searching again or explore my latest posts...</p>
-			
+
 			<?php get_search_form(); ?>
 
 
@@ -52,7 +52,7 @@
 
 								<?php while ( $the_query_latest_posts->have_posts() ) : $the_query_latest_posts->the_post(); ?>
 
-									<?php 
+									<?php
 										$postNum++;
 										$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
 										$url = $thumb['0'];
@@ -99,7 +99,7 @@
 		<?php else : ?>
 
 			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentysixteen' ); ?></p>
-			
+
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>

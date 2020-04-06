@@ -4,7 +4,8 @@
 */
 	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 	$argsFavs = array(
-		'post_type' => array('post', 'insights', 'eating_ethnic'),
+		// 'post_type' => array('post', 'insights', 'eating_ethnic'),
+		'post_type' => array('post', 'eating_ethnic'),
 		'posts_per_page' => '5',
 		'category_name' => 'favorite',
 		'paged' => $paged
@@ -19,9 +20,9 @@
 <div class="content-area favs">
 
 	<div class="row">
-		
+
 		<div class="medium-12 columns">
-			
+
 			<h1 class="page-title">Favorites</h1>
 
 		</div>

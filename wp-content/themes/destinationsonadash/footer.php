@@ -11,13 +11,21 @@
 
 	// get 5 most popular posts (based on comments)
 
-	$argsPopularPosts = array(
+	// $argsPopularPosts = array(
+	// 	'posts_per_page' => '5',
+	// 	'orderby' => 'comment_count'
+	// );
+
+	// $the_query_popular_posts = new WP_Query( $argsPopularPosts );
+
+	// get 5 most recent posts
+
+	$argsRecentPosts = array(
 		'posts_per_page' => '5',
-		'orderby' => 'comment_count'
+		'orderby' => 'DESC'
 	);
 
-	$the_query_popular_posts = new WP_Query( $argsPopularPosts );
-
+	$the_query_recent_posts = new WP_Query( $argsRecentPosts );
 
 	// get the 5 most used tags (using the in built tag cloud)
 	$tagArgs = array(
@@ -58,33 +66,40 @@
 
 				<div class="small-6 medium-3 columns footer-area">
 					<h6>Categories</h6>
-					<a href="/trips">Trips</a>
-					<a href="/insights">Insights</a>
+					<a href="/where-i-stayed">Where I Stayed</a>
+					<!-- <a href="/insights">Insights</a> -->
 					<a href="/eating-ethnic">Eating Ethnic</a>
-					<a href="/itineraries">Itineraries</a>
+					<!-- <a href="/itineraries">Itineraries</a> -->
 				</div>
 
+				<!-- <div class="small-6 medium-3 columns footer-area"> -->
+					<?php //if ( $the_query_popular_posts->have_posts() ) : ?>
+
+						<!-- <h6>Popular Posts</h6> -->
+
+						<?php //while ( $the_query_popular_posts->have_posts() ) : $the_query_popular_posts->the_post(); ?>
+							<!-- <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> -->
+						<?php //endwhile; ?>
+
+					<?php //endif; ?>
+
+					<?php //wp_reset_postdata(); ?>
+
+				<!-- </div> -->
+
 				<div class="small-6 medium-3 columns footer-area">
-					<?php if ( $the_query_popular_posts->have_posts() ) : ?>
-
-						<h6>Popular Posts</h6>
-
-						<?php while ( $the_query_popular_posts->have_posts() ) : $the_query_popular_posts->the_post(); ?>
+					<h6>Recent Posts</h6>
+					<?php if ( $the_query_recent_posts->have_posts() ) : ?>
+						<?php while ( $the_query_recent_posts->have_posts() ) : $the_query_recent_posts->the_post(); ?>
 							<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 						<?php endwhile; ?>
-
 					<?php endif; ?>
-				
 					<?php wp_reset_postdata(); ?>
-
 				</div>
 
 				<div class="small-6 medium-3 columns footer-area">
-					
 					<h6>Popular Tags</h6>
-					
 					<?php wp_tag_cloud($tagArgs); ?>
-
 				</div>
 
 			</div>

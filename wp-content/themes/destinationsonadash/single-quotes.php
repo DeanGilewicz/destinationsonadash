@@ -28,7 +28,7 @@ get_header(); ?>
 
 					<div class="row container-single-attachment-nav">
 						<div class="medium-12 columns">
-						<?php 
+						<?php
 							// Parent post navigation.
 							the_post_navigation( array(
 								'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'twentysixteen' ),
@@ -36,8 +36,8 @@ get_header(); ?>
 						?>
 						</div>
 					</div>
-					
-				<?php elseif ( is_singular( 'post' ) ) : // if trips then show trip navigation ?>
+
+				<?php elseif ( is_singular( 'post' ) ) : // if where I stayed then show Where I Stayed navigation ?>
 
 					<div class="row container-single-post-nav">
 						<div class="medium-12 columns">

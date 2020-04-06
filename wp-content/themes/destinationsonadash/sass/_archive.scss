@@ -10,24 +10,24 @@
 		padding-bottom: $base_size*6;
 	}
 
-	.insights,
+	// .insights,
 	.eating-ethnic,
-	.quotes,
-	.itineraries {
+	.quotes {
+	// .itineraries {
 
 		.page-title {
 			font-family: $font_pacifico;
 			text-align: center;
 		}
- 
-		.post-insight,
+
+		// .post-insight,
 		.post-eating-ethnic,
-		.post-quote,
-		.post-itinerary {
+		.post-quote {
+		// .post-itinerary {
 			padding-top: $base_size*4;
 			padding-bottom: $base_size*4;
 			text-align: center;
-	
+
 			.post-meta {
 				padding: $base_size*2 0;
 
@@ -114,7 +114,7 @@
 
 		.post-destination {
 			padding-top: $base_size*6;
-		
+
 			&.ltr {
 
 				h2 {
@@ -145,7 +145,7 @@
 					}
 
 					span {
-						
+
 						@media (min-width: $medium) {
 							margin-right: $base_size*2;
 						}
@@ -266,6 +266,6 @@
 		}
 
 	}
-	
+
 
 }
