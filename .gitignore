@@ -1,5 +1,4 @@
 /wp-content/uploads/**
-/bower_components
 /node_modules/**
 /sass-cache/**
 /wp-admin/**

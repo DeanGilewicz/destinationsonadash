@@ -1,5 +1,4 @@
 .post-single {
-
 	img {
 		cursor: pointer;
 	}
@@ -14,7 +13,7 @@
 		text-align: center;
 
 		@media (min-width: $medium) {
-			width: auto !important;;
+			width: auto !important;
 			max-width: auto;
 		}
 
@@ -39,21 +38,19 @@
 				width: 24px;
 				height: 24px;
 			}
-
 		}
 
 		img {
-		    display: block;
-		    width: 100%;
+			display: block;
+			width: 100%;
 		}
-
 	}
 
 	figcaption {
 		color: $grey_light;
-	    display: table-caption;
-	    caption-side: bottom;
-	    padding: 0 5px;
+		display: table-caption;
+		caption-side: bottom;
+		padding: 0 5px;
 	}
 
 	.alignleft {
@@ -72,7 +69,7 @@
 
 		img {
 			width: 100%;
-		}	
+		}
 	}
 
 	.alignright {
@@ -101,7 +98,7 @@
 		text-transform: capitalize;
 
 		a {
-			font-size: $base_font_size*2.4;
+			font-size: $base_font_size * 2.4;
 		}
 	}
 
@@ -120,22 +117,20 @@
 	.post-meta-date {
 		margin-left: $base_size;
 		margin-right: $base_size;
-		font-size: $base_font_size*1.2;
+		font-size: $base_font_size * 1.2;
 
 		@media (min-width: $medium) {
-			font-size: $base_font_size*1.6;
+			font-size: $base_font_size * 1.6;
 		}
 
 		span {
 			font-weight: 700;
-			font-size: $base_font_size*1.4;
+			font-size: $base_font_size * 1.4;
 
 			@media (min-width: $medium) {
-				font-size: $base_font_size*1.8;
+				font-size: $base_font_size * 1.8;
 			}
-
 		}
-
 	}
 
 	.post-meta-date {
@@ -149,11 +144,10 @@
 	}
 
 	.container_content {
-		padding-top: $base_size*3;
+		padding-top: $base_size * 3;
 	}
 
 	&.post-single-quote .container_content {
 		text-align: center;
 	}
-
 }

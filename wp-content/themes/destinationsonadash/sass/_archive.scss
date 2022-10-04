@@ -1,5 +1,4 @@
 .archive {
-
 	h1 {
 		padding-top: $base_size;
 		padding-bottom: $base_size;
@@ -7,13 +6,13 @@
 	}
 
 	.content {
-		padding-bottom: $base_size*6;
+		padding-bottom: $base_size * 6;
 	}
 
 	// .insights,
 	.eating-ethnic,
 	.quotes {
-	// .itineraries {
+		// .itineraries {
 
 		.page-title {
 			font-family: $font_pacifico;
@@ -23,16 +22,16 @@
 		// .post-insight,
 		.post-eating-ethnic,
 		.post-quote {
-		// .post-itinerary {
-			padding-top: $base_size*4;
-			padding-bottom: $base_size*4;
+			// .post-itinerary {
+			padding-top: $base_size * 4;
+			padding-bottom: $base_size * 4;
 			text-align: center;
 
 			.post-meta {
-				padding: $base_size*2 0;
+				padding: $base_size * 2 0;
 
 				span {
-					margin-right: $base_size*2;
+					margin-right: $base_size * 2;
 				}
 			}
 
@@ -41,20 +40,20 @@
 				text-transform: capitalize;
 
 				a {
-					font-size: $base_font_size*2.4;
+					font-size: $base_font_size * 2.4;
 				}
 			}
 
 			a.post-title {
 				display: block;
-				margin-top: $base_size*2;
+				margin-top: $base_size * 2;
 			}
 
 			.post-excerpt {
 				padding: $base_size 0;
 
 				p {
-					font-size: $base_font_size*1.8;
+					font-size: $base_font_size * 1.8;
 				}
 			}
 
@@ -87,25 +86,20 @@
 			// 		opacity: 1;
 			// 	}
 			// }
-
 		}
 
 		.post-quote {
-
 			&:nth-child(even) {
 				background-color: $grey_lightest;
 			}
 
 			.post-excerpt p {
-				font-size: $base_font_size*2;
+				font-size: $base_font_size * 2;
 			}
-
 		}
-
 	}
 
 	.destination {
-
 		.continent-title {
 			padding-top: $base_size;
 			padding-bottom: $base_size;
@@ -113,10 +107,9 @@
 		}
 
 		.post-destination {
-			padding-top: $base_size*6;
+			padding-top: $base_size * 6;
 
 			&.ltr {
-
 				h2 {
 					background-color: $white;
 
@@ -124,7 +117,7 @@
 						position: relative;
 						z-index: 1;
 						display: inline-block;
-						padding: $base_size*1.2 0 $base_size*1.1 $base_size*2;
+						padding: $base_size * 1.2 0 $base_size * 1.1 $base_size * 2;
 						margin: 0 0 7px -95px;
 						border-left: 5px solid $purple;
 					}
@@ -140,19 +133,16 @@
 
 					@media (min-width: $medium) {
 						margin-top: 0;
-						padding: $base_size*2 0;
+						padding: $base_size * 2 0;
 						text-align: left;
 					}
 
 					span {
-
 						@media (min-width: $medium) {
-							margin-right: $base_size*2;
+							margin-right: $base_size * 2;
 						}
-
 					}
 				}
-
 			}
 
 			&.rtl {
@@ -185,23 +175,21 @@
 
 					@media (min-width: $medium) {
 						margin-top: 0;
-						padding: $base_size*2 0;
+						padding: $base_size * 2 0;
 						text-align: right;
 					}
 
 					span {
-
 						@media (min-width: $medium) {
-							margin-right: $base_size*2;
+							margin-right: $base_size * 2;
 						}
 					}
 				}
-
 			}
 
 			.post-meta-category {
 				display: block;
-			    margin-bottom: $base_size;
+				margin-bottom: $base_size;
 				font-family: $font_pacifico;
 				text-transform: capitalize;
 
@@ -210,7 +198,7 @@
 				}
 
 				a {
-					font-size: $base_font_size*2.4;
+					font-size: $base_font_size * 2.4;
 				}
 			}
 
@@ -229,7 +217,7 @@
 
 				p {
 					margin-bottom: $base_size;
-					font-size: $base_font_size*1.8;
+					font-size: $base_font_size * 1.8;
 				}
 			}
 
@@ -262,10 +250,6 @@
 			// 		opacity: 1;
 			// 	}
 			// }
-
 		}
-
 	}
-
-
 }

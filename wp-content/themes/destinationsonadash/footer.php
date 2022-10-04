@@ -147,7 +147,7 @@
 	</div><!-- .site-inner -->
 </div><!-- .site -->
 
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/vendor/fastclick.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/vendor/fastclick.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/vendor/jquery.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/main.min.js"></script>
 

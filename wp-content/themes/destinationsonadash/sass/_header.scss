@@ -1,6 +1,6 @@
 header {
-	padding-top: $base_size*2;
-	padding-bottom: $base_size*2;
+	padding-top: $base_size * 2;
+	padding-bottom: $base_size * 2;
 	background-color: $purple_light;
 
 	@media (min-width: $medium) {
@@ -13,7 +13,6 @@ header {
 	}
 
 	.container_header_top {
-
 		a {
 			display: inline-block;
 			vertical-align: middle;
@@ -29,7 +28,6 @@ header {
 			a {
 				max-width: 100%;
 			}
-
 		}
 
 		.logo_long {
@@ -42,59 +40,53 @@ header {
 			a {
 				max-width: 100%;
 			}
-
 		}
-
 	}
 
 	.container_icons {
-		padding-top: $base_size*3;
+		padding-top: $base_size * 3;
 
 		@media (min-width: $medium) {
 			padding-top: 0;
-			padding-bottom: $base_size*4;
+			padding-bottom: $base_size * 4;
 		}
-
 	}
 
 	.icon_facebook {
-		margin-right: calc((100% - 78px)/3);
+		margin-right: calc((100% - 78px) / 3);
 
 		@media (min-width: $medium) {
-			margin-right: calc((100% - 112px)/4);
+			margin-right: calc((100% - 112px) / 4);
 		}
-		
+
 		img {
 			width: 12px;
 		}
-
 	}
 
 	.icon_instagram {
-		margin-right: calc((100% - 78px)/3);
+		margin-right: calc((100% - 78px) / 3);
 
 		@media (min-width: $medium) {
-			margin-right: calc((100% - 110px)/4);
+			margin-right: calc((100% - 110px) / 4);
 		}
 
 		img {
 			width: 22px;
 		}
-
 	}
 
 	.icon_search {
 		display: inline-block;
-		margin-right: calc((100% - 78px)/3);
+		margin-right: calc((100% - 78px) / 3);
 
 		@media (min-width: $medium) {
-			margin-right: calc((100% - 110px)/4);
+			margin-right: calc((100% - 110px) / 4);
 		}
 
 		img {
 			width: 22px;
 		}
-
 	}
 
 	.icon_hamburger {
@@ -125,7 +117,7 @@ header {
 
 		@media (min-width: $medium) {
 			display: inline-block;
-			margin-right: calc((100% - 110px)/4);
+			margin-right: calc((100% - 110px) / 4);
 		}
 
 		img {
@@ -133,7 +125,6 @@ header {
 			top: -2px;
 			width: 36px;
 		}
-
 	}
 
 	.container_header_top .icon_globe_nav {
@@ -146,7 +137,6 @@ header {
 		img {
 			width: 18px;
 		}
-
 	}
 
 	.header_search {
@@ -155,21 +145,19 @@ header {
 		overflow: hidden;
 
 		&.active {
-			max-height: $base_size*6;
+			max-height: $base_size * 6;
 
 			@media (min-width: $medium) {
-				max-height: $base_size*8;
+				max-height: $base_size * 8;
 			}
-
 		}
 
 		form {
-			margin-top: $base_size*2;
+			margin-top: $base_size * 2;
 
 			@media (min-width: $medium) {
-				margin-top: $base_size*4;
+				margin-top: $base_size * 4;
 			}
-
 		}
 
 		input {
@@ -178,11 +166,9 @@ header {
 			border: 1px solid $grey_light;
 
 			@media (min-width: $medium) {
-				font-size: $base_font_size*1.8;
+				font-size: $base_font_size * 1.8;
 			}
-
 		}
-
 	}
 
 	.header_bottom {
@@ -200,43 +186,39 @@ header {
 
 		ul.container_sub_menu {
 			list-style-type: none;
-			margin: $base_size*2 0 0;
+			margin: $base_size * 2 0 0;
 			padding: 0;
 
 			@media (min-width: $medium) {
-				margin-top: $base_size*4;
+				margin-top: $base_size * 4;
 			}
-
 		}
 
 		.sub_menu_about,
 		.sub_menu_map {
-
 			@media (min-width: $medium) {
 				display: none;
 			}
-
 		}
 
 		li {
 			position: relative;
-			padding: $base_size .9375rem;
+			padding: $base_size 0.9375rem;
 
 			@media (min-width: $medium) {
 				display: inline-block;
-				margin-right: calc((100% - 409px)/6);
+				margin-right: calc((100% - 409px) / 6);
 				padding: 0 0 $base_size;
 				text-align: center;
 
 				&:nth-of-type(3) {
-					padding-left: .9375rem;
+					padding-left: 0.9375rem;
 				}
 
 				&:last-of-type {
 					margin-right: 0;
-					padding-right: .9375rem;
+					padding-right: 0.9375rem;
 				}
-
 			}
 
 			@media (min-width: $large) {
@@ -245,7 +227,7 @@ header {
 					position: absolute;
 					bottom: 10px;
 					left: 0;
-					width: 100%;				
+					width: 100%;
 					border-bottom: 2px solid $brand_pink;
 					opacity: 0;
 					transition: opacity 0.4s ease-in-out;
@@ -266,7 +248,6 @@ header {
 			&:last-of-type:before {
 				width: 59.13px;
 			}
-
 		}
 
 		li:hover,
@@ -283,7 +264,6 @@ header {
 				@media (min-width: $medium) {
 					color: $text;
 				}
-
 			}
 		}
 
@@ -295,7 +275,6 @@ header {
 				display: block;
 				width: 100%;
 			}
-
 		}
 
 		.container_title {
@@ -306,16 +285,14 @@ header {
 				display: block;
 				width: 100%;
 			}
-
 		}
 
 		a {
 			display: block;
 			text-transform: uppercase;
-			padding: $base_size*0.5 0 $base_size;
+			padding: $base_size * 0.5 0 $base_size;
 
 			img {
-
 				@media (min-width: $medium) {
 					margin-top: 0;
 				}
@@ -355,23 +332,16 @@ header {
 				&.icon_south_america {
 					width: 30px;
 				}
-
 			}
 
 			span:first-of-type {
-				font-size: $base_size*1.8;
+				font-size: $base_size * 1.8;
 				vertical-align: middle;
 
 				@media (min-width: $medium) {
-					font-size: $base_size*1.4;
+					font-size: $base_size * 1.4;
 				}
-
 			}
-
 		}
-		
 	}
-
-	
 }
-

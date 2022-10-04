@@ -1,5 +1,4 @@
 .continent {
-
 	h1 {
 		text-align: center;
 		padding-top: $base_size;
@@ -7,36 +6,36 @@
 	}
 
 	.bottom-margin {
-		margin-bottom: $base_size*3;
+		margin-bottom: $base_size * 3;
 	}
 
-	.three:nth-of-type(3n+4) {
+	.three:nth-of-type(3n + 4) {
 		clear: both;
 	}
 
-	.four:nth-of-type(4n+5) {
+	.four:nth-of-type(4n + 5) {
 		clear: both;
 	}
 
 	.container-flag {
 		position: relative;
-    	min-height: 200px;
-		padding-top: $base_size*2;
-		padding-bottom: $base_size*2;
+		min-height: 200px;
+		padding-top: $base_size * 2;
+		padding-bottom: $base_size * 2;
 		text-align: center;
 
 		a {
 			position: absolute;
-		    top: 50%;
-		    left: 50%;
-		    transform: translate(-50%, -50%);
-		    display: block;
-		    width: 100%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: block;
+			width: 100%;
 		}
 
 		p {
-			margin-top: $base_size*0.5;
-			margin-bottom: $base_size*0.5;
+			margin-top: $base_size * 0.5;
+			margin-bottom: $base_size * 0.5;
 		}
 
 		img {
@@ -44,6 +43,4 @@
 			border: 5px solid $purple;
 		}
 	}
-
-
 }

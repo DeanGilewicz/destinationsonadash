@@ -1,6 +1,6 @@
 footer {
-	padding-top: $base_size*2;
-	padding-bottom: $base_size*2;
+	padding-top: $base_size * 2;
+	padding-bottom: $base_size * 2;
 	background-color: $purple;
 	color: $white;
 
@@ -33,18 +33,17 @@ footer {
 	}
 
 	h6 {
-		font-size: $base_font_size*1.8;
+		font-size: $base_font_size * 1.8;
 		text-transform: uppercase;
 		font-weight: bold;
 		color: $white;
-		
 	}
 
 	a {
 		display: block;
 		margin-top: $base_size;
 		margin-bottom: $base_size;
-		font-size: $base_font_size*1.6;
+		font-size: $base_font_size * 1.6;
 		color: $white;
 
 		&:hover {
@@ -52,5 +51,4 @@ footer {
 			color: $brand_grey;
 		}
 	}
-
 }
