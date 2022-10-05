@@ -1,5 +1,4 @@
 .trips {
-
 	h1 {
 		padding-top: $base_size;
 		padding-bottom: $base_size;
@@ -10,17 +9,17 @@
 		font-family: $font_pacifico;
 		text-align: center;
 	}
- 
+
 	.post-trips {
-		padding-top: $base_size*4;
-		padding-bottom: $base_size*4;
+		padding-top: $base_size * 4;
+		padding-bottom: $base_size * 4;
 		text-align: center;
-	
+
 		.post-meta {
-			padding: $base_size*2 0;
+			padding: $base_size * 2 0;
 
 			span {
-				margin-right: $base_size*2;
+				margin-right: $base_size * 2;
 			}
 		}
 
@@ -29,13 +28,13 @@
 			text-transform: capitalize;
 
 			a {
-				font-size: $base_font_size*2.4;
+				font-size: $base_font_size * 2.4;
 			}
 		}
 
 		a.post-title {
 			display: block;
-			margin-top: $base_size*2;
+			margin-top: $base_size * 2;
 		}
 
 		.post-excerpt {
@@ -71,7 +70,5 @@
 		// 		opacity: 1;
 		// 	}
 		// }
-
 	}
-
 }

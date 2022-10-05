@@ -16,8 +16,6 @@
     <link rel="stylesheet" type='text/css' href="<?= get_stylesheet_directory_uri(); ?>/dist/css/vendor/normalize.min.css" />
     <link rel="stylesheet" type='text/css' href="<?= get_stylesheet_directory_uri(); ?>/dist/css/vendor/foundation.min.css" />
     <link rel="stylesheet" type='text/css' href="<?= get_stylesheet_directory_uri(); ?>/dist/css/main.min.css" />
-    <!-- <script src="<?php echo get_stylesheet_directory_uri(); ?>/dist/js/vendor/modernizr.js"></script> -->
-
 	<?php wp_head(); ?>
 
 	<script>
@@ -87,7 +85,7 @@
 					 --><span class="icon_search" title="search">
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon-search.svg" alt="search icon" id="js-header-search-icon" />
 						</span><!--
-						
+
 					 --><span id="js-hamburger" class="icon_hamburger">
 							<span></span>
 							<span></span>
@@ -97,7 +95,7 @@
 					 --><a href="/about" class="icon_plane_nav" title="about">
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_plane.svg" class="icon_plane" alt="plane icon" />
 						</a><!--
-						
+
 					 --><a href="/map" class="icon_globe_nav" title="map">
 							<img src="<?= get_stylesheet_directory_uri(); ?>/dist/icons/icon_globe.svg" class="icon_globe" alt="globe icon" />
 						</a>
@@ -119,7 +117,7 @@
 			<div class="row header_search">
 
 				<div class="columns">
-					
+
 					<form role="search" method="GET" action="<?= esc_url( home_url( '/' ) ); ?>">
 						<input id="header-search-field" type="search" placeholder="Search" value="<?= get_search_query(); ?>" name="s" title="Search For" />
 					</form>
@@ -132,7 +130,7 @@
 
 				<ul class="small-12 columns container_sub_menu">
 
-					<?php 
+					<?php
 					// print_r(get_bloginfo());
 					// exit;
 					?>

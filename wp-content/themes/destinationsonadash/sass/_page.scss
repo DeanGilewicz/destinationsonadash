@@ -1,13 +1,11 @@
 .page {
-
 	&.page-about .site-content,
 	&.page-map .site-content {
-		padding-bottom: $base_size*3;
+		padding-bottom: $base_size * 3;
 
 		@media (min-width: $medium) {
-			padding-bottom: $base_size*4;
+			padding-bottom: $base_size * 4;
 		}
-		
 	}
 
 	.alignleft {
@@ -26,7 +24,7 @@
 
 		img {
 			width: 100%;
-		}	
+		}
 	}
 
 	.alignright {
@@ -74,11 +72,11 @@
 	.lightbox {
 		position: fixed;
 		top: 0;
-	    left: 0;
-	    right: 0;
-	    bottom: 0;
-	    z-index: -1;
-	    visibility: hidden;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		visibility: hidden;
 		opacity: 0;
 		pointer-events: none;
 
@@ -87,8 +85,10 @@
 			z-index: 1000;
 			visibility: visible;
 			opacity: 1;
-			-webkit-transition: 0.1s z-index linear, 0.1s visibility linear, 0.1s opacity linear;
-			transition: 0.1s z-index linear, 0.1s visibility linear, 0.1s opacity linear;
+			-webkit-transition: 0.1s z-index linear, 0.1s visibility linear,
+				0.1s opacity linear;
+			transition: 0.1s z-index linear, 0.1s visibility linear,
+				0.1s opacity linear;
 
 			.lightbox-content {
 				opacity: 1;
@@ -102,29 +102,26 @@
 				opacity: 1;
 				-webkit-animation-name: anim-open;
 				animation-name: anim-open;
-				-webkit-animation-timing-function: cubic-bezier(0.6,0,0.4,1);
-				animation-timing-function: cubic-bezier(0.6,0,0.4,1);
+				-webkit-animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+				animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
 				-webkit-animation-duration: 0.4s;
 				animation-duration: 0.4s;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
 			}
-
 		}
 
 		&.lightbox-close {
-			
 			.container-lightbox-content {
 				-webkit-animation-name: anim-close;
 				animation-name: anim-close;
-				-webkit-animation-timing-function: cubic-bezier(0.6,0,0.4,1);
-				animation-timing-function: cubic-bezier(0.6,0,0.4,1);
+				-webkit-animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+				animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
 				-webkit-animation-duration: 0.4s;
 				animation-duration: 0.4s;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
 			}
-
 		}
 
 		.lightbox-overlay {
@@ -134,21 +131,21 @@
 			right: 0;
 			bottom: 0;
 			z-index: 1000;
-			background: rgba(255,255,255,0.95);
+			background: rgba(255, 255, 255, 0.95);
 			opacity: 0;
 			-webkit-transition: 0.4s opacity linear;
 			transition: 0.4s opacity linear;
 		}
-		
+
 		.lightbox-content {
 			position: absolute;
 			top: 50%;
-		    left: 50%;
-		    transform: translate(-50%,-50%);
+			left: 50%;
+			transform: translate(-50%, -50%);
 			z-index: 1500;
 			// width: 80%;
-		    max-width: 80%;
-		    margin: 0 auto;
+			max-width: 80%;
+			margin: 0 auto;
 			opacity: 0;
 			-webkit-transition: 0.4s opacity linear;
 			transition: 0.4s opacity linear;
@@ -177,9 +174,7 @@
 				@media (max-height: 500px) {
 					max-height: 250px;
 				}
-
 			}
-
 		}
 
 		.lightbox-interaction {
@@ -206,11 +201,10 @@
 			&.button-hidden {
 				display: none;
 			}
-
 		}
 
 		.image-comment {
-			font-size: $base_font_size*1.4; 
+			font-size: $base_font_size * 1.4;
 			color: $text;
 			display: inline-block;
 			max-width: 80%;
@@ -231,36 +225,49 @@
 			&.button-hidden {
 				display: none;
 			}
-
 		}
 
 		.lightbox-x-close {
 			margin-top: $base_size * 2.5;
-			font-size: $base_font_size*1.4;
+			font-size: $base_font_size * 1.4;
 			width: 190px;
 		}
-
 	}
-
 }
 
 @-webkit-keyframes anim-open {
-	0% { -webkit-transform: scale3d(0, 0, 1); }
-	100% { -webkit-transform: scale3d(1, 1, 1); }
+	0% {
+		-webkit-transform: scale3d(0, 0, 1);
+	}
+	100% {
+		-webkit-transform: scale3d(1, 1, 1);
+	}
 }
 
 @keyframes anim-open {
-	0% { -webkit-transform: scale3d(0, 0, 1); transform: scale3d(0, 0, 1); }
-	100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+	0% {
+		-webkit-transform: scale3d(0, 0, 1);
+		transform: scale3d(0, 0, 1);
+	}
+	100% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
 }
 
 @-webkit-keyframes anim-close {
-	0% { }
-	100% { -webkit-transform: scale3d(0.5, 0.5, 1); }
+	0% {
+	}
+	100% {
+		-webkit-transform: scale3d(0.5, 0.5, 1);
+	}
 }
 
 @keyframes anim-close {
-	0% { }
-	100% { -webkit-transform: scale3d(0.5, 0.5, 1); transform: scale3d(0.5, 0.5, 1); }
+	0% {
+	}
+	100% {
+		-webkit-transform: scale3d(0.5, 0.5, 1);
+		transform: scale3d(0.5, 0.5, 1);
+	}
 }
-

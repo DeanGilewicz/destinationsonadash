@@ -1,51 +1,46 @@
 .container_social_share {
-	padding-top: $base_size*3;
-	padding-bottom: $base_size*3;
+	padding-top: $base_size * 3;
+	padding-bottom: $base_size * 3;
 
-    h4 {
-        margin: 0 0 $base_size*0.6;
-        font-size: $base_font_size*1.4;
-        text-transform: uppercase;
-    }
+	h4 {
+		margin: 0 0 $base_size * 0.6;
+		font-size: $base_font_size * 1.4;
+		text-transform: uppercase;
+	}
 
-    .social_link {
-        text-decoration: none;
-        display: inline-block;
-        margin-right: $base_size;
-        padding: $base_size*0.8 $base_size*2;
-        border-radius: $base_size*0.4;
-        font-size: $base_font_size*1.4;
-        text-transform: uppercase;
-        cursor: pointer;
-        color: $white;
-        text-align: center;
+	.social_link {
+		text-decoration: none;
+		display: inline-block;
+		margin-right: $base_size;
+		padding: $base_size * 0.8 $base_size * 2;
+		border-radius: $base_size * 0.4;
+		font-size: $base_font_size * 1.4;
+		text-transform: uppercase;
+		cursor: pointer;
+		color: $white;
+		text-align: center;
 
-        &:hover,
-        &:active {
-            color: $white;
-        }
+		&:hover,
+		&:active {
+			color: $white;
+		}
+	}
 
-    }
+	.social_twitter {
+		background: #00aced;
 
-    .social_twitter {
-        background: #00aced;
+		&:hover,
+		&:active {
+			background: #0084b4;
+		}
+	}
 
-        &:hover,
-        &:active {
-            background: #0084b4;
-        }
+	.social_facebook {
+		background: #3b5997;
 
-    }
-
-    .social_facebook {
-        background: #3B5997;
-
-        &:hover,
-        &:active {
-            background: #2d4372;
-        }
-
-    }
-
-
+		&:hover,
+		&:active {
+			background: #2d4372;
+		}
+	}
 }

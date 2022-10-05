@@ -1,9 +1,8 @@
 body.attachment {
-
 	article {
 		text-align: center;
 	}
-    
+
 	.entry-header {
 		background-color: transparent;
 	}
@@ -13,14 +12,14 @@ body.attachment {
 	}
 
 	.entry-attachment {
-		margin-bottom: $base_size*6;
+		margin-bottom: $base_size * 6;
 	}
 
 	.excerpt {
-		margin-top: $base_size*2;
-		margin-bottom: $base_size*2;
+		margin-top: $base_size * 2;
+		margin-bottom: $base_size * 2;
 		text-transform: uppercase;
-		font-size: $base_font_size*2;
+		font-size: $base_font_size * 2;
 	}
 
 	#image-navigation .nav-links {
@@ -35,9 +34,7 @@ body.attachment {
 		}
 
 		span img {
-			width: 16px; 
+			width: 16px;
 		}
-
 	}
-
 }

@@ -1,10 +1,11 @@
-body, html {
+body,
+html {
 	height: auto !important; // override foundation default style
 }
 
 html,
 body {
-	background-color: rgba(0,0,0,0);
+	background-color: rgba(0, 0, 0, 0);
 	background-color: transparent;
 }
 
@@ -16,11 +17,11 @@ body {
 	-webkit-font-smoothing: antialiased;
 	height: 100%;
 	font-family: $font_oswald;
-	font-size: $base_font_size*1.8;
+	font-size: $base_font_size * 1.8;
 	color: $text;
 
 	@media (min-width: $medium) {
-		font-size: $base_font_size*1.4;
+		font-size: $base_font_size * 1.4;
 	}
 }
 
@@ -29,18 +30,18 @@ ul,
 li,
 a,
 span {
-	font-size: $base_font_size*1.6;
+	font-size: $base_font_size * 1.6;
 
 	@media (min-width: $medium) {
-		font-size: $base_font_size*1.4;
+		font-size: $base_font_size * 1.4;
 	}
 }
 
 p {
-	font-size: $base_font_size*1.8;
+	font-size: $base_font_size * 1.8;
 
 	@media (min-width: $medium) {
-		font-size: $base_font_size*1.6;
+		font-size: $base_font_size * 1.6;
 	}
 }
 
@@ -55,7 +56,7 @@ h6 {
 }
 
 a {
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-tap-highlight-color: transparent;
 	color: $link;
 	cursor: pointer;
@@ -66,14 +67,12 @@ a {
 	&:hover {
 		color: lighten($link, 10%);
 	}
-
 }
 
 img {
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-tap-highlight-color: transparent;
 }
-
 
 .clearfix:before,
 .clearfix:after {
@@ -88,7 +87,7 @@ img {
 .button {
 	display: inline-block;
 	margin: $base_size 0;
-	padding: $base_size*0.5 $base_size;
+	padding: $base_size * 0.5 $base_size;
 	background-color: $purple;
 	border: 1px solid $white;
 	text-align: center;
@@ -96,7 +95,7 @@ img {
 	text-decoration: none;
 
 	@media (min-width: $large) {
-		padding: $base_size $base_size*2;
+		padding: $base_size $base_size * 2;
 	}
 
 	@media (min-width: $large) {
@@ -113,9 +112,9 @@ img {
 .read-more {
 	position: relative;
 	display: inline-block;
-	margin-bottom: $base_size*2;
+	margin-bottom: $base_size * 2;
 	text-transform: uppercase;
-	font-size: $base_font_size*1.8;
+	font-size: $base_font_size * 1.8;
 
 	&:after {
 		content: "";
@@ -155,16 +154,12 @@ img {
 }
 
 .prev-next-posts {
-	padding-top: $base_size*4;
-	padding-bottom: $base_size*4;
+	padding-top: $base_size * 4;
+	padding-bottom: $base_size * 4;
 	text-transform: uppercase;
 	text-align: center;
 
 	a {
-		font-size: $base_font_size*2;
+		font-size: $base_font_size * 2;
 	}
-	
 }
-
-
-

@@ -2,113 +2,144 @@
 // direct hook up to dist folder to get assets
 // using MAMP so no need for express server
 
-var gulp = require('gulp'),
-	autoprefixer = require('autoprefixer'),
-	cssnano = require('cssnano'),
-	jshint = require('gulp-jshint'),
-	livereload = require('gulp-livereload'),
-	postcss = require('gulp-postcss'),
-	rename = require('gulp-rename'),
-	sass = require('gulp-sass'),
-	sourcemaps = require('gulp-sourcemaps'),
-	babel = require('gulp-babel'),
-	uglify = require('gulp-uglify');
+var gulp = require("gulp"),
+	autoprefixer = require("autoprefixer"),
+	cssnano = require("cssnano"),
+	jshint = require("gulp-jshint"),
+	livereload = require("gulp-livereload"),
+	postcss = require("gulp-postcss"),
+	rename = require("gulp-rename"),
+	sass = require("gulp-sass")(require("sass")),
+	sourcemaps = require("gulp-sourcemaps"),
+	babel = require("gulp-babel"),
+	uglify = require("gulp-uglify");
 
 // JAVASCRIPT
 
 // catch mistakes in custom js file
-gulp.task('jshint', function() {
-	return gulp.src('wp-content/themes/destinationsonadash/js/main.js')
+function jsHint() {
+	return gulp
+		.src("wp-content/themes/destinationsonadash/js/main.js")
 		.pipe(jshint())
-		.pipe(jshint.reporter('jshint-stylish'));
-});
+		.pipe(jshint.reporter("jshint-stylish"));
+}
 
 // minify custom js script and place in dist folder
-gulp.task('scripts', function() {
-	return gulp.src('wp-content/themes/destinationsonadash/js/main.js')
+function minifyMainJs() {
+	return gulp
+		.src("wp-content/themes/destinationsonadash/js/main.js")
 		.pipe(sourcemaps.init())
-		.pipe(babel({
-			presets: ['es2015']
-		}).on('error', function(e) {
-			console.log(e.message);
-			return this.end();
-		}))
-		.pipe(uglify().on('error', function(e) {
-			console.log(e.message);
-			return this.end();
-		}))
-		.pipe(rename('main.min.js'))
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('wp-content/themes/destinationsonadash/dist/js/'))
+		.pipe(
+			babel({
+				presets: ["@babel/preset-env"],
+			}).on("error", function (e) {
+				console.log(e.message);
+				return this.end();
+			})
+		)
+		.pipe(
+			uglify().on("error", function (e) {
+				console.log(e.message);
+				return this.end();
+			})
+		)
+		.pipe(rename("main.min.js"))
+		.pipe(sourcemaps.write("./"))
+		.pipe(gulp.dest("wp-content/themes/destinationsonadash/dist/js/"))
 		.pipe(livereload());
-});
+}
 
 // vendor scripts - place into dist folder - js/vendor/[filename]
-gulp.task('scripts-vendor', function() {
-	return gulp.src(['bower_components/modernizr/modernizr.js',
-  					'bower_components/fastclick/lib/fastclick.js',
-  					'bower_components/jquery/dist/jquery.min.js'
-  					])
-    	.pipe(sourcemaps.write())
-    	.pipe(gulp.dest('wp-content/themes/destinationsonadash/dist/js/vendor'));
-});
-
+function scriptsVendor() {
+	return gulp
+		.src([
+			"wp-content/themes/destinationsonadash/js/vendor/fastclick.js",
+			"wp-content/themes/destinationsonadash/js/vendor/jquery.min.js",
+		])
+		.pipe(
+			rename(function (path) {
+				path.basename = path.basename;
+				if (path.basename === "jquery.min") {
+					path.extname = ".js";
+				} else {
+					path.extname = ".min.js";
+				}
+			})
+		)
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest("wp-content/themes/destinationsonadash/dist/js/vendor"));
+}
 
 // SASS / CSS
 
-// gulp.task('styles', function() {
-// 	return 
-// 		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-// 		.pipe(sourcemaps.init())
-// 		.pipe(minifycss())
-// 		.pipe(sourcemaps.write('./'))
-// 		.pipe(gulp.dest('wp-content/themes/destinationsonadash/dist/css'))
-// });
-
 // compile sass into one css file, minify and place in dist folder
-gulp.task('styles', function() {
-	var processors = [
-		autoprefixer({browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4']}),
-		cssnano
-	];
-	return gulp.src('wp-content/themes/destinationsonadash/sass/main.scss')
-		.pipe(sass({ outputStyle: 'expanded' })
-			.on('error', sass.logError)
-		)
+function minifyCss() {
+	var processors = [autoprefixer(), cssnano];
+	return gulp
+		.src("wp-content/themes/destinationsonadash/sass/main.scss")
+		.pipe(sass({ outputStyle: "expanded" }).on("error", sass.logError))
 		.pipe(sourcemaps.init())
 		.pipe(postcss(processors))
-		.pipe(rename('main.min.css'))
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('wp-content/themes/destinationsonadash/dist/css'))
+		.pipe(rename("main.min.css"))
+		.pipe(sourcemaps.write("./"))
+		.pipe(gulp.dest("wp-content/themes/destinationsonadash/dist/css"))
 		.pipe(livereload());
-});
-
+}
 
 // vendor css - place into dist folder - css/vendor/[filename]
-gulp.task('styles-vendor', function() {
-	return gulp.src(['bower_components/foundation/css/foundation.min.css',
-					'bower_components/foundation/css/normalize.min.css'])
-		.pipe(gulp.dest('wp-content/themes/destinationsonadash/dist/css/vendor'));
-});
-
+function stylesVendor() {
+	var processors = [cssnano];
+	return gulp
+		.src([
+			"wp-content/themes/destinationsonadash/css/vendor/foundation.css",
+			"wp-content/themes/destinationsonadash/css/vendor/normalize.css",
+		])
+		.pipe(postcss(processors))
+		.pipe(
+			rename(function (path) {
+				path.basename = path.basename;
+				path.extname = ".min.css";
+			})
+		)
+		.pipe(gulp.dest("wp-content/themes/destinationsonadash/dist/css/vendor"));
+}
 
 // COMMANDS
 
 // currently each task is independent so each type of file will need to be saved once to perform actions
-gulp.task('watch', function() {
+function watchFiles() {
 	livereload.listen({ quiet: true }); // disable console log of reloaded files
-	gulp.watch('wp-content/themes/destinationsonadash/sass/**', ['styles']);
-	gulp.watch('wp-content/themes/destinationsonadash/js/main.js', ['jshint', 'scripts']);
-});
-
+	gulp.watch(
+		["wp-content/themes/destinationsonadash/sass/**"],
+		gulp.series(["minifyCss"])
+	);
+	gulp.watch(
+		["wp-content/themes/destinationsonadash/js/main.js"],
+		gulp.series(["jsHint", "minifyMainJs"])
+	);
+}
 
 // register initial task for vendor css and js
-gulp.task('initial', ['styles-vendor', 'scripts-vendor'], function() {
-	console.log('vendor css and js placed into dist');
-});
+exports.initial = gulp.parallel(
+	stylesVendor,
+	scriptsVendor,
+	async function logMessage() {
+		console.log("vendor css and js placed into dist");
+	}
+);
 
 // register default tasks
-gulp.task('default', ['watch'], function() {
-	console.log('gulp is watching and will rebuild when changes are made...');
-});
+exports.default = gulp.parallel(
+	watchFiles,
+	minifyCss,
+	gulp.series(jsHint, minifyMainJs, function logMessage() {
+		console.log("gulp is watching and will rebuild when changes are made...");
+	})
+);
 
+exports.jsHint = jsHint;
+exports.minifyMainJs = minifyMainJs;
+exports.scriptsVendor = scriptsVendor;
+exports.minifyCss = minifyCss;
+exports.stylesVendor = stylesVendor;
+exports.watchFiles = watchFiles;
